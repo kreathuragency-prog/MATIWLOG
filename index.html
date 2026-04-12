@@ -1,0 +1,1313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MATIWLOG — Guia de Inteligencia Artificial y Automatizacion desde Chile</title>
+<meta name="description" content="Soy Mati Aguilera, guia de inteligencia artificial desde Pichilemu, Chile. Tutoriales de IA, automatizacion con n8n, consultoria y proyectos reales. Sin humo, solo resultados.">
+<link rel="canonical" href="https://matiwlog.com/">
+
+<!-- Open Graph -->
+<meta property="og:title" content="MATIWLOG — Guia de IA y Automatizacion desde Chile">
+<meta property="og:description" content="Tutoriales de inteligencia artificial, automatizacion, consultoria 1:1, y proyectos reales. Por Mati Aguilera desde Pichilemu.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://matiwlog.com/">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="MATIWLOG">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="MATIWLOG — Guia de IA desde Chile">
+<meta name="twitter:description" content="Tutoriales de IA, automatizacion, y proyectos reales. Sin humo, solo resultados.">
+
+<!-- Additional SEO -->
+<meta name="author" content="Matias Aguilera">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0a0a0f">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<!-- JSON-LD Structured Data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Matias Aguilera",
+  "alternateName": "MATIWLOG",
+  "url": "https://matiwlog.com",
+  "jobTitle": "CEO & Fundador",
+  "description": "Guia de inteligencia artificial, piloto de drones certificado DGAC, y desarrollador full-stack desde Pichilemu, Chile.",
+  "telephone": "+56977877602",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Pichilemu",
+    "addressRegion": "O'Higgins",
+    "addressCountry": "CL"
+  },
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Kreathur Agency",
+    "url": "https://kreathur.agency",
+    "telephone": "+56977877602"
+  },
+  "knowsAbout": ["Inteligencia Artificial", "Automatizacion", "Desarrollo Web", "Drones", "Marketing Digital", "n8n", "Claude AI"],
+  "sameAs": [
+    "https://youtube.com/@MatiWlog",
+    "https://instagram.com/matiwlog",
+    "https://facebook.com/MatiWlog",
+    "https://kreathur.agency"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "MATIWLOG",
+  "url": "https://matiwlog.com",
+  "description": "Guia de inteligencia artificial y automatizacion en espanol",
+  "inLanguage": "es",
+  "author": { "@type": "Person", "name": "Matias Aguilera" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Consultoria IA 1:1 con Matias Aguilera",
+  "description": "Sesiones de consultoria personalizada en inteligencia artificial, automatizacion, y estrategia digital.",
+  "provider": { "@type": "Person", "name": "Matias Aguilera", "url": "https://matiwlog.com" },
+  "areaServed": "Worldwide",
+  "availableLanguage": "es",
+  "offers": [
+    { "@type": "Offer", "name": "Express - 20 minutos", "price": "15", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Pro - 45 minutos", "price": "59", "priceCurrency": "USD" },
+    { "@type": "Offer", "name": "Estrategia - 90 minutos", "price": "199", "priceCurrency": "USD" }
+  ]
+}
+</script>
+
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+
+:root {
+  --bg: #0a0a0f;
+  --bg-card: #12121a;
+  --bg-card-hover: #1a1a26;
+  --bg-elevated: #16161f;
+  --border: rgba(255,255,255,0.06);
+  --border-hover: rgba(255,255,255,0.12);
+  --text: #e8e8ed;
+  --text-muted: #8888a0;
+  --text-dim: #555570;
+  --cyan: #06d6a0;
+  --cyan-glow: rgba(6,214,160,0.15);
+  --amber: #f4a261;
+  --amber-glow: rgba(244,162,97,0.15);
+  --sunset: #e76f51;
+  --purple: #8b5cf6;
+  --radius: 16px;
+  --radius-sm: 10px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle grid background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Glow orbs */
+body::after {
+  content: '';
+  position: fixed;
+  top: -20%;
+  right: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(6,214,160,0.06), transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.container { max-width: 1140px; margin: 0 auto; padding: 0 24px; position: relative; z-index: 1; }
+
+/* ═══ NAV ═══ */
+.nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  padding: 16px 0; transition: all 0.4s;
+}
+.nav.scrolled {
+  background: rgba(10,10,15,0.85);
+  backdrop-filter: blur(20px) saturate(1.2);
+  border-bottom: 1px solid var(--border);
+}
+.nav-inner {
+  max-width: 1140px; margin: 0 auto; padding: 0 24px;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.nav-logo {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 18px;
+  color: var(--text); text-decoration: none;
+  letter-spacing: -1px;
+}
+.nav-logo .w { color: var(--cyan); }
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a {
+  font-size: 13px; font-weight: 500; color: var(--text-muted);
+  text-decoration: none; transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--text); }
+.nav-cta {
+  background: var(--cyan) !important; color: var(--bg) !important;
+  padding: 8px 20px; border-radius: 100px;
+  font-weight: 700 !important; font-size: 12px !important;
+}
+.nav-cta:hover { background: var(--amber) !important; }
+.nav-toggle { display: none; background: none; border: none; cursor: pointer; padding: 4px; }
+.nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; border-radius: 2px; }
+
+@media (max-width: 768px) {
+  .nav-toggle { display: block; }
+  .nav-links {
+    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
+    flex-direction: column; justify-content: center; gap: 24px;
+    background: var(--bg-card); padding: 40px;
+    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid var(--border);
+  }
+  .nav-links.open { right: 0; }
+  .nav-links a { font-size: 18px; color: var(--text); }
+}
+
+/* ═══ HERO ═══ */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 100px;
+  padding-bottom: 60px;
+  position: relative;
+}
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.hero-text { max-width: 540px; }
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.hero-eyebrow::before {
+  content: '';
+  width: 24px; height: 1px;
+  background: var(--cyan);
+}
+.hero h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+.hero h1 .highlight {
+  background: linear-gradient(135deg, var(--cyan), var(--amber));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero-desc {
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  max-width: 440px;
+}
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 40px; }
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 14px 28px; border-radius: 100px;
+  font-weight: 600; font-size: 14px;
+  text-decoration: none; cursor: pointer; border: none;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.btn-primary {
+  background: var(--cyan); color: var(--bg);
+}
+.btn-primary:hover { background: var(--amber); transform: translateY(-2px); box-shadow: 0 8px 30px var(--amber-glow); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  border: 1.5px solid var(--border-hover);
+}
+.btn-outline:hover { border-color: var(--cyan); color: var(--cyan); }
+
+.hero-stats {
+  display: flex; gap: 32px;
+}
+.hero-stat {
+  text-align: left;
+}
+.hero-stat-num {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 24px; font-weight: 700;
+  color: var(--cyan);
+}
+.hero-stat-label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-family: 'JetBrains Mono', monospace;
+}
+
+/* Hero video */
+.hero-visual {
+  position: relative;
+}
+.hero-video-wrap {
+  aspect-ratio: 16/9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  position: relative;
+}
+.hero-video-wrap iframe {
+  width: 100%; height: 100%; border: none;
+}
+.hero-video-tag {
+  position: absolute; bottom: 12px; left: 12px;
+  background: rgba(10,10,15,0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  padding: 6px 14px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1px;
+  color: var(--cyan);
+  z-index: 2;
+}
+
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-text { max-width: 100%; margin: 0 auto; }
+  .hero-eyebrow { justify-content: center; }
+  .hero-desc { margin: 0 auto 32px; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+}
+
+/* ═══ MARQUEE ═══ */
+.marquee-section {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}
+.marquee {
+  display: flex;
+  animation: marqueeScroll 25s linear infinite;
+  gap: 48px;
+  width: max-content;
+}
+.marquee span {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  white-space: nowrap;
+  display: flex; align-items: center; gap: 12px;
+}
+.marquee span::after {
+  content: '';
+  width: 4px; height: 4px;
+  background: var(--cyan);
+  border-radius: 50%;
+}
+@keyframes marqueeScroll { to { transform: translateX(-50%); } }
+
+/* ═══ SECTION SHARED ═══ */
+.section { padding: 100px 0; position: relative; z-index: 1; }
+.section-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 12px;
+  display: flex; align-items: center; gap: 8px;
+}
+.section-tag::before {
+  content: '';
+  width: 16px; height: 1px;
+  background: var(--cyan);
+}
+.section-heading {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -1.5px;
+  margin-bottom: 16px;
+}
+.section-sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  max-width: 500px;
+  line-height: 1.6;
+  margin-bottom: 48px;
+}
+
+/* ═══ BENTO GRID ═══ */
+.bento-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 16px;
+}
+.bento-card {
+  border-radius: var(--radius);
+  padding: 32px;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: default;
+  border: 1px solid var(--border);
+}
+.bento-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+.bento-card h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 20px; font-weight: 700;
+  margin-bottom: 8px;
+  position: relative; z-index: 2;
+}
+.bento-card p {
+  font-size: 14px; line-height: 1.6;
+  position: relative; z-index: 2;
+}
+.bento-card .bento-icon {
+  font-size: 36px; margin-bottom: 16px; display: block;
+}
+.b-ia {
+  grid-column: span 7;
+  background: linear-gradient(135deg, var(--bg-card), #0d1f1a);
+  color: var(--text);
+}
+.b-ia p { color: var(--text-muted); }
+.b-ia { border-color: rgba(6,214,160,0.15); }
+.b-viajes {
+  grid-column: span 5;
+  background: linear-gradient(135deg, var(--bg-card), #0f1525);
+  color: var(--text);
+}
+.b-viajes p { color: var(--text-muted); }
+.b-proyectos {
+  grid-column: span 5;
+  background: var(--bg-card);
+  color: var(--text);
+}
+.b-proyectos p { color: var(--text-muted); }
+.b-libertad {
+  grid-column: span 7;
+  background: linear-gradient(135deg, var(--bg-card), #1a150d);
+  color: var(--text);
+  border-color: rgba(244,162,97,0.15);
+}
+.b-libertad p { color: var(--text-muted); }
+
+@media (max-width: 768px) {
+  .bento-grid { grid-template-columns: 1fr; }
+  .bento-card { grid-column: span 1 !important; }
+}
+
+/* ═══ VIDEOS GALLERY ═══ */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.video-card {
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none; color: var(--text);
+}
+.video-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 16px 48px rgba(6,214,160,0.1);
+}
+.video-thumb {
+  aspect-ratio: 16/9;
+  position: relative;
+  overflow: hidden;
+}
+.video-thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s; }
+.video-card:hover .video-thumb img { transform: scale(1.05); }
+.video-play {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  opacity: 0; transition: opacity 0.3s;
+  background: rgba(0,0,0,0.3);
+}
+.video-card:hover .video-play { opacity: 1; }
+.video-play-btn {
+  width: 48px; height: 48px; border-radius: 50%;
+  background: var(--cyan);
+  display: flex; align-items: center; justify-content: center;
+}
+.video-play-btn::after {
+  content: '';
+  width: 0; height: 0;
+  border-style: solid; border-width: 7px 0 7px 12px;
+  border-color: transparent transparent transparent var(--bg);
+  margin-left: 2px;
+}
+.video-tag {
+  position: absolute; top: 10px; left: 10px;
+  background: rgba(10,10,15,0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--border);
+  color: var(--cyan);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.video-info { padding: 16px; }
+.video-info h4 { font-size: 14px; font-weight: 600; line-height: 1.4; margin-bottom: 6px; }
+.video-info .video-meta {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; color: var(--text-dim);
+}
+
+@media (max-width: 900px) { .videos-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 550px) { .videos-grid { grid-template-columns: 1fr; } }
+
+/* ═══ PROJECTS ═══ */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+  color: var(--text);
+  display: flex;
+  flex-direction: column;
+}
+.project-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--amber);
+  box-shadow: 0 16px 48px rgba(244,162,97,0.08);
+}
+.project-thumb {
+  aspect-ratio: 16/9;
+  background: var(--bg-elevated);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.project-thumb-text {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--text-muted);
+  opacity: 0.3;
+}
+.project-thumb-overlay {
+  position: absolute; inset: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(0,0,0,0.4);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+.project-card:hover .project-thumb-overlay { opacity: 1; }
+.project-thumb-overlay span {
+  background: var(--amber);
+  color: var(--bg);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 12px;
+  font-weight: 700;
+}
+.project-info { padding: 24px; flex: 1; display: flex; flex-direction: column; }
+.project-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.project-info h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px; font-weight: 700;
+  margin-bottom: 8px;
+}
+.project-info p {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.6;
+  flex: 1;
+}
+.project-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+.project-tags span {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 10px;
+  color: var(--text-dim);
+  font-family: 'JetBrains Mono', monospace;
+}
+
+@media (max-width: 700px) { .projects-grid { grid-template-columns: 1fr; } }
+
+/* ═══ TIENDA ═══ */
+.products-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.product {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+}
+.product:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+.product-badge {
+  position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+  padding: 4px 14px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 1.5px;
+  color: white;
+}
+.product-icon { font-size: 36px; margin-bottom: 16px; }
+.product h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px; font-weight: 700; margin-bottom: 8px;
+}
+.product p { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px; }
+.product-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 28px; font-weight: 700;
+  margin-bottom: 16px;
+}
+.product-price small { font-size: 14px; font-weight: 400; color: var(--text-dim); }
+.btn-sm {
+  display: inline-block;
+  padding: 10px 24px;
+  border-radius: 100px;
+  font-size: 13px; font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s;
+  color: var(--bg);
+}
+.btn-sm:hover { opacity: 0.85; transform: translateY(-1px); }
+
+@media (max-width: 768px) { .products-row { grid-template-columns: 1fr; max-width: 360px; margin: 0 auto; } }
+
+/* ═══ CONSULTORIA ═══ */
+.consult-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+.consult-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 36px 28px;
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.consult-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
+.consult-card.popular {
+  background: linear-gradient(135deg, #0d1f1a, #0a1a15);
+  border-color: var(--cyan);
+  box-shadow: 0 0 40px var(--cyan-glow);
+}
+.consult-card.popular .consult-desc { color: var(--text-muted); }
+.consult-card.popular .consult-feat li { color: var(--text-muted); }
+.consult-card.popular .consult-feat li::before { color: var(--cyan); }
+.pop-badge {
+  position: absolute; top: -10px; right: 20px;
+  background: var(--cyan); color: var(--bg);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px; letter-spacing: 1.5px;
+  padding: 4px 12px; border-radius: 100px;
+  font-weight: 700;
+}
+.consult-tier {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px; letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 8px;
+}
+.consult-name {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 22px; font-weight: 700; margin-bottom: 4px;
+}
+.consult-time { font-size: 13px; color: var(--text-dim); margin-bottom: 16px; }
+.consult-price {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 36px; font-weight: 700;
+  margin-bottom: 4px;
+}
+.consult-price small { font-size: 14px; font-weight: 400; color: var(--text-dim); }
+.consult-desc { font-size: 13px; color: var(--text-muted); line-height: 1.5; margin-bottom: 20px; }
+.consult-feat { list-style: none; margin-bottom: 24px; }
+.consult-feat li {
+  font-size: 13px; color: var(--text-muted); padding: 5px 0;
+  display: flex; align-items: center; gap: 8px;
+}
+.consult-feat li::before {
+  content: '→';
+  font-family: 'JetBrains Mono', monospace;
+  color: var(--amber);
+  font-weight: 700;
+}
+.btn-consult {
+  display: block; width: 100%; text-align: center;
+  padding: 12px; border-radius: 100px;
+  font-weight: 600; font-size: 13px;
+  text-decoration: none; transition: all 0.3s; border: none; cursor: pointer;
+}
+.btn-consult.cta { background: var(--cyan); color: var(--bg); }
+.btn-consult.cta:hover { background: var(--amber); }
+.btn-consult.ghost { background: transparent; border: 1.5px solid var(--border-hover); color: var(--text); }
+.btn-consult.ghost:hover { border-color: var(--cyan); color: var(--cyan); }
+
+@media (max-width: 768px) { .consult-grid { grid-template-columns: 1fr; max-width: 380px; margin: 0 auto; } }
+
+/* ═══ CONTACT ═══ */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+.contact-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px;
+  display: flex; align-items: center; gap: 20px;
+  text-decoration: none; color: var(--text);
+  transition: all 0.3s;
+}
+.contact-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+.contact-icon {
+  width: 48px; height: 48px;
+  border-radius: 12px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  flex-shrink: 0;
+}
+.contact-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px; letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+}
+.contact-value { font-weight: 600; font-size: 15px; }
+
+@media (max-width: 600px) { .contact-grid { grid-template-columns: 1fr; } }
+
+/* ═══ NEWSLETTER ═══ */
+.news-box {
+  background: linear-gradient(135deg, var(--bg-card), #0d1f1a);
+  border: 1px solid rgba(6,214,160,0.15);
+  border-radius: var(--radius);
+  padding: 64px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.news-box::before {
+  content: '';
+  position: absolute; top: -40%; right: -20%;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, var(--cyan-glow), transparent 60%);
+  pointer-events: none;
+}
+.news-box h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.4rem);
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+.news-box h2 .hl { color: var(--cyan); }
+.news-box p { color: var(--text-muted); margin-bottom: 28px; position: relative; font-size: 15px; }
+.news-form {
+  display: flex; gap: 10px;
+  max-width: 440px; margin: 0 auto;
+  position: relative;
+}
+.news-form input {
+  flex: 1; padding: 14px 20px;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  color: var(--text); font-size: 14px;
+  font-family: 'Inter', sans-serif;
+  outline: none; transition: border-color 0.3s;
+}
+.news-form input::placeholder { color: var(--text-dim); }
+.news-form input:focus { border-color: var(--cyan); }
+.news-form button {
+  padding: 14px 28px;
+  background: var(--cyan); color: var(--bg);
+  border: none; border-radius: 100px;
+  font-weight: 700; font-size: 14px;
+  cursor: pointer; white-space: nowrap;
+  transition: all 0.3s;
+}
+.news-form button:hover { background: var(--amber); }
+
+@media (max-width: 500px) {
+  .news-box { padding: 40px 24px; }
+  .news-form { flex-direction: column; }
+}
+
+/* ═══ FOOTER ═══ */
+.footer {
+  padding: 48px 0;
+  border-top: 1px solid var(--border);
+  position: relative; z-index: 1;
+}
+.footer-inner {
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 16px;
+}
+.footer-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-weight: 700; font-size: 14px;
+}
+.footer-brand .w { color: var(--cyan); }
+.footer-tagline {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+.footer-links { display: flex; gap: 20px; }
+.footer-links a {
+  font-size: 13px; color: var(--text-muted);
+  text-decoration: none; transition: color 0.3s;
+}
+.footer-links a:hover { color: var(--cyan); }
+
+/* ═══ WHATSAPP ═══ */
+.wa-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 90;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #25D366;
+  display: flex; align-items: center; justify-content: center;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+  text-decoration: none; transition: all 0.3s;
+}
+.wa-fab:hover { transform: scale(1.1); }
+.wa-fab svg { width: 26px; height: 26px; fill: white; }
+
+/* ═══ REVEAL ═══ */
+.reveal { opacity: 0; transform: translateY(24px); transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1); }
+.reveal.vis { opacity: 1; transform: translateY(0); }
+.rd1 { transition-delay: 0.1s; }
+.rd2 { transition-delay: 0.2s; }
+.rd3 { transition-delay: 0.3s; }
+.rd4 { transition-delay: 0.4s; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="/" class="nav-logo">mati<span class="w">w</span>log</a>
+    <button class="nav-toggle" id="navToggle" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <div class="nav-links" id="navLinks">
+      <a href="#que-hago">Que hago</a>
+      <a href="#videos">Videos</a>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#consultoria">Consultoria</a>
+      <a href="#contacto" class="nav-cta">Hablemos →</a>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero container" id="hero">
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="hero-eyebrow reveal">Desde Pichilemu, Chile</p>
+      <h1 class="reveal rd1">Construyo cosas<br><span class="highlight">reales</span> con IA.</h1>
+      <p class="hero-desc reveal rd2">Piloto de drones, dev full-stack, CEO de Kreathur Agency. Te muestro como uso la IA para vivir y trabajar en mis propios terminos — sin vender humo.</p>
+      <div class="hero-actions reveal rd3">
+        <a href="#proyectos" class="btn btn-primary">Ver proyectos →</a>
+        <a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener" class="btn btn-outline">
+          ▶ YouTube
+        </a>
+      </div>
+      <div class="hero-stats reveal rd4">
+        <div class="hero-stat">
+          <div class="hero-stat-num">4+</div>
+          <div class="hero-stat-label">Proyectos web</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">IA</div>
+          <div class="hero-stat-label">Chatbots & Agents</div>
+        </div>
+        <div class="hero-stat">
+          <div class="hero-stat-num">DGAC</div>
+          <div class="hero-stat-label">Piloto cert.</div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-visual reveal rd2">
+      <div class="hero-video-wrap">
+        <iframe
+          src="https://www.youtube.com/embed/484seZN8MyI?rel=0&modestbranding=1"
+          title="1 Ano de Trabajo en 90 Segundos - Fiat Ducato a Camper en Alemania"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+        <div class="hero-video-tag">// timelapse camper build</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee">
+    <span>IA & Automatizacion</span><span>Drones 4K</span><span>Next.js</span>
+    <span>Claude AI</span><span>n8n Workflows</span><span>Pichilemu</span>
+    <span>Kreathur Agency</span><span>Vida Real</span>
+    <span>IA & Automatizacion</span><span>Drones 4K</span><span>Next.js</span>
+    <span>Claude AI</span><span>n8n Workflows</span><span>Pichilemu</span>
+    <span>Kreathur Agency</span><span>Vida Real</span>
+  </div>
+</div>
+
+<!-- QUE HAGO -->
+<section class="section" id="que-hago">
+  <div class="container">
+    <p class="section-tag reveal">Que vas a encontrar</p>
+    <h2 class="section-heading reveal rd1">No es teoria.<br>Es mi vida.</h2>
+    <p class="section-sub reveal rd2">Cuatro areas que vivo todos los dias y comparto sin filtro.</p>
+    <div class="bento-grid">
+      <div class="bento-card b-ia reveal rd1">
+        <span class="bento-icon">⚡</span>
+        <h3>IA & Automatizacion</h3>
+        <p>Tutoriales de Claude, ChatGPT, n8n, agentes. Lo mismo que uso para mis clientes reales en Kreathur Agency.</p>
+      </div>
+      <div class="bento-card b-viajes reveal rd2">
+        <span class="bento-icon">🌊</span>
+        <h3>Viajes & Vida Real</h3>
+        <p>Converti una Fiat Ducato en camper en Alemania. Ahora vivo en un pueblo de surf. La tecnologia me lo permite.</p>
+      </div>
+      <div class="bento-card b-proyectos reveal rd3">
+        <span class="bento-icon">🛠</span>
+        <h3>Proyectos Reales</h3>
+        <p>E-commerces, chatbots, sistemas de reservas. Behind-the-scenes sin edicion motivacional.</p>
+      </div>
+      <div class="bento-card b-libertad reveal rd4">
+        <span class="bento-icon">🚀</span>
+        <h3>Libertad Digital</h3>
+        <p>Como construir un negocio desde cualquier lugar. No necesitas oficina, necesitas internet y ganas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEOS -->
+<section class="section" id="videos">
+  <div class="container">
+    <p class="section-tag reveal">YouTube</p>
+    <h2 class="section-heading reveal rd1">Todos mis videos.</h2>
+    <p class="section-sub reveal rd2">Tutoriales, vlogs, behind-the-scenes — todo lo que publico en el canal.</p>
+    <div class="videos-grid">
+      <a class="video-card reveal rd1" href="https://www.youtube.com/watch?v=484seZN8MyI" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/484seZN8MyI/hqdefault.jpg" alt="Timelapse Fiat Ducato a camper van" loading="lazy">
+          <div class="video-tag">vanlife</div>
+          <div class="video-play"><div class="video-play-btn"></div></div>
+        </div>
+        <div class="video-info">
+          <h4>1 ano de trabajo en 90 segundos — Fiat Ducato a Camper</h4>
+          <p class="video-meta">@MatiWlog // VANLIFE</p>
+        </div>
+      </a>
+      <a class="video-card reveal rd2" href="https://www.youtube.com/watch?v=K7qddivaR2U" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/K7qddivaR2U/hqdefault.jpg" alt="Tutorial Meta Business Suite con IA" loading="lazy">
+          <div class="video-tag">ia</div>
+          <div class="video-play"><div class="video-play-btn"></div></div>
+        </div>
+        <div class="video-info">
+          <h4>Programar con Meta Business Suite y crear contenido con IA</h4>
+          <p class="video-meta">@MatiWlog // TUTORIAL</p>
+        </div>
+      </a>
+      <a class="video-card reveal rd3" href="https://www.youtube.com/watch?v=XS1o5O5erl4" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/XS1o5O5erl4/hqdefault.jpg" alt="Tutorial WordPress gratis paso a paso" loading="lazy">
+          <div class="video-tag">dev</div>
+          <div class="video-play"><div class="video-play-btn"></div></div>
+        </div>
+        <div class="video-info">
+          <h4>Crea CUALQUIER sitio web GRATIS — WordPress paso a paso</h4>
+          <p class="video-meta">@MatiWlog // TUTORIAL</p>
+        </div>
+      </a>
+      <a class="video-card reveal rd4" href="https://www.youtube.com/watch?v=b5g7jlP_PsA" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/b5g7jlP_PsA/hqdefault.jpg" alt="Conociendo Hamburgo desde sus canales" loading="lazy">
+          <div class="video-tag">viaje</div>
+          <div class="video-play"><div class="video-play-btn"></div></div>
+        </div>
+        <div class="video-info">
+          <h4>Conociendo Hamburgo desde sus canales</h4>
+          <p class="video-meta">@MatiWlog // VIAJE</p>
+        </div>
+      </a>
+      <a class="video-card reveal rd1" href="https://www.youtube.com/watch?v=3vJ-abzVDUA" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/3vJ-abzVDUA/hqdefault.jpg" alt="Pandemia Alemania-Dinamarca Eurotrip 2022" loading="lazy">
+          <div class="video-tag">viaje</div>
+          <div class="video-play"><div class="video-play-btn"></div></div>
+        </div>
+        <div class="video-info">
+          <h4>Pandemia en Alemania-Dinamarca — Eurotrip 2022</h4>
+          <p class="video-meta">@MatiWlog // EUROTRIP</p>
+        </div>
+      </a>
+      <a class="video-card reveal rd2" href="https://www.youtube.com/watch?v=Ziqrnw0S41Q" target="_blank" rel="noopener">
+        <div class="video-thumb">
+          <img src="https://img.youtube.com/vi/Ziqrnw0S41Q/hqdefault.jpg" alt="Que hacer en Rio de Janeiro con drone" loading="lazy">
+          <div class="video-tag">viaje</div>
+          <div class="video-play"><div class="video-play-btn"></div></div>
+        </div>
+        <div class="video-info">
+          <h4>Que hacer en Rio de Janeiro — Tips, drone y mas</h4>
+          <p class="video-meta">@MatiWlog // MOCHILEROS</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- PROYECTOS WEB -->
+<section class="section" id="proyectos">
+  <div class="container">
+    <p class="section-tag reveal">Portafolio</p>
+    <h2 class="section-heading reveal rd1">Proyectos que<br>funcionan en produccion.</h2>
+    <p class="section-sub reveal rd2">Sitios web reales construidos en Kreathur Agency. No mockups, no demos — negocios reales.</p>
+    <div class="projects-grid">
+      <a class="project-card reveal rd1" href="https://www.camperizate.cl" target="_blank" rel="noopener">
+        <div class="project-thumb">
+          <div class="project-thumb-text">camperizate.cl</div>
+          <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">E-Commerce + AI Chatbot</div>
+          <h4>Camperizate</h4>
+          <p>E-commerce con 150+ productos outdoor, chatbot con IA integrado, y posicionamiento #1 en Google para su categoria.</p>
+          <div class="project-tags">
+            <span>WooCommerce</span><span>AI Chatbot</span><span>SEO</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card reveal rd2" href="https://www.lilafken.cl" target="_blank" rel="noopener">
+        <div class="project-thumb">
+          <div class="project-thumb-text">lilafken.cl</div>
+          <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Plataforma de Arriendos</div>
+          <h4>Lilafken Apart & Real Estate</h4>
+          <p>Plataforma completa de arriendos y venta de propiedades con sistema de reservas y videografia 4K con drone.</p>
+          <div class="project-tags">
+            <span>WordPress</span><span>Booking</span><span>Drone 4K</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card reveal rd3" href="https://www.pichilemuonline.cl" target="_blank" rel="noopener">
+        <div class="project-thumb">
+          <div class="project-thumb-text">pichilemuonline.cl</div>
+          <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Magazine Digital + WhatsApp Bot</div>
+          <h4>Pichilemu Online + Bot Lemu</h4>
+          <p>Revista digital de turismo + "Lemu", chatbot IA en WhatsApp (Claude AI) que funciona como guia virtual 24/7.</p>
+          <div class="project-tags">
+            <span>Claude AI</span><span>WhatsApp Bot</span><span>Turismo</span>
+          </div>
+        </div>
+      </a>
+      <a class="project-card reveal rd4" href="https://www.importadoramaully.cl" target="_blank" rel="noopener">
+        <div class="project-thumb">
+          <div class="project-thumb-text">importadoramaully.cl</div>
+          <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
+        </div>
+        <div class="project-info">
+          <div class="project-type">B2B E-Commerce + LMS</div>
+          <h4>Importadora Maully</h4>
+          <p>Catalogo B2B con precios mayoristas, academia de capacitacion integrada, y dashboard de administracion.</p>
+          <div class="project-tags">
+            <span>WooCommerce</span><span>LMS</span><span>Dashboard</span>
+          </div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- TIENDA -->
+<section class="section" id="tienda">
+  <div class="container">
+    <p class="section-tag reveal">Recursos</p>
+    <h2 class="section-heading reveal rd1">Lo que tengo<br><span style="color:var(--cyan)">para ti.</span></h2>
+    <p class="section-sub reveal rd2">Contenido gratis para empezar, consultoria para avanzar rapido, y la agencia para los que quieren todo hecho.</p>
+    <div class="products-row">
+      <div class="product reveal rd1">
+        <div class="product-badge" style="background:var(--cyan);">GRATIS</div>
+        <div class="product-icon">🎬</div>
+        <h3>Canal de YouTube</h3>
+        <p>Tutoriales de IA, vlogs de viaje, behind-the-scenes de mi agencia. Todo gratis, sin registro.</p>
+        <div class="product-price" style="color:var(--cyan);">$0</div>
+        <a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener" class="btn-sm" style="background:var(--cyan);">Ver canal →</a>
+      </div>
+      <div class="product reveal rd2" style="border-color:var(--amber);">
+        <div class="product-badge" style="background:var(--amber);">DISPONIBLE</div>
+        <div class="product-icon">💬</div>
+        <h3>Consultoria 1:1</h3>
+        <p>Sesion conmigo por videollamada. Resolvemos tu problema de IA, web, o automatizacion en vivo.</p>
+        <div class="product-price">$15+ <small>USD</small></div>
+        <a href="#consultoria" class="btn-sm" style="background:var(--amber);">Ver planes →</a>
+      </div>
+      <div class="product reveal rd3">
+        <div class="product-badge" style="background:var(--purple);">GRATIS</div>
+        <div class="product-icon">📘</div>
+        <h3>Guia IA Practica</h3>
+        <p>5 capitulos con lo que realmente funciona: herramientas, automatizacion, y como vender servicios de IA.</p>
+        <div class="product-price" style="color:var(--purple);">$0</div>
+        <a href="#contacto" class="btn-sm" style="background:var(--purple);">Descargar gratis →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONSULTORIA -->
+<section class="section" id="consultoria">
+  <div class="container">
+    <p class="section-tag reveal">Consultoria 1:1</p>
+    <h2 class="section-heading reveal rd1">Hablemos de<br>tu proyecto.</h2>
+    <p class="section-sub reveal rd2">No soy coach. Soy alguien que construye todos los dias y puede ayudarte a resolver tu problema.</p>
+    <div class="consult-grid">
+      <div class="consult-card reveal rd1">
+        <div class="consult-tier">Express</div>
+        <div class="consult-name">Pregunta Rapida</div>
+        <div class="consult-time">20 minutos</div>
+        <div class="consult-price">$15 <small>USD</small></div>
+        <p class="consult-desc">Una pregunta puntual. Te desbloqueo y seguimos.</p>
+        <ul class="consult-feat">
+          <li>Una consulta especifica</li>
+          <li>Recomendacion de herramientas</li>
+          <li>Respuesta sin rodeos</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20agendar%20una%20consultoria%20Express%2020min%20(%2415%20USD)" target="_blank" rel="noopener" class="btn-consult ghost">Agendar →</a>
+      </div>
+      <div class="consult-card popular reveal rd2">
+        <div class="pop-badge">MAS ELEGIDO</div>
+        <div class="consult-tier">Pro</div>
+        <div class="consult-name">Sesion Profunda</div>
+        <div class="consult-time">45 minutos</div>
+        <div class="consult-price">$59 <small>USD</small></div>
+        <p class="consult-desc">Revisamos tu proyecto, elegimos stack, optimizamos todo.</p>
+        <ul class="consult-feat">
+          <li>Analisis completo</li>
+          <li>Plan de accion concreto</li>
+          <li>Follow-up por WhatsApp</li>
+          <li>Grabacion de la sesion</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20agendar%20una%20consultoria%20Pro%2045min%20(%2459%20USD)" target="_blank" rel="noopener" class="btn-consult cta">Agendar →</a>
+      </div>
+      <div class="consult-card reveal rd3">
+        <div class="consult-tier">Estrategia</div>
+        <div class="consult-name">Transformacion</div>
+        <div class="consult-time">90 minutos</div>
+        <div class="consult-price">$199 <small>USD</small></div>
+        <p class="consult-desc">Estrategia completa de IA para tu negocio. Roadmap incluido.</p>
+        <ul class="consult-feat">
+          <li>Auditoria de tu negocio</li>
+          <li>Roadmap personalizado</li>
+          <li>Documento de estrategia</li>
+          <li>30 dias de soporte</li>
+        </ul>
+        <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20agendar%20una%20consultoria%20Estrategia%2090min%20(%24199%20USD)" target="_blank" rel="noopener" class="btn-consult ghost">Agendar →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section" id="contacto">
+  <div class="container">
+    <p class="section-tag reveal">Contacto</p>
+    <h2 class="section-heading reveal rd1">Escribime.<br>Sin formularios eternos.</h2>
+    <p class="section-sub reveal rd2">Prefiero un mensaje directo. Respondo rapido.</p>
+    <div class="contact-grid">
+      <a class="contact-card reveal rd1" href="https://wa.me/56977877602?text=Hola%20Mati!%20Vi%20tu%20sitio%20y%20quiero%20saber%20mas" target="_blank" rel="noopener">
+        <div class="contact-icon" style="background:rgba(37,211,102,0.15);">💬</div>
+        <div>
+          <div class="contact-label">WhatsApp</div>
+          <div class="contact-value">+56 9 7787 7602</div>
+        </div>
+      </a>
+      <a class="contact-card reveal rd2" href="tel:+56977877602">
+        <div class="contact-icon" style="background:var(--cyan-glow);">📞</div>
+        <div>
+          <div class="contact-label">Telefono Kreathur</div>
+          <div class="contact-value">+56 9 7787 7602</div>
+        </div>
+      </a>
+      <a class="contact-card reveal rd3" href="https://instagram.com/matiwlog" target="_blank" rel="noopener">
+        <div class="contact-icon" style="background:rgba(139,92,246,0.15);">📸</div>
+        <div>
+          <div class="contact-label">Instagram</div>
+          <div class="contact-value">@matiwlog</div>
+        </div>
+      </a>
+      <a class="contact-card reveal rd4" href="https://kreathur.agency" target="_blank" rel="noopener">
+        <div class="contact-icon" style="background:var(--amber-glow);">🏢</div>
+        <div>
+          <div class="contact-label">Agencia</div>
+          <div class="contact-value">kreathur.agency</div>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<section class="section">
+  <div class="container">
+    <div class="news-box reveal">
+      <h2>Tips de IA, proyectos reales<br>y cero <span class="hl">spam.</span></h2>
+      <p>Un email a la semana con lo que estoy haciendo, aprendiendo, y las herramientas que descubro.</p>
+      <form class="news-form" onsubmit="event.preventDefault();this.querySelector('button').textContent='Listo ✓';this.querySelector('input').value='';">
+        <input type="email" placeholder="tu@email.com" required>
+        <button type="submit">Suscribirme</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">mati<span class="w">w</span>log</div>
+      <div class="footer-tagline">Hecho con IA y cafe desde Pichilemu ☕ · +56 9 7787 7602</div>
+      <div class="footer-links">
+        <a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener">YouTube</a>
+        <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://kreathur.agency" target="_blank" rel="noopener">Kreathur Agency</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FAB -->
+<a class="wa-fab" href="https://wa.me/56977877602?text=Hola%20Mati!%20Vi%20tu%20sitio%20y%20quiero%20saber%20mas" target="_blank" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+
+// Mobile menu
+const toggle = document.getElementById('navToggle');
+const links = document.getElementById('navLinks');
+toggle.addEventListener('click', () => links.classList.toggle('open'));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.1, rootMargin: '0px 0px -30px 0px' });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+
+// Smooth scroll
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
