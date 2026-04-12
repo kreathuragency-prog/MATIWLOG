@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "matiwlog",
+      "runtimeExecutable": "npx",
+      "runtimeArgs": ["serve"],
+      "port": 3456,
+      "autoPort": true
+    }
+  ]
+}

@@ -95,23 +95,29 @@
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 
 :root {
-  --bg: #0a0a0f;
-  --bg-card: #12121a;
-  --bg-card-hover: #1a1a26;
-  --bg-elevated: #16161f;
-  --border: rgba(255,255,255,0.06);
-  --border-hover: rgba(255,255,255,0.12);
-  --text: #e8e8ed;
-  --text-muted: #8888a0;
-  --text-dim: #555570;
+  --bg: #0c0c14;
+  --bg-card: #13131e;
+  --bg-card-hover: #1c1c2a;
+  --bg-elevated: #181825;
+  --border: rgba(255,255,255,0.07);
+  --border-hover: rgba(255,255,255,0.14);
+  --text: #ededf2;
+  --text-muted: #9898b0;
+  --text-dim: #606080;
   --cyan: #06d6a0;
-  --cyan-glow: rgba(6,214,160,0.15);
+  --cyan-bright: #00f5b8;
+  --cyan-glow: rgba(6,214,160,0.2);
   --amber: #f4a261;
-  --amber-glow: rgba(244,162,97,0.15);
+  --amber-bright: #ffb347;
+  --amber-glow: rgba(244,162,97,0.2);
   --sunset: #e76f51;
+  --sunset-glow: rgba(231,111,81,0.25);
+  --ocean: #00b4d8;
+  --ocean-deep: #0077b6;
   --purple: #8b5cf6;
-  --radius: 16px;
-  --radius-sm: 10px;
+  --forest: #2d6a4f;
+  --radius: 18px;
+  --radius-sm: 12px;
 }
 
 html { scroll-behavior: smooth; }
@@ -143,9 +149,19 @@ body::after {
   position: fixed;
   top: -20%;
   right: -10%;
+  width: 700px;
+  height: 700px;
+  background: radial-gradient(circle, rgba(6,214,160,0.08), rgba(0,180,216,0.04) 40%, transparent 65%);
+  pointer-events: none;
+  z-index: 0;
+}
+.glow-amber {
+  position: fixed;
+  bottom: -20%;
+  left: -10%;
   width: 600px;
   height: 600px;
-  background: radial-gradient(circle, rgba(6,214,160,0.06), transparent 60%);
+  background: radial-gradient(circle, rgba(244,162,97,0.06), transparent 60%);
   pointer-events: none;
   z-index: 0;
 }
@@ -240,10 +256,16 @@ body::after {
   margin-bottom: 24px;
 }
 .hero h1 .highlight {
-  background: linear-gradient(135deg, var(--cyan), var(--amber));
+  background: linear-gradient(135deg, var(--cyan-bright), var(--ocean), var(--amber-bright));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+  background-size: 200% auto;
+  animation: shimmer 4s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%,100% { background-position: 0% center; }
+  50% { background-position: 100% center; }
 }
 .hero-desc {
   font-size: 16px;
@@ -422,30 +444,36 @@ body::after {
 }
 .b-ia {
   grid-column: span 7;
-  background: linear-gradient(135deg, var(--bg-card), #0d1f1a);
+  background: linear-gradient(135deg, #0a1a14, #0d2b20, #0a2018);
   color: var(--text);
+  border-color: rgba(6,214,160,0.25);
 }
-.b-ia p { color: var(--text-muted); }
-.b-ia { border-color: rgba(6,214,160,0.15); }
+.b-ia:hover { border-color: var(--cyan); box-shadow: 0 8px 40px var(--cyan-glow); }
+.b-ia p { color: rgba(255,255,255,0.7); }
 .b-viajes {
   grid-column: span 5;
-  background: linear-gradient(135deg, var(--bg-card), #0f1525);
-  color: var(--text);
+  background: linear-gradient(135deg, var(--ocean-deep), var(--ocean));
+  color: white;
+  border: none;
 }
-.b-viajes p { color: var(--text-muted); }
+.b-viajes:hover { box-shadow: 0 8px 40px rgba(0,180,216,0.25); }
+.b-viajes p { color: rgba(255,255,255,0.85); }
 .b-proyectos {
   grid-column: span 5;
-  background: var(--bg-card);
+  background: var(--bg-elevated);
   color: var(--text);
+  border-color: var(--border);
 }
+.b-proyectos:hover { border-color: var(--purple); box-shadow: 0 8px 40px rgba(139,92,246,0.15); }
 .b-proyectos p { color: var(--text-muted); }
 .b-libertad {
   grid-column: span 7;
-  background: linear-gradient(135deg, var(--bg-card), #1a150d);
-  color: var(--text);
-  border-color: rgba(244,162,97,0.15);
+  background: linear-gradient(135deg, var(--sunset), var(--amber));
+  color: white;
+  border: none;
 }
-.b-libertad p { color: var(--text-muted); }
+.b-libertad:hover { box-shadow: 0 8px 40px var(--sunset-glow); }
+.b-libertad p { color: rgba(255,255,255,0.9); }
 
 @media (max-width: 768px) {
   .bento-grid { grid-template-columns: 1fr; }
@@ -467,9 +495,10 @@ body::after {
   text-decoration: none; color: var(--text);
 }
 .video-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--cyan);
-  box-shadow: 0 16px 48px rgba(6,214,160,0.1);
+  box-shadow: 0 16px 48px rgba(6,214,160,0.15);
+  background: var(--bg-card-hover);
 }
 .video-thumb {
   aspect-ratio: 16/9;
@@ -538,9 +567,9 @@ body::after {
   flex-direction: column;
 }
 .project-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-6px);
   border-color: var(--amber);
-  box-shadow: 0 16px 48px rgba(244,162,97,0.08);
+  box-shadow: 0 16px 48px rgba(244,162,97,0.15);
 }
 .project-thumb {
   aspect-ratio: 16/9;
@@ -677,9 +706,9 @@ body::after {
 }
 .consult-card:hover { transform: translateY(-4px); border-color: var(--border-hover); }
 .consult-card.popular {
-  background: linear-gradient(135deg, #0d1f1a, #0a1a15);
+  background: linear-gradient(135deg, #0a2018, #0d2b20, #082520);
   border-color: var(--cyan);
-  box-shadow: 0 0 40px var(--cyan-glow);
+  box-shadow: 0 0 60px var(--cyan-glow), inset 0 1px 0 rgba(6,214,160,0.1);
 }
 .consult-card.popular .consult-desc { color: var(--text-muted); }
 .consult-card.popular .consult-feat li { color: var(--text-muted); }
@@ -750,7 +779,7 @@ body::after {
   text-decoration: none; color: var(--text);
   transition: all 0.3s;
 }
-.contact-card:hover { border-color: var(--cyan); transform: translateY(-2px); }
+.contact-card:hover { border-color: var(--cyan); transform: translateY(-3px); box-shadow: 0 8px 30px var(--cyan-glow); }
 .contact-icon {
   width: 48px; height: 48px;
   border-radius: 12px;
@@ -771,13 +800,14 @@ body::after {
 
 /* ═══ NEWSLETTER ═══ */
 .news-box {
-  background: linear-gradient(135deg, var(--bg-card), #0d1f1a);
-  border: 1px solid rgba(6,214,160,0.15);
+  background: linear-gradient(135deg, #0a1a14, #0d2b20, #0a2520);
+  border: 1px solid rgba(6,214,160,0.2);
   border-radius: var(--radius);
   padding: 64px;
   text-align: center;
   position: relative;
   overflow: hidden;
+  box-shadow: 0 0 80px rgba(6,214,160,0.08);
 }
 .news-box::before {
   content: '';
@@ -874,6 +904,7 @@ body::after {
 </style>
 </head>
 <body>
+<div class="glow-amber"></div>
 
 <!-- NAV -->
 <nav class="nav" id="nav">
@@ -1063,7 +1094,7 @@ body::after {
     <p class="section-sub reveal rd2">Sitios web reales construidos en Kreathur Agency. No mockups, no demos — negocios reales.</p>
     <div class="projects-grid">
       <a class="project-card reveal rd1" href="https://www.camperizate.cl" target="_blank" rel="noopener">
-        <div class="project-thumb">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0d2b20,#1a4030,#0d3525);">
           <div class="project-thumb-text">camperizate.cl</div>
           <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
         </div>
@@ -1077,7 +1108,7 @@ body::after {
         </div>
       </a>
       <a class="project-card reveal rd2" href="https://www.lilafken.cl" target="_blank" rel="noopener">
-        <div class="project-thumb">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#0a1525,#0d2540,#0a2035);">
           <div class="project-thumb-text">lilafken.cl</div>
           <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
         </div>
@@ -1091,7 +1122,7 @@ body::after {
         </div>
       </a>
       <a class="project-card reveal rd3" href="https://www.pichilemuonline.cl" target="_blank" rel="noopener">
-        <div class="project-thumb">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a0d25,#2a1540,#200d35);">
           <div class="project-thumb-text">pichilemuonline.cl</div>
           <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
         </div>
@@ -1105,7 +1136,7 @@ body::after {
         </div>
       </a>
       <a class="project-card reveal rd4" href="https://www.importadoramaully.cl" target="_blank" rel="noopener">
-        <div class="project-thumb">
+        <div class="project-thumb" style="background:linear-gradient(135deg,#1a1508,#2b2010,#251a0a);">
           <div class="project-thumb-text">importadoramaully.cl</div>
           <div class="project-thumb-overlay"><span>Visitar sitio →</span></div>
         </div>
@@ -1129,7 +1160,7 @@ body::after {
     <h2 class="section-heading reveal rd1">Lo que tengo<br><span style="color:var(--cyan)">para ti.</span></h2>
     <p class="section-sub reveal rd2">Contenido gratis para empezar, consultoria para avanzar rapido, y la agencia para los que quieren todo hecho.</p>
     <div class="products-row">
-      <div class="product reveal rd1">
+      <div class="product reveal rd1" style="border-color:rgba(6,214,160,0.3);">
         <div class="product-badge" style="background:var(--cyan);">GRATIS</div>
         <div class="product-icon">🎬</div>
         <h3>Canal de YouTube</h3>
@@ -1145,7 +1176,7 @@ body::after {
         <div class="product-price">$15+ <small>USD</small></div>
         <a href="#consultoria" class="btn-sm" style="background:var(--amber);">Ver planes →</a>
       </div>
-      <div class="product reveal rd3">
+      <div class="product reveal rd3" style="border-color:rgba(139,92,246,0.3);">
         <div class="product-badge" style="background:var(--purple);">GRATIS</div>
         <div class="product-icon">📘</div>
         <h3>Guia IA Practica</h3>

@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "WebFetch(domain:www.youtube.com)",
+      "WebSearch",
+      "Bash(pip install:*)",
+      "Bash(yt-dlp --version)",
+      "Bash(npm list:*)",
+      "WebFetch(domain:www.instagram.com)",
+      "WebFetch(domain:kreathur.agency)",
+      "Bash(npx kill-port:*)",
+      "Bash(taskkill /F /FI \"WINDOWTITLE eq serve*\")",
+      "Bash(curl -s \"https://www.youtube.com/@MatiWlog/videos\")"
+    ]
+  }
+}
