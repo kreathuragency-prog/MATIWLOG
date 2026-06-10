@@ -1,6 +1,10 @@
 # Guia IA Practica — por Mati Aguilera (MATIWLOG)
 
+> Version GRATIS · v1.0 · 5 capitulos
 > Lo que realmente funciona para usar IA en tu negocio. Sin teoria innecesaria.
+
+**Si esta guia te sirvio, el Pack PRO te va a cambiar el negocio.**
+→ matiwlog.cl/#producto · $27 USD (vs $67 normal)
 
 ---
 
@@ -119,15 +123,43 @@ No necesitas gastar nada para empezar. Estas herramientas tienen planes gratis:
 
 ## Que sigue
 
-Esta es la version gratuita de la guia. Si quieres profundizar:
+Esta es la version **gratuita**. Si te sirvio, lo que viene en el Pack PRO te va a volar la cabeza.
 
-1. **Suscribete a mi newsletter** — cada semana comparto herramientas y casos reales
-2. **Mira mi canal de YouTube** — tutoriales paso a paso en video
-3. **Agenda una consultoria** — si necesitas ayuda personalizada
+---
 
-→ matiwlog.cl
+## 🚀 El Pack PRO — $27 USD (vs $67)
+
+Todo lo que la guia gratis NO te cuenta:
+
+### Lo que incluye
+
+- **Guia PRO completa** — 60+ paginas con casos reales, numeros sin filtro, errores que cometi para que tu no los cometas
+- **10 workflows n8n listos** — solo importas y conectas. Chatbot WhatsApp, leads a CRM, auto-publish redes, facturacion automatica, reporte semanal, y 5 mas
+- **50 prompts probados** — los exactos que uso en Claude/ChatGPT para generar contenido, analizar negocios, escribir propuestas
+- **Plantilla de propuesta comercial** — la misma que me cierra deals de $1,500-$3,000 USD
+- **Updates de por vida** — compras una vez, recibes mejoras gratis para siempre
+- **Soporte por email** — preguntas puntuales, respondo yo
+
+### Por que vale 10x lo que cuesta
+
+Si vendes UN servicio con esto, recuperaste tu inversion 50 veces. Si automatizas UN proceso en tu propio negocio, te ahorra horas que valen mas que $27 a la semana.
+
+Sin gurus. Sin curso de 8 horas. Solo lo que funciona.
+
+**→ Comprar Pack PRO: matiwlog.cl/#producto**
+
+---
+
+## Otras formas de seguir aprendiendo
+
+1. **YouTube** — youtube.com/@MatiWlog (tutoriales paso a paso en video)
+2. **Instagram** — @matiwlog (behind-the-scenes diario)
+3. **Newsletter** — 1 email a la semana (ya estas suscrito si descargaste esto)
+4. **Consultoria 1:1** — matiwlog.cl/#consultoria (si necesitas un plan a medida)
 
 ---
 
 *Escrito por Matias Aguilera (@matiwlog) desde Pichilemu, Chile.*
 *Construido con IA y cafe. Sin humo.*
+
+**matiwlog.cl** · WhatsApp +56 9 7787 7602

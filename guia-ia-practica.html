@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Guia IA Practica — MATIWLOG</title>
+<meta name="robots" content="noindex, follow">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚡</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #0c0c14; --card: #15151f; --border: rgba(255,255,255,0.09);
+  --text: #ededf2; --muted: #9a9ab0; --cyan: #06d6a0; --amber: #f4a261;
+}
+html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+body {
+  font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text);
+  line-height: 1.7; font-size: 15px;
+}
+.page { max-width: 760px; margin: 0 auto; padding: 48px 32px; }
+.cover {
+  min-height: 60vh; display: flex; flex-direction: column; justify-content: center;
+  border-bottom: 2px solid var(--cyan); margin-bottom: 48px; padding-bottom: 48px;
+}
+.cover .tag { font-family: 'JetBrains Mono', monospace; font-size: 12px; letter-spacing: 3px; color: var(--cyan); margin-bottom: 18px; }
+.cover h1 { font-family: 'Space Grotesk', sans-serif; font-size: 52px; line-height: 1.02; letter-spacing: -2px; margin-bottom: 18px; }
+.cover h1 .hl { color: var(--cyan); }
+.cover .sub { font-size: 17px; color: var(--muted); max-width: 520px; margin-bottom: 28px; }
+.cover .meta { font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); }
+h2 {
+  font-family: 'Space Grotesk', sans-serif; font-size: 28px; letter-spacing: -1px;
+  margin: 48px 0 16px; padding-top: 24px; border-top: 1px solid var(--border);
+}
+h2 .n { color: var(--cyan); font-family: 'JetBrains Mono', monospace; font-size: 18px; margin-right: 8px; }
+h3 { font-family: 'Space Grotesk', sans-serif; font-size: 19px; margin: 28px 0 10px; color: var(--cyan); }
+p { margin-bottom: 14px; color: var(--text); }
+p.dim { color: var(--muted); }
+ul, ol { margin: 0 0 16px 22px; }
+li { margin-bottom: 8px; }
+strong { color: #fff; }
+table { width: 100%; border-collapse: collapse; margin: 16px 0 24px; font-size: 13px; }
+th { text-align: left; font-family: 'JetBrains Mono', monospace; font-size: 11px; letter-spacing: 1px; color: var(--cyan); padding: 8px 10px; border-bottom: 1px solid var(--cyan); }
+td { padding: 8px 10px; border-bottom: 1px solid var(--border); color: var(--muted); }
+td:first-child { color: var(--text); font-weight: 600; }
+.box {
+  background: var(--card); border: 1px solid var(--border); border-left: 3px solid var(--cyan);
+  border-radius: 10px; padding: 18px 22px; margin: 20px 0;
+}
+.box.amber { border-left-color: var(--amber); }
+code {
+  font-family: 'JetBrains Mono', monospace; font-size: 13px; background: rgba(6,214,160,0.1);
+  padding: 2px 7px; border-radius: 5px; color: var(--cyan);
+}
+.cta {
+  background: linear-gradient(135deg, #1a0d08, #2a1510); border: 1px solid var(--amber);
+  border-radius: 14px; padding: 28px; margin: 40px 0; text-align: center;
+}
+.cta h3 { color: var(--amber); margin-top: 0; font-size: 22px; }
+.cta a { color: var(--amber); font-weight: 700; }
+.footer { margin-top: 56px; padding-top: 24px; border-top: 1px solid var(--border); font-family: 'JetBrains Mono', monospace; font-size: 12px; color: var(--muted); text-align: center; }
+a { color: var(--cyan); }
+@media print {
+  .page { padding: 24px 8px; }
+  .cover { min-height: auto; }
+  h2 { break-after: avoid; }
+  .box, .cta, table { break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="cover">
+    <div class="tag">// MATIWLOG // GUIA GRATIS // v1.0</div>
+    <h1>Guia IA<br><span class="hl">Practica.</span></h1>
+    <p class="sub">Lo que realmente funciona para usar inteligencia artificial en tu negocio. Sin teoria innecesaria, sin humo, sin "secretos millonarios".</p>
+    <p class="meta">Por Mati Aguilera · matiwlog.cl · Pichilemu, Chile — Alemania</p>
+  </div>
+
+  <h2><span class="n">01</span>La verdad sobre la IA en 2026</h2>
+  <p>La inteligencia artificial no es magia. Es una herramienta. Y como toda herramienta, su valor depende de quien la usa y para que.</p>
+  <p>Yo soy Mati. Emprendo desde los 16 — primero con los negocios de mi familia (uniformes escolares en La Florida, mas de 20 anos vendiendo online), despues con los mios: ropa de nieve, importaciones, proyectos digitales. Llevo anos usando IA todos los dias — no para hacer demos bonitos, sino para resolver problemas reales de negocios reales.</p>
+  <p>Esta guia es lo que yo hubiera querido leer cuando empece.</p>
+
+  <h3>Lo que SI hace la IA</h3>
+  <ul>
+    <li>Acelera tareas repetitivas (emails, reportes, analisis)</li>
+    <li>Genera borradores que tu puedes mejorar (textos, codigo, propuestas)</li>
+    <li>Automatiza flujos de trabajo completos (n8n, Make, Zapier)</li>
+    <li>Te da un "segundo cerebro" para pensar ideas y resolver problemas</li>
+  </ul>
+
+  <h3>Lo que NO hace la IA</h3>
+  <ul>
+    <li>No reemplaza tu criterio profesional</li>
+    <li>No genera contenido perfecto sin revision</li>
+    <li>No entiende tu negocio mejor que tu</li>
+    <li>No es gratis para uso profesional serio (los buenos modelos cuestan)</li>
+  </ul>
+
+  <h2><span class="n">02</span>Las herramientas que uso todos los dias</h2>
+
+  <h3>Asistentes de IA (texto, analisis, codigo)</h3>
+  <p>Los asistentes tipo chat son tu punto de partida. Es como tener un colega senior que nunca se cansa: le escribes lo que necesitas y te responde. Para textos largos, analisis de negocio y codigo, los planes pagados (~$20 USD/mes) valen cada peso.</p>
+  <div class="box">
+    <strong>Caso real:</strong> un cliente necesitaba 50 descripciones de producto para su e-commerce. Con IA las generamos en 2 horas. Sin IA, hubiera tomado 2 semanas.
+  </div>
+
+  <h3>n8n (automatizacion)</h3>
+  <p>Conecta todas las herramientas entre si. Es como tener un empleado robot que nunca duerme.</p>
+  <div class="box">
+    <strong>Caso real:</strong> automatice el proceso de captura de clientes de un negocio: WhatsApp recibe mensaje → n8n procesa → CRM se actualiza → email de bienvenida se envia → notificacion al equipo. Todo automatico.
+  </div>
+  <p class="dim">Como empezar: n8n.io — tiene version gratis self-hosted, o cloud desde $20/mes.</p>
+
+  <h2><span class="n">03</span>Automatizacion para no-programadores</h2>
+  <p>No necesitas saber programar para automatizar tu negocio. Necesitas entender UNA cosa: <strong>triggers y acciones</strong>.</p>
+  <div class="box">
+    <code>TRIGGER (algo pasa) → ACCION (algo se ejecuta)</code>
+  </div>
+  <ul>
+    <li>Nuevo email de cliente → Crear tarea en tu CRM</li>
+    <li>Nuevo pedido en tienda → Enviar WhatsApp de confirmacion</li>
+    <li>Nuevo suscriptor → Enviar secuencia de bienvenida</li>
+    <li>Mencion en redes → Notificacion al equipo</li>
+  </ul>
+
+  <h3>Las 5 automatizaciones que todo negocio necesita</h3>
+  <ol>
+    <li><strong>Respuesta automatica de WhatsApp:</strong> fuera de horario, responde con mensaje personalizado + link para agendar.</li>
+    <li><strong>Captura de clientes a CRM:</strong> formulario del sitio → registro automatico → email de seguimiento.</li>
+    <li><strong>Publicacion en redes:</strong> creas el contenido UNA vez → se publica en todas las plataformas.</li>
+    <li><strong>Facturacion automatica:</strong> cliente paga → factura se genera → se envia → se registra.</li>
+    <li><strong>Reporte semanal:</strong> cada viernes 6pm, resumen de ventas, clientes y metricas clave.</li>
+  </ol>
+
+  <h2><span class="n">04</span>Como vender servicios de IA (lo que yo hago)</h2>
+
+  <h3>Paso 1: Identifica un dolor</h3>
+  <p>Busca negocios que hacen tareas repetitivas a mano. Dentistas que responden WhatsApp uno por uno. Tiendas que publican en redes manualmente. Empresas que copian datos de Excel para hacer reportes.</p>
+
+  <h3>Paso 2: Muestra el resultado</h3>
+  <p>No vendas "automatizacion con IA". Vende <strong>"15 horas menos de trabajo manual por semana"</strong>. Vende "responder clientes 24/7 sin contratar a nadie".</p>
+
+  <h3>Paso 3: Cobra por valor, no por hora</h3>
+  <p>Si le ahorras a un negocio $2.000 USD/mes en sueldos, cobrar $500-$1.500 por la automatizacion es una ganga para ellos.</p>
+
+  <h3>Mis precios reales (transparencia total)</h3>
+  <table>
+    <tr><th>Servicio</th><th>Rango USD</th></tr>
+    <tr><td>Chatbot de WhatsApp basico</td><td>$500 – $800</td></tr>
+    <tr><td>Automatizacion de email marketing</td><td>$300 – $600</td></tr>
+    <tr><td>Sitio web con IA integrada</td><td>$1.000 – $3.000</td></tr>
+    <tr><td>Consultoria por hora</td><td>$50 – $100</td></tr>
+    <tr><td>Paquete mensual</td><td>$500 – $2.000</td></tr>
+  </table>
+
+  <h2><span class="n">05</span>Herramientas gratis para empezar HOY</h2>
+  <table>
+    <tr><th>Herramienta</th><th>Para que</th><th>Plan gratis</th></tr>
+    <tr><td>Asistentes IA (chat)</td><td>Texto, analisis, ideas</td><td>Si (limitado)</td></tr>
+    <tr><td>n8n</td><td>Automatizacion</td><td>Si (self-hosted)</td></tr>
+    <tr><td>Canva</td><td>Diseno grafico</td><td>Si</td></tr>
+    <tr><td>Beehiiv</td><td>Newsletter</td><td>Si (2.500 subs)</td></tr>
+    <tr><td>Cal.com</td><td>Agendar reuniones</td><td>Si</td></tr>
+    <tr><td>Vercel</td><td>Hosting web</td><td>Si</td></tr>
+    <tr><td>Supabase</td><td>Base de datos</td><td>Si</td></tr>
+  </table>
+
+  <div class="cta">
+    <h3>🚀 Esto fue la version gratis</h3>
+    <p>El <strong>Pack IA Practica PRO</strong> trae lo que esta guia no: la guia completa con casos y numeros sin filtro, 3 automatizaciones n8n listas para importar, 20 prompts probados y la plantilla de propuesta comercial que me cierra clientes de $1.500+ USD.</p>
+    <p style="margin-top:12px;"><a href="https://matiwlog.cl/#producto">→ Ver el Pack PRO ($17 USD) en matiwlog.cl</a></p>
+  </div>
+
+  <h2><span class="n">+</span>Sigamos en contacto</h2>
+  <ul>
+    <li><strong>YouTube:</strong> youtube.com/@MatiWlog — tutoriales y vida real</li>
+    <li><strong>Instagram:</strong> @matiwlog — el dia a dia</li>
+    <li><strong>WhatsApp:</strong> +56 9 7787 7602 — directo conmigo</li>
+    <li><strong>Importaciones desde Europa:</strong> matiwlog.cl — estoy en Alemania, te traigo lo que necesites</li>
+  </ul>
+
+  <div class="footer">
+    Escrito por Mati Aguilera (@matiwlog) · Pichilemu, Chile — Alemania<br>
+    Construido con IA y cafe. Sin humo. · matiwlog.cl
+  </div>
+
+</div>
+</body>
+</html>

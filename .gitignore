@@ -1,0 +1,21 @@
+# ── PRIVADO: NO SUBIR AL REPO PUBLICO ──
+# Producto pagado (Pack PRO $17)
+pack-pro/
+
+# Estrategia de negocio interna
+IMPORTACIONES-EUROPA-PLAN.md
+VIDEO-CLAUDE-PLAN.md
+SETUP.md
+DEPLOY-HOSTINGER.md
+ESTRATEGIA-VIRAL.md
+ROADMAP.md
+
+# Script de deploy (contendra credenciales FTP)
+deploy.ps1
+
+# Reportes internos
+reports/
+
+# Sistema
+Thumbs.db
+desktop.ini

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /gracias.html
+
+Sitemap: https://matiwlog.cl/sitemap.xml
