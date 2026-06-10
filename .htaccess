@@ -1,12 +1,12 @@
-RewriteEngine On
+﻿RewriteEngine On
 
 # Forzar HTTPS
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # Forzar no-www
-RewriteCond %{HTTP_HOST} ^www\.matiwlog\.cl$ [NC]
-RewriteRule ^(.*)$ https://matiwlog.cl/$1 [L,R=301]
+RewriteCond %{HTTP_HOST} ^www\.matiwlog\.com$ [NC]
+RewriteRule ^(.*)$ https://matiwlog.com/$1 [L,R=301]
 
 # Cache para assets estaticos
 <IfModule mod_expires.c>

@@ -1,10 +1,10 @@
-# Guia IA Practica — por Mati Aguilera (MATIWLOG)
+﻿# Guia IA Practica — por Mati Aguilera (MATIWLOG)
 
 > Version GRATIS · v1.0 · 5 capitulos
 > Lo que realmente funciona para usar IA en tu negocio. Sin teoria innecesaria.
 
 **Si esta guia te sirvio, el Pack PRO te va a cambiar el negocio.**
-→ matiwlog.cl/#producto · $27 USD (vs $67 normal)
+→ matiwlog.com/#producto · $27 USD (vs $67 normal)
 
 ---
 
@@ -146,7 +146,7 @@ Si vendes UN servicio con esto, recuperaste tu inversion 50 veces. Si automatiza
 
 Sin gurus. Sin curso de 8 horas. Solo lo que funciona.
 
-**→ Comprar Pack PRO: matiwlog.cl/#producto**
+**→ Comprar Pack PRO: matiwlog.com/#producto**
 
 ---
 
@@ -155,11 +155,11 @@ Sin gurus. Sin curso de 8 horas. Solo lo que funciona.
 1. **YouTube** — youtube.com/@MatiWlog (tutoriales paso a paso en video)
 2. **Instagram** — @matiwlog (behind-the-scenes diario)
 3. **Newsletter** — 1 email a la semana (ya estas suscrito si descargaste esto)
-4. **Consultoria 1:1** — matiwlog.cl/#consultoria (si necesitas un plan a medida)
+4. **Consultoria 1:1** — matiwlog.com/#consultoria (si necesitas un plan a medida)
 
 ---
 
 *Escrito por Matias Aguilera (@matiwlog) desde Pichilemu, Chile.*
 *Construido con IA y cafe. Sin humo.*
 
-**matiwlog.cl** · WhatsApp +56 9 7787 7602
+**matiwlog.com** · WhatsApp +56 9 7787 7602
