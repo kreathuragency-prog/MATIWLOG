@@ -1411,17 +1411,157 @@ body::after {
   .social-bar svg { width: 16px; height: 16px; }
 }
 
-/* ═══ WHATSAPP ═══ */
-.wa-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 90;
-  width: 52px; height: 52px; border-radius: 50%;
-  background: #25D366;
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
-  text-decoration: none; transition: all 0.3s;
+/* ═══ MATIBOT ═══ */
+.matibot-fab {
+  position: fixed; bottom: 24px; right: 24px; z-index: 95;
+  display: flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, var(--cyan), var(--ocean));
+  color: var(--bg);
+  border: none;
+  padding: 12px 18px 12px 12px;
+  border-radius: 100px;
+  cursor: pointer;
+  box-shadow: 0 8px 30px rgba(6,214,160,0.4);
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  transition: all 0.3s;
+  animation: matibotPulse 3s ease-in-out infinite;
 }
-.wa-fab:hover { transform: scale(1.1); }
-.wa-fab svg { width: 26px; height: 26px; fill: white; }
+.matibot-fab:hover { transform: translateY(-3px) scale(1.03); }
+.matibot-fab.hidden { transform: scale(0); opacity: 0; pointer-events: none; }
+@keyframes matibotPulse {
+  0%,100% { box-shadow: 0 8px 30px rgba(6,214,160,0.4); }
+  50% { box-shadow: 0 8px 44px rgba(6,214,160,0.7); }
+}
+.matibot-fab-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--bg);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px;
+  flex-shrink: 0;
+}
+.matibot-fab-dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: #25D366;
+  border: 2px solid var(--cyan);
+  position: absolute; top: 8px; left: 34px;
+}
+
+.matibot-panel {
+  position: fixed; bottom: 24px; right: 24px; z-index: 96;
+  width: 380px; max-width: calc(100vw - 32px);
+  height: 580px; max-height: calc(100vh - 48px);
+  background: var(--bg-card);
+  border: 1px solid var(--border-hover);
+  border-radius: 22px;
+  display: flex; flex-direction: column;
+  overflow: hidden;
+  box-shadow: 0 24px 70px rgba(0,0,0,0.6);
+  transform: translateY(20px) scale(0.96);
+  opacity: 0; pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.matibot-panel.open { transform: translateY(0) scale(1); opacity: 1; pointer-events: auto; }
+
+.matibot-header {
+  background: linear-gradient(135deg, #0a2018, #0d2b20);
+  padding: 16px 18px;
+  display: flex; align-items: center; gap: 12px;
+  border-bottom: 1px solid var(--border);
+}
+.matibot-header-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--cyan), var(--ocean));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px; flex-shrink: 0;
+}
+.matibot-header-info h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 16px; font-weight: 700; color: var(--text);
+  display: flex; align-items: center; gap: 6px;
+}
+.matibot-header-info .online {
+  font-size: 11px; color: var(--cyan);
+  display: flex; align-items: center; gap: 5px;
+}
+.matibot-header-info .online::before {
+  content: ''; width: 7px; height: 7px; border-radius: 50%;
+  background: #25D366; display: inline-block;
+}
+.matibot-close {
+  margin-left: auto; background: rgba(255,255,255,0.08); border: none;
+  color: var(--text); width: 30px; height: 30px; border-radius: 50%;
+  cursor: pointer; font-size: 16px; line-height: 1;
+  transition: background 0.2s;
+}
+.matibot-close:hover { background: rgba(255,255,255,0.16); }
+
+.matibot-body {
+  flex: 1; overflow-y: auto;
+  padding: 18px;
+  display: flex; flex-direction: column; gap: 12px;
+  scroll-behavior: smooth;
+}
+.matibot-msg {
+  max-width: 85%;
+  padding: 11px 15px;
+  font-size: 14px; line-height: 1.5;
+  border-radius: 16px;
+  animation: matibotIn 0.3s ease;
+}
+@keyframes matibotIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+.matibot-msg.bot {
+  background: var(--bg-elevated);
+  color: var(--text);
+  align-self: flex-start;
+  border-bottom-left-radius: 4px;
+}
+.matibot-msg.bot a { color: var(--cyan); font-weight: 600; }
+.matibot-msg.user {
+  background: linear-gradient(135deg, var(--cyan), var(--ocean));
+  color: var(--bg); font-weight: 600;
+  align-self: flex-end;
+  border-bottom-right-radius: 4px;
+}
+.matibot-typing {
+  align-self: flex-start;
+  background: var(--bg-elevated);
+  padding: 12px 16px; border-radius: 16px; border-bottom-left-radius: 4px;
+  display: flex; gap: 4px;
+}
+.matibot-typing span {
+  width: 7px; height: 7px; border-radius: 50%; background: var(--text-dim);
+  animation: matibotDot 1.2s infinite;
+}
+.matibot-typing span:nth-child(2) { animation-delay: 0.2s; }
+.matibot-typing span:nth-child(3) { animation-delay: 0.4s; }
+@keyframes matibotDot { 0%,60%,100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+
+.matibot-quick {
+  padding: 12px 16px 16px;
+  display: flex; flex-wrap: wrap; gap: 8px;
+  border-top: 1px solid var(--border);
+  background: var(--bg-card);
+}
+.matibot-chip {
+  background: rgba(6,214,160,0.1);
+  border: 1px solid rgba(6,214,160,0.3);
+  color: var(--cyan);
+  padding: 8px 14px; border-radius: 100px;
+  font-size: 13px; font-weight: 600;
+  cursor: pointer; transition: all 0.2s;
+  font-family: 'Inter', sans-serif;
+}
+.matibot-chip:hover { background: var(--cyan); color: var(--bg); transform: translateY(-1px); }
+.matibot-chip.wa { background: rgba(37,211,102,0.12); border-color: rgba(37,211,102,0.4); color: #25D366; }
+.matibot-chip.wa:hover { background: #25D366; color: white; }
+
+@media (max-width: 480px) {
+  .matibot-fab span.matibot-fab-label { display: none; }
+  .matibot-fab { padding: 12px; }
+  .matibot-panel { bottom: 0; right: 0; width: 100vw; max-width: 100vw; height: 100dvh; max-height: 100dvh; border-radius: 0; }
+}
 
 /* ═══ MANIFIESTO (frases) ═══ */
 .manifiesto {
@@ -2965,50 +3105,6 @@ body::after {
   </div>
 </section>
 
-<!-- IMPORTADORA MAULLY (video YouTube) -->
-<section class="maully-section" id="importadora-maully">
-  <div class="container">
-    <div class="maully-box reveal">
-      <div class="maully-grid">
-        <div class="maully-content">
-          <span class="reel-tag">📦 IMPORTADORA MAULLY</span>
-          <h2>El negocio donde<br><span class="hl">aprendi a importar.</span></h2>
-          <p>Viaje a Canada, Estados Unidos y Europa buscando proveedores de ropa americana de marca. Hoy es un negocio B2B funcionando con catalogo digital, academia para vendedores y dashboard completo.</p>
-          <ul>
-            <li>Canada · busqueda de proveedores</li>
-            <li>Estados Unidos · ferias y fabricantes</li>
-            <li>Europa · contactos con marcas premium</li>
-          </ul>
-          <p style="font-size: 13px; color: var(--text-dim); margin-bottom: 20px;">
-            El video que ves al lado es del proceso real — viajes, almacen, packaging.
-          </p>
-          <a href="https://www.importadoramaully.cl" target="_blank" rel="noopener" class="btn btn-primary" style="background:var(--amber);">
-            Ver Importadora Maully →
-          </a>
-        </div>
-        <div class="maully-video-wrap">
-          <!-- MATI: cuando tengas el ID del video de YouTube de Importadora Maully, borra este <a> completo
-               y descomenta el iframe de abajo reemplazando VIDEO_ID (los 11 caracteres despues de v= en la URL) -->
-          <a href="https://www.importadoramaully.cl" target="_blank" rel="noopener" style="display:flex; flex-direction:column; align-items:center; justify-content:center; gap:14px; width:100%; height:100%; text-decoration:none; background:linear-gradient(135deg,#1a1508,#2b2010);">
-            <span style="width:64px; height:64px; border-radius:50%; background:var(--amber); display:flex; align-items:center; justify-content:center; font-size:24px;">▶</span>
-            <span style="font-family:'JetBrains Mono',monospace; font-size:11px; letter-spacing:2px; color:var(--amber);">// VIDEO DEL PROCESO</span>
-            <span style="font-size:13px; color:var(--text-muted);">Miralo en importadoramaully.cl →</span>
-          </a>
-          <!--
-          <iframe
-            src="https://www.youtube.com/embed/VIDEO_ID?rel=0&modestbranding=1"
-            title="Importadora Maully - proceso real"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-            loading="lazy">
-          </iframe>
-          -->
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- IMPORTO DESDE EUROPA -->
 <section class="import-section" id="importo-europa">
   <div class="container">
@@ -3154,42 +3250,6 @@ body::after {
           <div class="lead-book-bottom">v1.0 · 5 capitulos · PDF</div>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- QUE HAGO -->
-<section class="section" id="que-hago">
-  <div class="container">
-    <p class="section-tag reveal">Lo que hago</p>
-    <h2 class="section-heading reveal rd1">No vendo teoria.<br>Esta es mi vida.</h2>
-    <p class="section-sub reveal rd2">Si llegaste hasta aca, mejor te cuento bien qué hago — y por qué quizás te interese seguirme.</p>
-    <div class="bento-grid">
-      <div class="bento-card b-ia reveal rd1">
-        <span class="bento-icon">🎬</span>
-        <h3>Hago videos en YouTube</h3>
-        <p>Subo lo que vivo: tutoriales de IA, viajes con drone, vida en Pichilemu. Sin filtros motivacionales, sin "secretos millonarios".</p>
-      </div>
-      <div class="bento-card b-viajes reveal rd2">
-        <span class="bento-icon">🛸</span>
-        <h3>Vuelo drones</h3>
-        <p>Piloto certificado DGAC. Grabo Pichilemu desde el aire, hago videos para clientes, y a veces solo por gusto.</p>
-      </div>
-      <div class="bento-card b-proyectos reveal rd3">
-        <span class="bento-icon">🤖</span>
-        <h3>Construyo bots y sitios</h3>
-        <p>Con Kreathur — mi proyecto propio — le armo a otros negocios chilenos sitios web, bots de WhatsApp con IA, automatizaciones. Lo mismo que llevo haciendo para los mios desde los 16.</p>
-      </div>
-      <div class="bento-card b-libertad reveal rd4">
-        <span class="bento-icon">📱</span>
-        <h3>Comparto en redes</h3>
-        <p>Instagram, TikTok, YouTube — el día a día sin maquillaje. Si te suena interesante, sigueme y vemos.</p>
-      </div>
-      <a href="#importo-europa" class="bento-card b-import reveal rd1" style="text-decoration:none; color:inherit;">
-        <span class="bento-icon">🇩🇪</span>
-        <h3>Te importo desde Europa <span style="font-size:13px; opacity:0.7;">(nuevo)</span></h3>
-        <p>Estoy en Alemania ahora. Drones, herramientas, autopartes, camaras — te lo busco, lo compro y te lo mando a Chile. <strong>Toca aca para ver como funciona →</strong></p>
-      </a>
     </div>
   </div>
 </section>
@@ -3913,10 +3973,25 @@ body::after {
   </a>
 </aside>
 
-<!-- WHATSAPP FAB -->
-<a class="wa-fab" href="https://wa.me/56977877602?text=Hola%20Mati!%20Vi%20tu%20sitio%20y%20quiero%20saber%20mas" target="_blank" aria-label="WhatsApp">
-  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-</a>
+<!-- MATIBOT -->
+<button class="matibot-fab" id="matibotFab" aria-label="Abrir MatiBot">
+  <span class="matibot-fab-avatar">🤖</span>
+  <span class="matibot-fab-dot"></span>
+  <span class="matibot-fab-label">Pregúntale a MatiBot</span>
+</button>
+
+<div class="matibot-panel" id="matibotPanel" role="dialog" aria-label="MatiBot">
+  <div class="matibot-header">
+    <div class="matibot-header-avatar">🤖</div>
+    <div class="matibot-header-info">
+      <h4>MatiBot</h4>
+      <span class="online">en línea · responde al instante</span>
+    </div>
+    <button class="matibot-close" id="matibotClose" aria-label="Cerrar">✕</button>
+  </div>
+  <div class="matibot-body" id="matibotBody"></div>
+  <div class="matibot-quick" id="matibotQuick"></div>
+</div>
 
 <script>
 // Nav scroll
@@ -4030,6 +4105,160 @@ if ('IntersectionObserver' in window) {
     }, { threshold: 0.2 }).observe(v);
   });
 }
+
+// ═══════════ MATIBOT — asistente buena onda con toda la info ═══════════
+(() => {
+  const WA = 'https://wa.me/56977877602?text=';
+  const fab = document.getElementById('matibotFab');
+  const panel = document.getElementById('matibotPanel');
+  const closeBtn = document.getElementById('matibotClose');
+  const body = document.getElementById('matibotBody');
+  const quick = document.getElementById('matibotQuick');
+  if (!fab || !panel) return;
+
+  // Arbol de respuestas — toda la info de Mati
+  const TREE = {
+    inicio: {
+      chips: [
+        { t: '🇩🇪 Importar de Europa', go: 'importar' },
+        { t: '🛒 Tus tiendas', go: 'tiendas' },
+        { t: '🤖 Bot / web para mi negocio', go: 'kreathur' },
+        { t: '📥 Guía de IA gratis', go: 'guia' },
+        { t: '📅 Agendar una reunión', go: 'meeting' },
+        { t: '🙋 ¿Quién es Mati?', go: 'quien' },
+      ]
+    },
+    importar: {
+      say: ['¡Buenísima! 🙌 Estoy en Alemania y te traigo casi cualquier cosa a Chile: drones, herramientas, cámaras, autopartes, bicicletas, lo que sea.',
+            'Funciona simple: tú me dices qué quieres, yo lo busco y te paso una cotización con foto. <b>Pagas solo cuando confirmo que lo conseguí.</b> Cero riesgo.'],
+      chips: [
+        { t: '¿Cuánto cobras?', go: 'importar_precio' },
+        { t: 'Quiero cotizar algo', wa: 'Hola Mati! Quiero que me importes algo desde Europa. Te cuento: ' },
+        { t: 'Ver la sección', scroll: '#importo-europa' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    importar_precio: {
+      say: ['Te cobro: <b>precio del producto + envío real + 15-25% de comisión + un fee fijo de gestión.</b>',
+            'Ejemplo real: un drone DJI usado que allá cuesta €800 te queda en ~€1.090 puesto en Chile. El mismo nuevo en Chile cuesta ~€1.450. <b>Te ahorras ~€360.</b>'],
+      chips: [
+        { t: 'Quiero cotizar algo', wa: 'Hola Mati! Quiero cotizar una importación desde Europa: ' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    tiendas: {
+      say: ['Tengo 3 tiendas propias funcionando 👇'],
+      chips: [
+        { t: '🎿 PuntoSki (ropa de nieve)', link: 'https://puntoski.com' },
+        { t: '🧥 Pichilemu Wear (moda)', link: 'https://pichilemuwear.com' },
+        { t: '📦 Importadora Maully (mayorista)', link: 'https://www.importadoramaully.cl' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    kreathur: {
+      say: ['Con Kreathur le armo a negocios lo mismo que a los míos: <b>sitios web, bots de WhatsApp con IA y automatizaciones.</b>',
+            'Justamente, este bot con el que hablas es el tipo de cosa que te puedo construir 😉'],
+      chips: [
+        { t: 'Quiero un bot como este', wa: 'Hola Mati! Quiero un bot de WhatsApp con IA para mi negocio.' },
+        { t: 'Quiero un sitio web', wa: 'Hola Mati! Quiero un sitio web para mi negocio.' },
+        { t: 'Ver Kreathur', link: 'https://kreathur.agency' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    guia: {
+      say: ['Te regalo una guía de IA práctica (PDF) — las herramientas que de verdad uso, mis precios reales y por dónde empezar. Sin humo.'],
+      chips: [
+        { t: '📥 Descargar gratis', scroll: '#guia-gratis' },
+        { t: 'Ver el Pack PRO ($17)', scroll: '#producto' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    meeting: {
+      say: ['¡De una! 📅 Para agendar una reunión cuéntame brevemente sobre qué es y te coordino por WhatsApp un horario (manejo husos Chile 🇨🇱 y Europa 🇪🇺).'],
+      chips: [
+        { t: 'Reunión por importaciones', wa: 'Hola Mati! Quiero agendar una reunión para hablar de importar algo desde Europa.' },
+        { t: 'Reunión por web/bot/IA', wa: 'Hola Mati! Quiero agendar una reunión para un proyecto de web/bot/automatización.' },
+        { t: 'Consultoría 1:1 ($97)', scroll: '#consultoria' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    quien: {
+      say: ['Soy Mati Aguilera 🙋 Emprendo desde los 16 — partí con los negocios de mi familia y seguí con los míos: ropa de nieve, importaciones, proyectos digitales.',
+            'Vuelo drones (DGAC), vivo entre Pichilemu y Alemania, y creo que imaginarse en una oficina toda la vida es la estafa más grande. Lo mío es viajar, aprender y construir.'],
+      chips: [
+        { t: 'Ver su historia', scroll: '#mi-historia' },
+        { t: 'Su canal de YouTube', link: 'https://youtube.com/@MatiWlog?sub_confirmation=1' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+  };
+
+  let started = false;
+  function addMsg(text, who) {
+    const m = document.createElement('div');
+    m.className = 'matibot-msg ' + who;
+    m.innerHTML = text;
+    body.appendChild(m);
+    body.scrollTop = body.scrollHeight;
+  }
+  function typing() {
+    const t = document.createElement('div');
+    t.className = 'matibot-typing';
+    t.innerHTML = '<span></span><span></span><span></span>';
+    body.appendChild(t);
+    body.scrollTop = body.scrollHeight;
+    return t;
+  }
+  function renderChips(node) {
+    quick.innerHTML = '';
+    (node.chips || []).forEach(c => {
+      const b = document.createElement('button');
+      b.className = 'matibot-chip' + (c.wa ? ' wa' : '');
+      b.textContent = c.t;
+      b.addEventListener('click', () => onChip(c));
+      quick.appendChild(b);
+    });
+  }
+  function goNode(key) {
+    const node = TREE[key];
+    if (!node) return;
+    quick.innerHTML = '';
+    const lines = node.say || [];
+    let i = 0;
+    const showNext = () => {
+      if (i < lines.length) {
+        const t = typing();
+        setTimeout(() => { t.remove(); addMsg(lines[i], 'bot'); i++; showNext(); }, 550);
+      } else {
+        renderChips(node);
+      }
+    };
+    if (lines.length) showNext(); else renderChips(node);
+  }
+  function onChip(c) {
+    addMsg(c.t, 'user');
+    if (c.wa) { window.open(WA + encodeURIComponent(c.wa), '_blank'); setTimeout(() => goNode('inicio'), 400); return; }
+    if (c.link) { window.open(c.link, '_blank'); return; }
+    if (c.scroll) { close(); const el = document.querySelector(c.scroll); if (el) el.scrollIntoView({ behavior: 'smooth' }); return; }
+    if (c.go) { goNode(c.go); }
+  }
+  function open() {
+    panel.classList.add('open');
+    fab.classList.add('hidden');
+    if (!started) {
+      started = true;
+      const t = typing();
+      setTimeout(() => {
+        t.remove();
+        addMsg('¡Hola! 👋 Soy <b>MatiBot</b>, el asistente de Mati. Respondo al toque sobre todo lo que hace.', 'bot');
+        setTimeout(() => { addMsg('¿En qué te puedo ayudar?', 'bot'); renderChips(TREE.inicio); }, 500);
+      }, 500);
+    }
+  }
+  function close() { panel.classList.remove('open'); fab.classList.remove('hidden'); }
+  fab.addEventListener('click', open);
+  closeBtn.addEventListener('click', close);
+})();
 </script>
 </body>
 </html>
