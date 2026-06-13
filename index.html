@@ -981,6 +981,23 @@ body::after {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 .project-card:hover .project-thumb-real img { transform: scale(1.05); }
+.thumb-fallback {
+  background: linear-gradient(135deg, #0d2b20, #0a1a30, #1a0d25) !important;
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+}
+.thumb-fallback img { display: none; }
+.thumb-fallback::after {
+  content: attr(data-label);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 2px;
+  color: var(--cyan);
+  text-align: center;
+  padding: 0 24px;
+  opacity: 0.85;
+}
 .project-live-tag {
   position: absolute; top: 12px; left: 12px;
   background: rgba(6,214,160,0.9);
@@ -3422,31 +3439,9 @@ body::after {
     <p class="section-sub reveal rd2">Con Kreathur le construyo a otros lo mismo que a los mios: sitios, e-commerce, bots con IA. Estos estan en produccion ahora — hace click y velos en vivo.</p>
     <div class="projects-grid">
 
-      <a class="project-card reveal rd1" href="https://www.camperizate.cl" target="_blank" rel="noopener">
+      <a class="project-card reveal rd1" href="https://www.lilafken.cl" target="_blank" rel="noopener">
         <div class="project-thumb-real">
-          <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.camperizate.cl?w=800&h=600" alt="Camperizate.cl - E-commerce outdoor" loading="lazy">
-          <div class="project-live-tag">🟢 EN VIVO</div>
-          <div class="project-thumb-overlay"><span>Ver sitio en vivo →</span></div>
-        </div>
-        <div class="project-info">
-          <div class="project-type">E-Commerce + AI Chatbot</div>
-          <h4>Camperizate</h4>
-          <p>E-commerce con 150+ productos outdoor + chatbot con IA + posicionado #1 en Google "campers chile".</p>
-          <div class="project-stats">
-            <div><strong>150+</strong> productos</div>
-            <div><strong>#1</strong> Google</div>
-            <div><strong>24/7</strong> AI bot</div>
-          </div>
-          <div class="project-tags">
-            <span>WooCommerce</span><span>AI Chatbot</span><span>SEO</span>
-          </div>
-          <span class="project-visit">camperizate.cl →</span>
-        </div>
-      </a>
-
-      <a class="project-card reveal rd2" href="https://www.lilafken.cl" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.lilafken.cl?w=800&h=600" alt="Lilafken.cl - Arriendos y propiedades" loading="lazy">
+          <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.lilafken.cl?w=800&h=600" alt="Lilafken.cl - Arriendos y propiedades" loading="lazy" onerror="this.closest('.project-thumb-real').classList.add('thumb-fallback')">
           <div class="project-live-tag">🟢 EN VIVO</div>
           <div class="project-thumb-overlay"><span>Ver sitio en vivo →</span></div>
         </div>
@@ -3466,16 +3461,15 @@ body::after {
         </div>
       </a>
 
-      <a class="project-card reveal rd3" href="https://www.pichilemuonline.cl" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.pichilemuonline.cl?w=800&h=600" alt="Pichilemu Online - Magazine y Bot Lemu" loading="lazy">
-          <div class="project-live-tag">🟢 EN VIVO</div>
-          <div class="project-thumb-overlay"><span>Ver sitio en vivo →</span></div>
+      <a class="project-card reveal rd2" href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20probar%20el%20Bot%20Lemu%20%2F%20un%20bot%20de%20WhatsApp%20con%20IA" target="_blank" rel="noopener">
+        <div class="project-thumb-real thumb-fallback" data-label="Bot Lemu · WhatsApp IA">
+          <div class="project-live-tag">🤖 BOT ACTIVO</div>
+          <div class="project-thumb-overlay"><span>Probar el bot →</span></div>
         </div>
         <div class="project-info">
-          <div class="project-type">Magazine + WhatsApp Bot con IA</div>
-          <h4>Pichilemu Online + Bot Lemu</h4>
-          <p>Revista digital de turismo + <strong>Lemu</strong>, chatbot en WhatsApp con IA que funciona como guia virtual 24/7 — el bot mas usado de la zona.</p>
+          <div class="project-type">WhatsApp Bot con IA · Turismo</div>
+          <h4>Bot Lemu — guia virtual 24/7</h4>
+          <p>Le construi a Pichilemu un chatbot en WhatsApp con IA que responde a turistas a cualquier hora — donde dormir, comer, surfear. El mismo tipo de bot que te puedo hacer a ti.</p>
           <div class="project-stats">
             <div><strong>24/7</strong> activo</div>
             <div><strong>IA</strong> entrenada</div>
@@ -3484,29 +3478,7 @@ body::after {
           <div class="project-tags">
             <span>IA</span><span>WhatsApp Bot</span><span>Turismo</span>
           </div>
-          <span class="project-visit">pichilemuonline.cl →</span>
-        </div>
-      </a>
-
-      <a class="project-card reveal rd4" href="https://www.importadoramaully.cl" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Fwww.importadoramaully.cl?w=800&h=600" alt="Importadora Maully - B2B + LMS" loading="lazy">
-          <div class="project-live-tag">🟢 EN VIVO</div>
-          <div class="project-thumb-overlay"><span>Ver sitio en vivo →</span></div>
-        </div>
-        <div class="project-info">
-          <div class="project-type">B2B E-Commerce + Academia LMS</div>
-          <h4>Importadora Maully</h4>
-          <p>Catalogo B2B con precios mayoristas + academia de capacitacion integrada + dashboard de administracion completo.</p>
-          <div class="project-stats">
-            <div><strong>B2B</strong> portal</div>
-            <div><strong>LMS</strong> incluido</div>
-            <div><strong>Multi</strong>-rol</div>
-          </div>
-          <div class="project-tags">
-            <span>WooCommerce</span><span>LMS</span><span>Dashboard</span>
-          </div>
-          <span class="project-visit">importadoramaully.cl →</span>
+          <span class="project-visit">Probar por WhatsApp →</span>
         </div>
       </a>
 
@@ -3881,6 +3853,16 @@ document.querySelectorAll('form[action*="web3forms"]').forEach(f => {
       f.querySelector('button').textContent = 'Te espero en WhatsApp ✓';
     }
   });
+});
+
+// Screenshots mShots: si un sitio cae, degrada a placeholder con marca (nunca imagen rota)
+document.querySelectorAll('.project-thumb-real img[src*="mshots"]').forEach(img => {
+  const wrap = img.closest('.project-thumb-real');
+  if (wrap && !wrap.dataset.label) {
+    const h4 = img.closest('.project-card')?.querySelector('h4');
+    wrap.dataset.label = h4 ? h4.textContent : 'Ver sitio →';
+  }
+  img.addEventListener('error', () => wrap && wrap.classList.add('thumb-fallback'));
 });
 
 // Videos (hero + reel): reproducen solo cuando estan visibles (ahorra datos y bateria)
