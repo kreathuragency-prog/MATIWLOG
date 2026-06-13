@@ -304,6 +304,39 @@ body::after {
   padding-top: 100px;
   padding-bottom: 60px;
   position: relative;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.hero-bg video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.5;
+}
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(12,12,20,0.55) 0%, rgba(12,12,20,0.72) 55%, var(--bg) 100%);
+}
+.hero-real-tag {
+  position: absolute;
+  bottom: 18px;
+  right: 24px;
+  z-index: 2;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: rgba(255,255,255,0.5);
+  background: rgba(10,10,15,0.5);
+  backdrop-filter: blur(8px);
+  padding: 5px 12px;
+  border-radius: 100px;
+  border: 1px solid var(--border);
 }
 .hero-grid {
   display: grid;
@@ -1465,6 +1498,20 @@ body::after {
   color: var(--text-muted);
 }
 .timeline-content p strong { color: var(--text); }
+.timeline-img {
+  width: 100%;
+  border-radius: 10px;
+  margin-top: 14px;
+  border: 1px solid var(--border);
+  display: block;
+}
+.timeline-img-cap {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  color: var(--text-dim);
+  margin-top: 8px;
+  letter-spacing: 1.5px;
+}
 
 @media (max-width: 600px) {
   .timeline { padding-left: 0; }
@@ -2622,7 +2669,12 @@ body::after {
 </nav>
 
 <!-- HERO -->
-<section class="hero container" id="hero">
+<section class="hero" id="hero">
+  <div class="hero-bg" aria-hidden="true">
+    <video id="heroVideo" src="./assets/hero-olas.mp4" muted loop playsinline autoplay preload="metadata" poster="./assets/hero-poster.jpg"></video>
+  </div>
+  <span class="hero-real-tag">// grabado con mi drone · costa de Chile</span>
+  <div class="container">
   <div class="hero-grid">
     <div class="hero-text">
       <p class="hero-eyebrow reveal">Hola, soy Mati 👋 · ahora en Alemania 🇩🇪</p>
@@ -2661,6 +2713,7 @@ body::after {
         <div class="hero-video-tag">// timelapse camper build</div>
       </div>
     </div>
+  </div>
   </div>
 </section>
 
@@ -2728,6 +2781,8 @@ body::after {
           <div class="timeline-year">// VUELTA A CHILE · PICHILEMU</div>
           <h3>Volvi y eleji vivir frente al mar</h3>
           <p>Pude haber vuelto a Santiago. Eleji Pichilemu. <strong>Vivo a 3 cuadras de la playa, trabajo desde un escritorio que mira el mar.</strong> No es paraiso (hay rachas de viento que te vuelan los papeles) pero es lo que queria.</p>
+          <img class="timeline-img" src="./assets/img/tl-costa.jpg" alt="La costa de Chile desde el drone de Mati" loading="lazy">
+          <div class="timeline-img-cap">// LA COSTA DONDE VIVO — GRABADA CON MI DRONE</div>
         </div>
       </div>
 
@@ -2737,6 +2792,8 @@ body::after {
           <div class="timeline-year">// KREATHUR</div>
           <h3>Funde Kreathur — proyecto digital propio</h3>
           <p>Toda la experiencia anterior la concentre en un proyecto: <strong>Kreathur</strong>. Le hago sitios, bots de WhatsApp con IA y automatizaciones a otros negocios — lo mismo que llevo haciendo para los mios desde los 16, pero ahora para terceros. <strong>Hay un reel del proyecto mas abajo.</strong></p>
+          <img class="timeline-img" src="./assets/img/tl-kreathur.jpg" alt="Oficina de Kreathur" loading="lazy">
+          <div class="timeline-img-cap">// LA OFICINA DE KREATHUR — EXISTE DE VERDAD</div>
         </div>
       </div>
 
@@ -2755,6 +2812,8 @@ body::after {
           <div class="timeline-year">// EN PARALELO · TODO EL TIEMPO</div>
           <h3>Drones, contenido, los negocios siguen</h3>
           <p>Los negocios familiares siguen funcionando (Uniformes Maully, Puntoski, Importadora). Kreathur sigue creciendo desde donde este. Y grabo todo lo que vivo para YouTube e Instagram — vuelo drones (DGAC certificado). <strong>Sigueme y vemos hacia donde va.</strong></p>
+          <img class="timeline-img" src="./assets/img/tl-viajes.jpg" alt="Prainha Brasil desde el drone" loading="lazy">
+          <div class="timeline-img-cap">// PRAINHA, BRASIL — DESDE MI DRONE, 2022</div>
         </div>
       </div>
     </div>
@@ -3226,110 +3285,52 @@ body::after {
       </a>
     </div>
 
-    <!-- Grid 3x3 simulando feed -->
-    <!-- INSTRUCCIONES PARA MATI:
-         Para mostrar tus posts reales, reemplaza cada <div class="ig-post-placeholder"> con un <img>
-         que apunte a una imagen de tu post (puedes hacer screenshot del post en IG y subirla a /img/ig-1.jpg, etc).
-         Cada ig-post hace link al post real de Instagram.
-    -->
+    <!-- Grid 3x3 — TODO material real de Mati (drone, oficina, viajes) -->
     <div class="ig-grid reveal rd2">
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">🎬</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">🛸</span>
-          <span class="ig-caption">PICHILEMU<br>DESDE EL AIRE</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">🛸</div>
+        <img src="./assets/img/ig-4.jpg" alt="Olas desde el drone, costa de Chile" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">OLAS DESDE ARRIBA</span></div>
       </a>
-
-      <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">📸</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">⚡</span>
-          <span class="ig-caption">TUTORIAL<br>IA EN 60s</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
-      </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
         <div class="ig-post-type">🎬</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">🌊</span>
-          <span class="ig-caption">UN DIA EN<br>PICHILEMU</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <img src="./assets/img/ig-2.jpg" alt="Video con drone para cliente, casa moderna" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">VIDEO PARA CLIENTE</span></div>
       </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">📸</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">🤖</span>
-          <span class="ig-caption">BOT WHATSAPP<br>EN VIVO</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">🛸</div>
+        <img src="./assets/img/ig-1.jpg" alt="Caleta en la costa de Chile desde el drone" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">LA CALETA</span></div>
       </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">🎬</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">🚐</span>
-          <span class="ig-caption">LA CAMPER<br>EN ALEMANIA</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">💻</div>
+        <img src="./assets/img/ig-6.jpg" alt="Oficina de Kreathur" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">OFICINA KREATHUR</span></div>
       </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">📸</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">💻</span>
-          <span class="ig-caption">DETRAS<br>DE KREATHUR</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">✈️</div>
+        <img src="./assets/img/ig-5.jpg" alt="Prainha Brasil desde el drone" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">PRAINHA, BRASIL</span></div>
       </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">🎬</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">🏄</span>
-          <span class="ig-caption">SURF Y<br>TRABAJO</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">🛸</div>
+        <img src="./assets/img/ig-9.jpg" alt="Domo geodesico en el bosque" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">DOMO EN EL BOSQUE</span></div>
       </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">📸</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">☕</span>
-          <span class="ig-caption">MAÑANAS<br>DE OFICINA</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">🌊</div>
+        <img src="./assets/img/ig-7.jpg" alt="Playa con niebla en la costa chilena" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">COSTA CON NIEBLA</span></div>
       </a>
-
       <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
-        <div class="ig-post-type">🎬</div>
-        <div class="ig-post-placeholder">
-          <span class="ig-emoji">🛸</span>
-          <span class="ig-caption">PUNTA<br>DE LOBOS</span>
-        </div>
-        <div class="ig-post-overlay">
-          <span class="ig-post-stat">❤️ ver</span>
-        </div>
+        <div class="ig-post-type">🔨</div>
+        <img src="./assets/img/ig-8.jpg" alt="Tiny home en construccion" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">TINY HOME EN PROCESO</span></div>
+      </a>
+      <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener" class="ig-post">
+        <div class="ig-post-type">🌅</div>
+        <img src="./assets/img/ig-3.jpg" alt="Casas al atardecer desde el drone" loading="lazy">
+        <div class="ig-post-overlay"><span class="ig-post-stat">ATARDECER DE TRABAJO</span></div>
       </a>
     </div>
 
@@ -3811,15 +3812,16 @@ document.querySelectorAll('form[action*="web3forms"]').forEach(f => {
   });
 });
 
-// Reel Kreathur: reproduce solo cuando esta visible (ahorra datos, mas fluido)
-const reelVideo = document.querySelector('.reel-video');
-if (reelVideo && 'IntersectionObserver' in window) {
-  new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (en.isIntersecting) { reelVideo.play().catch(() => {}); }
-      else { reelVideo.pause(); }
-    });
-  }, { threshold: 0.3 }).observe(reelVideo);
+// Videos (hero + reel): reproducen solo cuando estan visibles (ahorra datos y bateria)
+if ('IntersectionObserver' in window) {
+  document.querySelectorAll('.reel-video, #heroVideo').forEach(v => {
+    new IntersectionObserver(entries => {
+      entries.forEach(en => {
+        if (en.isIntersecting) { v.play().catch(() => {}); }
+        else { v.pause(); }
+      });
+    }, { threshold: 0.2 }).observe(v);
+  });
 }
 </script>
 </body>
