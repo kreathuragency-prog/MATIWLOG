@@ -1423,6 +1423,104 @@ body::after {
 .wa-fab:hover { transform: scale(1.1); }
 .wa-fab svg { width: 26px; height: 26px; fill: white; }
 
+/* ═══ MANIFIESTO (frases) ═══ */
+.manifiesto {
+  position: relative;
+  padding: 120px 0;
+  z-index: 1;
+  overflow: hidden;
+}
+.manifiesto-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+.manifiesto-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  opacity: 0.28;
+}
+.manifiesto-bg::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: linear-gradient(180deg, var(--bg) 0%, rgba(12,12,20,0.5) 40%, rgba(12,12,20,0.5) 60%, var(--bg) 100%);
+}
+.manifiesto-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
+}
+.manifiesto-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 28px;
+}
+.manifiesto-quote {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(1.8rem, 4.2vw, 3.2rem);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -1.5px;
+  margin-bottom: 24px;
+  min-height: 2.2em;
+  transition: opacity 0.6s ease;
+}
+.manifiesto-quote .hl {
+  background: linear-gradient(135deg, var(--cyan-bright), var(--ocean), var(--amber-bright));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.manifiesto-author {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 13px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+}
+.manifiesto-dots {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 36px;
+}
+.manifiesto-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--text-dim);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  padding: 0;
+}
+.manifiesto-dot.active { background: var(--cyan); width: 22px; border-radius: 100px; }
+.manifiesto-share {
+  margin-top: 40px;
+}
+.manifiesto-share a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  border: 1.5px solid var(--border-hover);
+  border-radius: 100px;
+  color: var(--text);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: all 0.3s;
+}
+.manifiesto-share a:hover { border-color: var(--cyan); color: var(--cyan); }
+
+@media (max-width: 600px) {
+  .manifiesto { padding: 80px 0; }
+  .manifiesto-quote { min-height: 3em; }
+}
+
 /* ═══ MI HISTORIA ═══ */
 .story-section {
   padding: 100px 0;
@@ -2729,13 +2827,13 @@ body::after {
     <div class="hero-visual reveal rd2">
       <div class="hero-video-wrap">
         <iframe
-          src="https://www.youtube.com/embed/484seZN8MyI?rel=0&modestbranding=1"
-          title="1 Ano de Trabajo en 90 Segundos - Fiat Ducato a Camper en Alemania"
+          src="https://www.youtube.com/embed/3vJ-abzVDUA?start=96&rel=0&modestbranding=1"
+          title="Pandemia en Alemania-Dinamarca — Eurotrip 2022"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
           loading="lazy">
         </iframe>
-        <div class="hero-video-tag">// timelapse camper build</div>
+        <div class="hero-video-tag">// eurotrip 2022 · mi canal</div>
       </div>
     </div>
   </div>
@@ -2840,6 +2938,28 @@ body::after {
           <img class="timeline-img" src="./assets/img/tl-viajes.jpg" alt="Prainha Brasil desde el drone" loading="lazy">
           <div class="timeline-img-cap">// PRAINHA, BRASIL — DESDE MI DRONE, 2022</div>
         </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFIESTO (frases viajeras en voz de Mati) -->
+<section class="manifiesto" id="manifiesto">
+  <div class="manifiesto-bg" aria-hidden="true">
+    <img src="./assets/img/tl-viajes.jpg" alt="" loading="lazy">
+  </div>
+  <div class="container">
+    <div class="manifiesto-inner">
+      <p class="manifiesto-eyebrow">// lo que aprendi en el camino</p>
+      <p class="manifiesto-quote" id="manifiestoQuote">
+        La zona de confort es el lugar mas caro donde puedes vivir:<br><span class="hl">te cuesta todos los suenos que no persigues.</span>
+      </p>
+      <p class="manifiesto-author">— Mati Aguilera</p>
+      <div class="manifiesto-dots" id="manifiestoDots"></div>
+      <div class="manifiesto-share">
+        <a href="https://wa.me/?text=La%20zona%20de%20confort%20es%20el%20lugar%20mas%20caro%20donde%20puedes%20vivir.%20-%20Mati%20Aguilera%20%C2%B7%20matiwlog.com" target="_blank" rel="noopener">
+          💬 Compartir esta idea
+        </a>
       </div>
     </div>
   </div>
@@ -3854,6 +3974,40 @@ document.querySelectorAll('form[action*="web3forms"]').forEach(f => {
     }
   });
 });
+
+// Manifiesto: frases viajeras rotativas en voz de Mati
+(() => {
+  const quotes = [
+    'La zona de confort es el lugar mas caro donde puedes vivir:<br><span class="hl">te cuesta todos los suenos que no persigues.</span>',
+    'Nadie te cuenta la verdad desde una oficina con aire acondicionado.<br><span class="hl">El mundo real esta afuera.</span>',
+    'No espere a tener todo resuelto para irme.<br><span class="hl">Me fui, y ahi empece a resolverlo.</span>',
+    'Trabajar y viajar no son opuestos.<br><span class="hl">Esa mentira me la cargue 20 anos.</span>',
+    'Aprendi mas de mi en una furgoneta vieja<br><span class="hl">que en cualquier sala de clases.</span>',
+    'El mundo no premia al que espera el momento perfecto.<br><span class="hl">Premia al que parte con miedo igual.</span>',
+    'Puedes tener una vida comoda o una vida tuya.<br><span class="hl">Casi nunca son la misma.</span>'
+  ];
+  const el = document.getElementById('manifiestoQuote');
+  const dotsWrap = document.getElementById('manifiestoDots');
+  if (!el || !dotsWrap) return;
+  let i = 0, timer;
+  quotes.forEach((_, idx) => {
+    const b = document.createElement('button');
+    b.className = 'manifiesto-dot' + (idx === 0 ? ' active' : '');
+    b.setAttribute('aria-label', 'Frase ' + (idx + 1));
+    b.addEventListener('click', () => { show(idx); reset(); });
+    dotsWrap.appendChild(b);
+  });
+  const dots = [...dotsWrap.children];
+  function show(n) {
+    i = n;
+    el.style.opacity = 0;
+    setTimeout(() => { el.innerHTML = quotes[n]; el.style.opacity = 1; }, 300);
+    dots.forEach((d, idx) => d.classList.toggle('active', idx === n));
+  }
+  function next() { show((i + 1) % quotes.length); }
+  function reset() { clearInterval(timer); timer = setInterval(next, 6000); }
+  reset();
+})();
 
 // Screenshots mShots: si un sitio cae, degrada a placeholder con marca (nunca imagen rota)
 document.querySelectorAll('.project-thumb-real img[src*="mshots"]').forEach(img => {
