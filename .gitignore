@@ -18,6 +18,9 @@ deploy.ps1
 # Reportes internos
 reports/
 
+# Plantilla interna para generar og-image (no es parte del sitio)
+og-card.html
+
 # Sistema
 Thumbs.db
 desktop.ini
