@@ -292,16 +292,26 @@ body::after {
 .nav-toggle span { display: block; width: 20px; height: 2px; background: var(--text); margin: 4px 0; border-radius: 2px; }
 
 @media (max-width: 768px) {
-  .nav-toggle { display: block; }
+  .nav-toggle { display: block; z-index: 210; position: relative; }
   .nav-links {
-    position: fixed; top: 0; right: -100%; width: 280px; height: 100vh;
-    flex-direction: column; justify-content: center; gap: 24px;
-    background: var(--bg-card); padding: 40px;
-    transition: right 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    position: fixed; top: 0; right: 0; bottom: 0;
+    width: min(290px, 84vw); height: 100%;
+    flex-direction: column; justify-content: center; gap: 26px;
+    background: var(--bg-card); padding: 80px 40px 40px;
+    transform: translateX(105%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     border-left: 1px solid var(--border);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.5);
+    z-index: 200;
   }
-  .nav-links.open { right: 0; }
-  .nav-links a { font-size: 18px; color: var(--text); }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a { font-size: 19px; color: var(--text); }
+  /* overlay backdrop cuando el menu esta abierto */
+  body.menu-open::after {
+    content: ''; position: fixed; inset: 0;
+    background: rgba(0,0,0,0.5); z-index: 150;
+    animation: fadeIn 0.3s ease;
+  }
 }
 
 /* ═══ HERO ═══ */
@@ -1455,22 +1465,23 @@ body::after {
 .social-bar a.fb:hover svg { fill: #1877F2; }
 
 @media (max-width: 1100px) {
+  /* En movil: barra social abajo-IZQUIERDA para no chocar con el MatiBot (abajo-derecha) */
   .social-bar {
-    left: auto; right: 24px;
-    top: auto; bottom: 90px;
+    left: 14px; right: auto;
+    top: auto; bottom: calc(16px + env(safe-area-inset-bottom));
     transform: none;
     flex-direction: row;
   }
 }
 @media (max-width: 480px) {
-  .social-bar { padding: 6px 6px; }
+  .social-bar { padding: 5px 5px; gap: 6px; }
   .social-bar a { width: 32px; height: 32px; }
   .social-bar svg { width: 16px; height: 16px; }
 }
 
 /* ═══ MATIBOT ═══ */
 .matibot-fab {
-  position: fixed; bottom: 24px; right: 24px; z-index: 95;
+  position: fixed; bottom: calc(20px + env(safe-area-inset-bottom)); right: 18px; z-index: 95;
   display: flex; align-items: center; gap: 10px;
   background: linear-gradient(135deg, var(--cyan), var(--ocean));
   color: var(--bg);
@@ -4095,8 +4106,16 @@ window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.
 // Mobile menu
 const toggle = document.getElementById('navToggle');
 const links = document.getElementById('navLinks');
-toggle.addEventListener('click', () => links.classList.toggle('open'));
-links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => links.classList.remove('open')));
+function setMenu(open) {
+  links.classList.toggle('open', open);
+  document.body.classList.toggle('menu-open', open);
+}
+toggle.addEventListener('click', () => setMenu(!links.classList.contains('open')));
+links.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
+// cerrar al tocar el fondo oscuro
+document.addEventListener('click', e => {
+  if (document.body.classList.contains('menu-open') && !links.contains(e.target) && !toggle.contains(e.target)) setMenu(false);
+});
 
 // Scroll reveal
 const obs = new IntersectionObserver((entries) => {
