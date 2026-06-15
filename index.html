@@ -1497,7 +1497,10 @@ body::after {
   display: flex; align-items: center; justify-content: center;
   font-size: 18px;
   flex-shrink: 0;
+  overflow: hidden;
 }
+.matibot-fab-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.matibot-header-avatar img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .matibot-fab-dot {
   width: 8px; height: 8px; border-radius: 50%;
   background: #25D366;
@@ -1733,6 +1736,15 @@ body::after {
   max-width: 720px;
   margin: 0 auto 60px;
   text-align: center;
+}
+.story-portrait {
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 24px;
+  display: block;
+  border: 3px solid var(--cyan);
+  box-shadow: 0 0 40px var(--cyan-glow);
 }
 .story-intro .section-tag { justify-content: center; }
 .story-intro .section-tag::before { display: none; }
@@ -2017,6 +2029,7 @@ body::after {
   font-size: 32px;
   color: var(--text);
 }
+.ig-avatar-inner img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
 .ig-info h3 {
   font-family: 'Space Grotesk', sans-serif;
   font-size: 22px;
@@ -3068,8 +3081,9 @@ body::after {
 <section class="story-section" id="mi-historia">
   <div class="container">
     <div class="story-intro reveal">
+      <img src="./assets/img/mati-avatar.jpg" alt="Mati Aguilera en la costa de Chile" class="story-portrait">
       <p class="section-tag">Mi historia</p>
-      <h2>Llevo emprendiendo<br><span class="hl">desde los 16.</span></h2>
+      <h2>Hola, soy Mati.<br>Emprendo <span class="hl">desde los 16.</span></h2>
       <p>Nunca trabaje para nadie. Desde adolescente empece ayudando a mis papas con sus negocios — y siempre fui el que metia tecnologia donde nadie mas la metia. <strong>Imaginarme en una oficina me deprime</strong> — siempre busque la forma de trabajar y viajar al mismo tiempo. Lo mio es <em>viajar, conocer, aprender, ensenar, buscar y encontrar.</em> Te cuento en orden:</p>
     </div>
 
@@ -3550,7 +3564,7 @@ body::after {
     <!-- Header tipo perfil de Instagram -->
     <div class="ig-header reveal rd1">
       <div class="ig-avatar">
-        <div class="ig-avatar-inner">M</div>
+        <div class="ig-avatar-inner"><img src="./assets/img/mati-avatar.jpg" alt="Mati Aguilera"></div>
       </div>
       <div class="ig-info">
         <h3>matiwlog <span class="verified">✓</span></h3>
@@ -4055,14 +4069,14 @@ body::after {
 
 <!-- MATIBOT -->
 <button class="matibot-fab" id="matibotFab" aria-label="Abrir MatiBot">
-  <span class="matibot-fab-avatar">🤖</span>
+  <span class="matibot-fab-avatar"><img src="./assets/img/mati-avatar.jpg" alt="Mati"></span>
   <span class="matibot-fab-dot"></span>
   <span class="matibot-fab-label">Pregúntale a MatiBot</span>
 </button>
 
 <div class="matibot-panel" id="matibotPanel" role="dialog" aria-label="MatiBot">
   <div class="matibot-header">
-    <div class="matibot-header-avatar">🤖</div>
+    <div class="matibot-header-avatar"><img src="./assets/img/mati-avatar.jpg" alt="Mati"></div>
     <div class="matibot-header-info">
       <h4>MatiBot</h4>
       <span class="online">en línea · responde al instante</span>
