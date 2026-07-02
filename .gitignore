@@ -2,6 +2,9 @@
 # Producto pagado (Pack PRO $17)
 pack-pro/
 
+# Productos pagados: contenido fuente de los 3 ebooks
+ebooks/
+
 # Estrategia de negocio interna
 IMPORTACIONES-EUROPA-PLAN.md
 VIDEO-CLAUDE-PLAN.md
