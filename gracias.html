@@ -286,13 +286,13 @@ h1 .hl {
     <div class="success-box">
       <div class="check-icon"></div>
       <p class="eyebrow">// suscripcion confirmada</p>
-      <h1>Listo. Te llega <span class="hl">en 1 minuto.</span></h1>
-      <p class="lead">Revisa tu inbox (y la carpeta de spam, por si acaso). Te mande el link para descargar la <strong>Guia IA Practica</strong> ahora mismo.</p>
+      <h1>Listo. Tu guia <span class="hl">se esta descargando.</span></h1>
+      <p class="lead">Tu <strong>Guia IA Practica</strong> (PDF) empieza a descargarse sola en un segundo. Si no arranca, usa el boton de abajo. Guardala en tu telefono o computadora.</p>
 
-      <a href="guia-ia-practica.pdf" class="download-btn" download>
-        📥 Descargar PDF ahora
+      <a href="guia-ia-practica.pdf" class="download-btn" download="Guia-IA-Practica-MATIWLOG.pdf">
+        📥 Descargar la guia ahora
       </a>
-      <p class="tiny">// si tu inbox demora, descarga directo desde aqui</p>
+      <p class="tiny">// descarga directa · es tuya para siempre</p>
 
       <!-- UPSELL -->
       <div class="upsell">
@@ -333,5 +333,16 @@ h1 .hl {
   </div>
 </footer>
 
+<script>
+  // La guia se descarga sola al entrar (ademas del boton manual)
+  window.addEventListener('load', function () {
+    setTimeout(function () {
+      var a = document.createElement('a');
+      a.href = 'guia-ia-practica.pdf';
+      a.setAttribute('download', 'Guia-IA-Practica-MATIWLOG.pdf');
+      document.body.appendChild(a); a.click(); a.remove();
+    }, 700);
+  });
+</script>
 </body>
 </html>
