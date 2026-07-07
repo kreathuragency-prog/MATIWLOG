@@ -34,6 +34,20 @@ Los asistentes tipo chat (como ChatGPT) son tu punto de partida. Es como tener u
 
 **Caso real:** un cliente necesitaba 50 descripciones de producto para su e-commerce. Con IA las generamos en 2 horas. Sin IA, hubiera tomado 2 semanas.
 
+### Cómo escribir un prompt que SÍ funciona (R-C-T-F)
+
+El 90% de la gente le escribe a la IA como si fuera Google: *"ideas para marketing"*. Y recibe respuestas genéricas que sirven para cualquiera y no le sirven a nadie. La diferencia entre una respuesta inútil y una que pegas hoy está en cómo pides. Yo uso siempre la misma estructura de 4 partes:
+
+- **Rol:** dile qué es. *"Eres experto en email marketing para pymes chilenas."*
+- **Contexto:** dale tu situación. *"Tengo una tienda de ropa de nieve, vendo por Instagram, mi cliente tiene 25-40 años."*
+- **Tarea:** pide UNA cosa clara. *"Escribe 3 asuntos de correo para un lanzamiento de invierno."*
+- **Formato:** di cómo lo quieres. *"Máximo 6 palabras cada uno, tono cercano, sin emojis."*
+
+**Antes:** "dame ideas de correos para mi tienda" → respuesta de manual, olvidable.
+**Después (con R-C-T-F):** el mismo modelo te devuelve 3 asuntos que suenan a TU marca y que puedes usar en el próximo envío.
+
+Es la misma estructura para todo: textos, análisis, código, propuestas. Cámbiale el contenido, nunca el orden. Pruébala hoy con algo que necesites de verdad — vas a notar la diferencia en el primer intento.
+
 ### n8n (automatización)
 Conecta todas las herramientas entre sí. Es como tener un empleado robot que nunca duerme.
 
