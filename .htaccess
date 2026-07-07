@@ -26,5 +26,5 @@ RewriteRule ^(.*)$ https://matiwlog.com/$1 [L,R=301]
   AddOutputFilterByType DEFLATE text/html text/css text/javascript application/javascript application/json image/svg+xml
 </IfModule>
 
-# 404 -> home
-ErrorDocument 404 /index.html
+# 404 -> pagina de error de marca (status 404 real, no soft-404 a la home)
+ErrorDocument 404 /404.html
