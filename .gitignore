@@ -26,6 +26,9 @@ reports/
 # Plantilla interna para generar og-image (no es parte del sitio)
 og-card.html
 
+# Directorio interno de Claude Code (worktrees, settings locales)
+.claude/
+
 # Sistema
 Thumbs.db
 desktop.ini
