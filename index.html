@@ -3061,6 +3061,7 @@ body::after {
     </button>
     <div class="nav-links" id="navLinks">
       <a href="#mi-historia">Mi historia</a>
+      <a href="#krea">🤖 KREA</a>
       <a href="#importo-europa">🇩🇪 Importo</a>
       <a href="#tienda">📚 Libros</a>
       <a href="#videos">YouTube</a>
@@ -3111,19 +3112,24 @@ body::after {
         </div>
       </div>
     </div>
-    <div class="hero-visual reveal rd2">
-      <div class="hero-video-wrap">
-        <iframe
-          src="https://www.youtube.com/embed/3vJ-abzVDUA?start=96&rel=0&modestbranding=1"
-          title="Pandemia en Alemania-Dinamarca — Eurotrip 2022"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          loading="lazy">
-        </iframe>
-        <div class="hero-video-tag">// eurotrip 2022 · mi canal</div>
+  </div>
+  </div>
+</section>
+
+<!-- KREA — mi mayor logro -->
+<section class="krea-section" id="krea">
+  <div class="container">
+    <div class="krea-box reveal">
+      <div class="krea-content reveal reveal-left">
+        <p class="krea-eyebrow">// MI CREACIÓN</p>
+        <h2>Te presento a <span class="hl">KREA</span>.</h2>
+        <p>KREA es la asistente de inteligencia artificial hiperrealista que construí. Trabaja por mí las <strong>24 horas</strong>: atiende a mis clientes, crea mi contenido y ordena mis finanzas — mientras yo vivo mi vida real, viajo y estoy con mi familia.</p>
+        <p>No es una demo ni una promesa. Es la prueba viva de lo que soy capaz de construir. Si quieres ver hasta dónde llega la IA bien aplicada, mírala en acción. 👇</p>
+      </div>
+      <div class="krea-phone reveal reveal-right">
+        <video class="krea-video" src="./assets/krea-reel.mp4" poster="./assets/krea-poster.jpg" controls playsinline preload="metadata"></video>
       </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -3190,8 +3196,8 @@ body::after {
         <div class="timeline-dot">🌊</div>
         <div class="timeline-content">
           <div class="timeline-year">// VUELTA A CHILE · PICHILEMU</div>
-          <h3>Volvi y eleji vivir frente al mar</h3>
-          <p>Pude haber vuelto a Santiago. Eleji Pichilemu. <strong>Vivo a 3 cuadras de la playa, trabajo desde un escritorio que mira el mar.</strong> No es paraiso (hay rachas de viento que te vuelan los papeles) pero es lo que queria.</p>
+          <h3>Volví y elegí vivir cerca del mar</h3>
+          <p>Pude haber vuelto a Santiago. Elegí Pichilemu. <strong>Vivo a 3 cuadras de la playa, trabajo desde un escritorio que mira el mar.</strong> No es paraíso (hay rachas de viento que te vuelan los papeles) pero es lo que quería.</p>
           <img class="timeline-img" src="./assets/img/tl-costa.jpg" alt="La costa de Chile desde el drone de Mati" loading="lazy" width="900" height="506">
           <div class="timeline-img-cap">// LA COSTA DONDE VIVO — GRABADA CON MI DRONE</div>
         </div>
@@ -3212,7 +3218,7 @@ body::after {
         <div class="timeline-dot">🇩🇪</div>
         <div class="timeline-content">
           <div class="timeline-year">// AHORA · DE NUEVO EN ALEMANIA</div>
-          <h3>Volvi a Europa — y abri algo nuevo</h3>
+          <h3>Volví a Europa — y abrí algo nuevo</h3>
           <p>Estoy de nuevo en Alemania. Esta vez con un proposito distinto: <strong>aprovechar que conozco la logística para ayudar a otros chilenos a importar.</strong> Si hay algo que quieras traer desde Europa — herramientas, autopartes, camaras, drones, ropa de marca — yo te lo busco y te lo gestiono. <strong>Hay mas info abajo</strong>, o escríbeme al WhatsApp.</p>
         </div>
       </div>
@@ -3378,7 +3384,7 @@ body::after {
         <ul class="lead-features">
           <li>Las herramientas que de verdad uso (no las que pagan promo)</li>
           <li>Mis precios reales (los que cobro en Kreathur)</li>
-          <li>Errores que cometi (cuesta admitirlos pero ahi van)</li>
+          <li>Errores que cometí (cuesta admitirlos pero ahi van)</li>
           <li>Por donde empezar si recien arrancas</li>
         </ul>
         <!-- Web3Forms activo (access_key real): el lead llega al correo configurado en la key -->
@@ -3388,7 +3394,8 @@ body::after {
           <input type="hidden" name="from_name" value="MATIWLOG Lead Magnet">
           <input type="hidden" name="redirect" value="https://matiwlog.com/gracias.html">
           <input type="hidden" name="source" value="hero-leadmagnet">
-          <input type="email" name="email" placeholder="tu@email.com" required>
+          <label class="visually-hidden" for="lead-email">Tu correo electrónico</label>
+          <input id="lead-email" type="email" name="email" placeholder="tu@email.com" autocomplete="email" required>
           <button type="submit">Descargar →</button>
         </form>
         <p class="lead-mini">// 0 spam · 1 email semanal · cancelas cuando quieras</p>
@@ -3398,7 +3405,7 @@ body::after {
           <div>
             <div class="lead-book-tag">// MATIWLOG // gratis</div>
           </div>
-          <div class="lead-book-title">Guía<br>IA <span class="hl">Practica</span></div>
+          <div class="lead-book-title">Guía<br>IA <span class="hl">Práctica</span></div>
           <div class="lead-book-bottom">v1.0 · 5 capitulos · PDF</div>
         </div>
       </div>
@@ -3417,7 +3424,7 @@ body::after {
     <div class="yt-banner reveal">
       <div class="yt-banner-content">
         <span class="yt-banner-eyebrow">▶ YOUTUBE · NUEVO VIDEO CADA SEMANA</span>
-        <h2>Suscribete para no perderte<br>los proximos tutoriales.</h2>
+        <h2>Suscríbete para no perderte<br>los próximos tutoriales.</h2>
         <p>Te aviso cuando subo algo. Cero spam, solo notificacion cuando hay video.</p>
       </div>
       <a href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener" class="yt-sub-btn">
@@ -3705,7 +3712,7 @@ body::after {
 <section class="section" id="mis-negocios">
   <div class="container">
     <p class="section-tag reveal">Mis tiendas</p>
-    <h2 class="section-heading reveal rd1">Compra directo en<br><span style="color:var(--amber)">mis negocios.</span></h2>
+    <h2 class="section-heading reveal reveal-left rd1">Compra directo en<br><span style="color:var(--amber)">mis negocios.</span></h2>
     <p class="section-sub reveal rd2">No solo construyo para otros — tengo mis propias tiendas funcionando. Entra y compra: ropa de nieve, importaciones al por mayor, moda hecha en Pichilemu.</p>
     <div class="projects-grid">
 
@@ -3768,7 +3775,7 @@ body::after {
 <section class="section" id="proyectos">
   <div class="container">
     <p class="section-tag reveal">Trabajo para clientes · Kreathur</p>
-    <h2 class="section-heading reveal rd1">Tambien lo hago<br><span style="color:var(--cyan)">para otros negocios.</span></h2>
+    <h2 class="section-heading reveal reveal-right rd1">Tambien lo hago<br><span style="color:var(--cyan)">para otros negocios.</span></h2>
     <p class="section-sub reveal rd2">Con Kreathur le construyo a otros lo mismo que a los mios: sitios, e-commerce, bots con IA. Estos estan en produccion ahora — haz clic y velos en vivo.</p>
     <div class="projects-grid">
 
@@ -3969,7 +3976,7 @@ body::after {
     <h2 class="section-heading reveal rd1">Lo que sé,<br><span style="color:var(--amber)">empaquetado para ti.</span></h2>
     <p class="section-sub reveal rd2">Tres guías prácticas sobre lo que hago de verdad: importar desde Europa, usar IA en tu negocio, y volar drones para crear. Pago único, en español, descarga inmediata.</p>
 
-    <div class="tienda-grid reveal rd1">
+    <div class="tienda-grid reveal reveal-scale rd1">
       <a href="./libro-importaciones.html" class="tienda-card">
         <div class="tc-cover imp">
           <div class="tc-emoji">📦</div>
@@ -4038,13 +4045,13 @@ body::after {
     <h2 class="section-heading reveal rd1">El pack que<br><span style="color:var(--amber)">te paga solo.</span></h2>
     <p class="section-sub reveal rd2">La guía completa + plantillas listas que uso con mis clientes reales. Una sola venta te lo recupera 10 veces.</p>
 
-    <div class="product-hero reveal rd1">
+    <div class="product-hero reveal reveal-scale rd1">
       <div class="product-hero-content">
         <div class="product-badge-pro">PRO · EARLY BIRD</div>
-        <h2>Pack <span class="hl">IA Practica PRO</span><br>— todo lo que uso a diario.</h2>
-        <p>El kit completo que uso con mis clientes en Kreathur. Sin teoria, sin paja, listo para descargar y usar hoy mismo.</p>
+        <h2>Pack <span class="hl">IA Práctica PRO</span><br>— todo lo que uso a diario.</h2>
+        <p>El kit completo que uso con mis clientes en Kreathur. Sin teoría, sin paja, listo para descargar y usar hoy mismo.</p>
         <ul class="product-includes">
-          <li><strong>Guía PRO (20+ pag PDF):</strong> casos reales con numeros, precios sin filtro, errores que cometi</li>
+          <li><strong>Guía PRO (20+ pag PDF):</strong> casos reales con números, precios sin filtro, errores que cometí</li>
           <li><strong>3 workflows n8n listos:</strong> chatbot WhatsApp, lead capture a CRM, auto-publish a redes</li>
           <li><strong>20 prompts probados:</strong> los exactos que uso a diario en mis proyectos</li>
           <li><strong>Plantilla propuesta comercial:</strong> la que me cierra deals de $1,500+ USD</li>
@@ -4059,7 +4066,7 @@ body::after {
         <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20el%20Pack%20IA%20Practica%20PRO%20(%2417%20USD)%20-%20como%20pago%3F" target="_blank" rel="noopener" class="btn-buy">
           Lo quiero — escribeme →
         </a>
-        <p class="product-guarantee">// 7 dias garantia · te lo envio apenas confirmes el pago</p>
+        <p class="product-guarantee">// 7 días garantía · te lo envio apenas confirmes el pago</p>
       </div>
       <div class="product-mockup">
         <img src="./assets/img/packpro-cover.jpg" alt="Pack IA PRO — portada" class="product-cover-img" loading="lazy" width="720" height="960">
@@ -4081,13 +4088,13 @@ body::after {
         <div class="consult-name">Plan IA para tu negocio</div>
         <div class="consult-time">60 minutos · Zoom · grabada</div>
         <div class="consult-price">$97 <small>USD</small></div>
-        <p class="consult-desc">Llegas con tu negocio, sales con un plan claro de IA + automatización para los proximos 90 dias.</p>
+        <p class="consult-desc">Llegas con tu negocio, sales con un plan claro de IA + automatización para los próximos 90 días.</p>
         <ul class="consult-feat">
           <li>Auditoria de tus procesos actuales</li>
           <li>Roadmap concreto (que automatizar primero)</li>
           <li>Recomendacion de stack y costos reales</li>
           <li>Grabacion + documento de la sesion</li>
-          <li>7 dias de follow-up por WhatsApp</li>
+          <li>7 días de follow-up por WhatsApp</li>
         </ul>
         <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20agendar%20la%20Sesion%20Estrategica%201%3A1%20(%2497%20USD)" target="_blank" rel="noopener" class="btn-consult cta">Agendar por WhatsApp →</a>
       </div>
@@ -4129,7 +4136,7 @@ body::after {
       </details>
       <details class="faq-item">
         <summary>Cuanto demora en llegar a Chile?</summary>
-        <p>Por via aerea entre 7 y 15 dias. Por via maritima (cargas grandes como bicicletas o muebles) entre 30 y 45 dias. Todo viaja con seguro incluido y te paso el tracking.</p>
+        <p>Por via aerea entre 7 y 15 días. Por via maritima (cargas grandes como bicicletas o muebles) entre 30 y 45 días. Todo viaja con seguro incluido y te paso el tracking.</p>
       </details>
       <details class="faq-item">
         <summary>Que pasa si llega dañado?</summary>
@@ -4145,7 +4152,7 @@ body::after {
       </details>
       <details class="faq-item">
         <summary>Que es un agente de IA para negocios y sirve para el mio?</summary>
-        <p>Un agente de IA es un programa que ejecuta tareas solo: responde WhatsApp, cotiza, agenda y hace seguimiento sin que estes conectado. No es teoria — yo los uso en mis propios negocios (el bot que cotiza en el WhatsApp de Importadora Maully corre 24/7). Si atiendes clientes por WhatsApp o redes, casi seguro te sirve. Escribeme y te digo honestamente si aplica a tu caso.</p>
+        <p>Un agente de IA es un programa que ejecuta tareas solo: responde WhatsApp, cotiza, agenda y hace seguimiento sin que estes conectado. No es teoría — yo los uso en mis propios negocios (el bot que cotiza en el WhatsApp de Importadora Maully corre 24/7). Si atiendes clientes por WhatsApp o redes, casi seguro te sirve. Escribeme y te digo honestamente si aplica a tu caso.</p>
       </details>
     </div>
   </div>
@@ -4203,7 +4210,8 @@ body::after {
         <input type="hidden" name="from_name" value="MATIWLOG Newsletter">
         <input type="hidden" name="redirect" value="https://matiwlog.com/gracias.html">
         <input type="hidden" name="source" value="footer-newsletter">
-        <input type="email" name="email" placeholder="tu@email.com" required>
+        <label class="visually-hidden" for="news-email">Tu correo electrónico</label>
+        <input id="news-email" type="email" name="email" placeholder="tu@email.com" autocomplete="email" required>
         <button type="submit">Suscribirme</button>
       </form>
     </div>
@@ -4564,6 +4572,100 @@ if ('IntersectionObserver' in window) {
         try { if (p.getCurrentTime() >= 10) { p.seekTo(0, true); } } catch(e) {}
       }
     }, 350);
+  })();
+  </script>
+
+  <!-- ═══ GLOW-UP 3D / INMERSIÓN (vanilla, mobile-safe) ═══ -->
+  <style id="glowup">
+  /* Respeto de accesibilidad: reduce el movimiento */
+  @media (prefers-reduced-motion: reduce){*,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;}.reveal{opacity:1!important;transform:none!important;}}
+
+  /* label oculto visualmente pero accesible a lectores de pantalla */
+  .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;border:0;}
+
+  /* ── HERO: colores reales + legibilidad sin oscurecer todo ── */
+  .hero-yt-cover iframe{opacity:1;}
+  .hero-bg::after{background:linear-gradient(180deg, rgba(12,12,20,0) 0%, rgba(12,12,20,0) 60%, rgba(12,12,20,0.55) 86%, var(--bg) 100%);}
+  .hero-grid{grid-template-columns:1fr;}
+  .hero-text{position:relative;}
+  .hero-text::before{content:'';position:absolute;z-index:-1;inset:-30px -50px -34px -40px;background:radial-gradient(115% 130% at 24% 46%, rgba(8,8,14,0.72), rgba(8,8,14,0.34) 48%, transparent 72%);border-radius:32px;pointer-events:none;}
+  .hero h1, .hero-eyebrow, .hero-desc{text-shadow:0 2px 20px rgba(0,0,0,0.6);}
+  .hero-stat-num, .hero-stat-label{text-shadow:0 2px 14px rgba(0,0,0,0.6);}
+  @media (max-width:900px){ .hero-text::before{inset:-24px -24px -28px -24px;background:radial-gradient(120% 120% at 50% 42%, rgba(8,8,14,0.7), rgba(8,8,14,0.3) 52%, transparent 76%);} }
+
+  /* ── orbes de glow vivos (drift + parallax con el puntero) ── */
+  @keyframes drift{
+    0%,100%{transform:translate3d(var(--ox,0px), var(--oy,0px), 0) scale(1);}
+    50%{transform:translate3d(calc(var(--ox,0px) + 30px), calc(var(--oy,0px) - 24px), 0) scale(1.08);}
+  }
+  body::after{animation:drift 20s ease-in-out infinite;will-change:transform;}
+  .glow-amber{animation:drift 26s ease-in-out infinite reverse;will-change:transform;}
+
+  /* ── sección KREA ── */
+  .krea-section{padding:100px 0;position:relative;z-index:1;}
+  .krea-box{display:grid;grid-template-columns:1.05fr 0.95fr;gap:60px;align-items:center;background:linear-gradient(135deg,#0a0a15,#12102a,#0d0a20);border:1px solid rgba(139,92,246,0.28);border-radius:var(--radius);padding:56px;position:relative;overflow:hidden;box-shadow:0 0 100px rgba(139,92,246,0.12);}
+  .krea-box::before{content:'';position:absolute;top:-30%;right:-10%;width:520px;height:520px;background:radial-gradient(circle, rgba(139,92,246,0.18), transparent 60%);pointer-events:none;}
+  .krea-box::after{content:'';position:absolute;bottom:-30%;left:-10%;width:460px;height:460px;background:radial-gradient(circle, var(--cyan-glow), transparent 60%);pointer-events:none;}
+  .krea-content{position:relative;z-index:2;}
+  .krea-eyebrow{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:#b794f4;margin-bottom:18px;display:flex;align-items:center;gap:8px;}
+  .krea-eyebrow::before{content:'';width:24px;height:1px;background:#b794f4;}
+  .krea-content h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:18px;color:var(--text);}
+  .krea-content h2 .hl{background:linear-gradient(135deg,#b794f4,var(--cyan-bright));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+  .krea-content p{font-size:15px;line-height:1.7;color:var(--text-muted);margin-bottom:18px;}
+  .krea-content p strong{color:var(--text);}
+  .krea-phone{position:relative;z-index:2;width:300px;max-width:100%;margin:0 auto;background:#0a0a12;border-radius:34px;padding:10px;border:1px solid rgba(255,255,255,0.15);box-shadow:0 30px 80px rgba(0,0,0,0.6), 0 0 60px rgba(139,92,246,0.18);}
+  .krea-phone::after{content:'';position:absolute;left:10px;right:10px;top:10px;height:38%;border-radius:26px 26px 0 0;pointer-events:none;background:linear-gradient(160deg, rgba(255,255,255,0.16), transparent 70%);z-index:3;}
+  .krea-video{width:100%;display:block;border-radius:26px;aspect-ratio:9/16;background:#000;object-fit:cover;}
+  @media (max-width:860px){ .krea-box{grid-template-columns:1fr;gap:36px;padding:36px 24px;text-align:center;} .krea-phone{order:-1;width:260px;} .krea-eyebrow{justify-content:center;} }
+
+  /* ── reveals variados (mismo IntersectionObserver, solo agrega .vis) ── */
+  .reveal-left{transform:translateX(-42px);}
+  .reveal-right{transform:translateX(42px);}
+  .reveal-scale{transform:scale(0.92);}
+  .reveal-left.vis,.reveal-right.vis,.reveal-scale.vis{transform:none;}
+
+  /* ── portadas de libro 3D (sección Mis libros) ── */
+  #tienda .tienda-card{perspective:1100px;}
+  #tienda .tc-cover{transform:rotateY(-22deg);transform-origin:left center;transition:transform .55s cubic-bezier(0.16,1,0.3,1), box-shadow .55s cubic-bezier(0.16,1,0.3,1);box-shadow:26px 26px 50px -24px rgba(0,0,0,0.7);}
+  #tienda .tc-cover::before{content:'';position:absolute;left:0;top:0;bottom:0;width:12px;background:linear-gradient(90deg, rgba(0,0,0,0.55), rgba(255,255,255,0.10));z-index:2;}
+  #tienda .tienda-card:hover .tc-cover{transform:rotateY(-6deg);box-shadow:14px 22px 46px -22px rgba(0,0,0,0.65);}
+
+  /* ── precios que explotan ── */
+  .product-price-now,.consult-price,.tienda-pack .tp-price,.tc-price{
+    font-family:'Space Grotesk',sans-serif;
+    font-size:clamp(2.4rem,7vw,4rem);font-weight:700;line-height:1;letter-spacing:-2px;
+    background:linear-gradient(135deg,var(--cyan-bright),var(--ocean),var(--amber-bright));
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+    background-size:200% auto;animation:shimmer 4s ease-in-out infinite;
+  }
+  .product-price-now small,.consult-price small,.tienda-pack .tp-price small,.tc-price small{
+    -webkit-text-fill-color:var(--text-dim);color:var(--text-dim);background:none;
+    font-size:0.9rem;font-weight:500;letter-spacing:0;font-family:'JetBrains Mono',monospace;
+  }
+  .tienda-pack .tp-price small{text-decoration:line-through;display:block;}
+  .tc-foot{flex-direction:column;align-items:flex-start;gap:10px;}
+
+  /* ── menú móvil: no enfocable cuando está cerrado ── */
+  @media (max-width:768px){ .nav-links{visibility:hidden;} .nav-links.open{visibility:visible;} }
+  </style>
+
+  <!-- parallax de orbes (solo con puntero fino y si se permite movimiento) -->
+  <script>
+  (function(){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    if (!window.matchMedia('(hover: hover)').matches) return;
+    var amber = document.querySelector('.glow-amber');
+    var body = document.body;
+    window.addEventListener('pointermove', function(e){
+      var x = (e.clientX / window.innerWidth  - 0.5);
+      var y = (e.clientY / window.innerHeight - 0.5);
+      body.style.setProperty('--ox', (x * 30).toFixed(1) + 'px');
+      body.style.setProperty('--oy', (y * 30).toFixed(1) + 'px');
+      if (amber){
+        amber.style.setProperty('--ox', (x * -50).toFixed(1) + 'px');
+        amber.style.setProperty('--oy', (y * -50).toFixed(1) + 'px');
+      }
+    }, { passive: true });
   })();
   </script>
 </body>

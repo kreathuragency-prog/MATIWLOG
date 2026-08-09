@@ -102,7 +102,7 @@
             <span class="price-usd">≈ US$16 · pago único</span>
           </div>
           <p class="price-note">// descarga digital PDF · actualizaciones de por vida incluidas</p>
-          <a href="#" class="btn-buy" data-buy>Comprar acceso ahora →</a>
+          <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20comprar%20el%20libro%20Drones%20para%20Creadores%20(%2414.990)%20-%20como%20pago%3F" class="btn-buy" target="_blank" rel="noopener" data-buy>Comprar acceso ahora →</a>
           <p class="buy-trust">🔒 Pago seguro vía Mercado Pago · entrega inmediata<br>7 días de garantía — si no te sirve, te devuelvo el 100%</p>
         </div>
         <p class="hero-secondary">¿Prefieres ver qué trae primero? <a href="#indice">Mira el índice completo ↓</a></p>
@@ -243,7 +243,7 @@
         <span class="price-usd">≈ US$16</span>
       </div>
       <p class="price-note" style="text-align:center;">// pago único · descarga inmediata · 7 días de garantía</p>
-      <a href="#" class="btn-buy" data-buy>Comprar acceso ahora →</a>
+      <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20comprar%20el%20libro%20Drones%20para%20Creadores%20(%2414.990)%20-%20como%20pago%3F" class="btn-buy" target="_blank" rel="noopener" data-buy>Comprar acceso ahora →</a>
       <p class="buy-trust">🔒 Pago seguro vía Mercado Pago</p>
     </div>
   </div>
@@ -307,7 +307,7 @@ document.querySelectorAll("[data-buy]").forEach(function(btn){
   if (MP_LINK) {
     btn.href = MP_LINK; btn.target = "_blank"; btn.rel = "noopener";
   } else {
-    btn.href = "https://wa.me/" + WA + "?text=" + encodeURIComponent("Hola Mati! Quiero comprar el libro \"" + PRODUCTO + "\". ¿Cómo pago?");
+    // El href de WhatsApp ya viene puesto en el HTML; solo aseguramos la apertura en pestaña nueva.
     btn.target = "_blank"; btn.rel = "noopener";
   }
 });
