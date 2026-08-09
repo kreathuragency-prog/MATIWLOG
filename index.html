@@ -359,6 +359,20 @@ body::after {
   object-fit: cover;
   opacity: 0.5;
 }
+.hero-yt-cover { position: absolute; inset: 0; overflow: hidden; }
+.hero-yt-cover iframe {
+  position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+  width: 100vw; height: 56.25vw; min-height: 100vh; min-width: 177.78vh;
+  border: 0; opacity: 0.5; pointer-events: none;
+}
+.hero-yt-link { position: absolute; inset: 0; z-index: 1; display: block; }
+.hero .container { position: relative; z-index: 5; }
+.hero-watermark {
+  position: absolute; left: 24px; bottom: 16px; z-index: 3; pointer-events: none;
+  font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 15px;
+  letter-spacing: 1px; color: rgba(255,255,255,0.6);
+  text-shadow: 0 1px 10px rgba(0,0,0,0.55);
+}
 .hero-bg::after {
   content: '';
   position: absolute;
@@ -3060,8 +3074,15 @@ body::after {
 <!-- HERO -->
 <section class="hero" id="hero">
   <div class="hero-bg" aria-hidden="true">
-    <video id="heroVideo" src="./assets/hero-olas.mp4" muted loop playsinline autoplay preload="metadata" poster="./assets/hero-poster.jpg"></video>
+    <div class="hero-yt-cover">
+      <iframe id="heroYT"
+        src="https://www.youtube.com/embed/NtZp-uVWRZo?enablejsapi=1&autoplay=1&mute=1&controls=0&loop=1&playlist=NtZp-uVWRZo&start=0&end=10&modestbranding=1&rel=0&showinfo=0&playsinline=1&iv_load_policy=3&disablekb=1&fs=0"
+        title="Costa de Chile desde mi drone" frameborder="0"
+        allow="autoplay; encrypted-media"></iframe>
+    </div>
   </div>
+  <a class="hero-yt-link" href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener" aria-label="Ir a mi canal de YouTube"></a>
+  <span class="hero-watermark">matiwlog</span>
   <span class="hero-real-tag">// grabado con mi drone · costa de Chile</span>
   <div class="container">
   <div class="hero-grid">
@@ -4522,5 +4543,28 @@ if ('IntersectionObserver' in window) {
 })();
 </script>
   <script src="js/kreathur-i18n.js" defer></script>
+  <!-- Hero YouTube: loop solo primeros 10s -->
+  <script>
+  (function(){
+    var tag = document.createElement('script');
+    tag.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(tag);
+    window.onYouTubeIframeAPIReady = function(){
+      try {
+        window._heroYT = new YT.Player('heroYT', {
+          events: {
+            'onReady': function(e){ e.target.mute(); e.target.playVideo(); }
+          }
+        });
+      } catch(err) {}
+    };
+    setInterval(function(){
+      var p = window._heroYT;
+      if (p && typeof p.getCurrentTime === 'function') {
+        try { if (p.getCurrentTime() >= 10) { p.seekTo(0, true); } } catch(e) {}
+      }
+    }, 350);
+  })();
+  </script>
 </body>
 </html>
