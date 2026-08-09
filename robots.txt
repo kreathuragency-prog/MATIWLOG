@@ -1,5 +1,10 @@
-﻿User-agent: *
+User-agent: *
 Allow: /
-Disallow: /gracias.html
+
+# gracias.html y recursos.html NO se bloquean aqui a proposito:
+# ambas llevan <meta name="robots" content="noindex">. Si las bloqueamos
+# en robots.txt el crawler nunca llega a leer ese noindex y Google puede
+# indexar la URL igual (sin contenido). Dejandolas rastreables, el noindex
+# si se aplica y quedan fuera del indice de verdad.
 
 Sitemap: https://matiwlog.com/sitemap.xml

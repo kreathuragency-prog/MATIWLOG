@@ -296,7 +296,7 @@ h1 .hl {
 
       <!-- UPSELL -->
       <div class="upsell">
-        <div class="upsell-tag">PACK PRO · 63% OFF SOLO HOY</div>
+        <div class="upsell-tag">PACK PRO · 63% OFF</div>
         <h2>Quieres lo que <span class="hl">la guia gratis NO trae?</span></h2>
         <p>3 workflows n8n listos para importar, 20 prompts probados, plantilla de propuesta comercial que cierra clientes de $1500+ USD y la guia PRO con casos reales.</p>
         <ul class="upsell-features">
@@ -311,9 +311,11 @@ h1 .hl {
             <span class="upsell-price">$17 <small>USD</small></span>
             <span class="upsell-was">$47</span>
           </div>
-          <!-- REEMPLAZA href con tu URL Gumroad -->
-          <a href="https://matiwlog.gumroad.com/l/pack-ia-pro" target="_blank" rel="noopener" class="upsell-btn">
-            Quiero el pack PRO →
+          <!-- Fallback a WhatsApp: el producto Gumroad /l/pack-ia-pro devuelve 404.
+               Cuando el producto este publicado, restaurar href a la URL de Gumroad (ver SETUP.md).
+               Mismo patron que ya se aplico en index.html. -->
+          <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20el%20Pack%20IA%20Practica%20PRO%20(%2417%20USD)%20-%20como%20pago%3F" target="_blank" rel="noopener" class="upsell-btn">
+            Lo quiero — escribeme →
           </a>
         </div>
       </div>

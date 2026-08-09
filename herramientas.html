@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Herramientas que uso · MatiWlog</title>
+<style>
+  :root{
+    --bg:#f3ece1; --bg2:#ece2d3; --card:#fffaf3; --ink:#2b2318; --muted:#7a6c58;
+    --line:#e0d5c3; --accent:#c8791f; --accent2:#1f6f6b;
+    --shadow:0 1px 0 rgba(43,35,24,.03), 0 14px 30px -18px rgba(43,35,24,.4);
+    --sans:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{--bg:#17130d;--bg2:#1e1810;--card:#221b12;--ink:#f0e8da;--muted:#b3a488;
+    --line:#3a2f20;--accent:#e6a34d;--accent2:#4bb3ad;--shadow:0 14px 40px -20px rgba(0,0,0,.85);}
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--ink);
+    font-family:var(--sans);line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .wrap{max-width:1080px;margin:0 auto;padding:44px 20px 90px;}
+  header.h{text-align:center;margin-bottom:10px;}
+  .kicker{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);font-weight:700;}
+  h1{font-size:clamp(28px,5vw,44px);letter-spacing:-.02em;margin:10px 0 8px;text-wrap:balance;}
+  .lead{color:var(--muted);max-width:60ch;margin:0 auto;font-size:16px;}
+  .disc{max-width:720px;margin:22px auto 0;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:12px 16px;font-size:13.5px;color:var(--muted);box-shadow:var(--shadow);}
+  .disc b{color:var(--ink);}
+  h2.sec{font-size:20px;margin:44px 0 6px;display:flex;align-items:center;gap:10px;}
+  h2.sec .tag{font-size:11px;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:999px;font-weight:700;}
+  .t-gana{background:color-mix(in srgb,var(--accent) 18%,transparent);color:var(--accent);}
+  .t-free{background:color-mix(in srgb,var(--accent2) 18%,transparent);color:var(--accent2);}
+  .sub{color:var(--muted);font-size:14px;margin:0 0 18px;}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;}
+  .banner{display:flex;flex-direction:column;text-decoration:none;color:inherit;background:var(--card);
+    border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow);
+    transition:transform .18s ease, box-shadow .18s ease;}
+  .banner:hover{transform:translateY(-4px);box-shadow:0 22px 40px -20px rgba(43,35,24,.5);}
+  .banner:focus-visible{outline:3px solid var(--accent);outline-offset:2px;}
+  .art{height:104px;display:flex;align-items:center;justify-content:center;position:relative;
+    background:linear-gradient(135deg,var(--c1),var(--c2));}
+  .art .emoji{font-size:46px;filter:drop-shadow(0 3px 6px rgba(0,0,0,.25));}
+  .art .badge{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.92);color:#7a3d00;
+    font-size:10px;font-weight:800;letter-spacing:.06em;padding:3px 8px;border-radius:999px;text-transform:uppercase;}
+  .art .badge.free{color:#0d5a55;}
+  .body{padding:13px 15px 15px;display:flex;flex-direction:column;gap:4px;flex:1;}
+  .body h3{margin:0;font-size:16px;}
+  .body p{margin:0;color:var(--muted);font-size:13px;flex:1;}
+  .go{margin-top:8px;font-size:13px;font-weight:700;color:var(--accent);}
+  .banner.free .go{color:var(--accent2);}
+  footer.f{margin-top:50px;text-align:center;color:var(--muted);font-size:12.5px;}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="h">
+    <div class="kicker">MatiWlog</div>
+    <h1>Las herramientas que uso</h1>
+    <p class="lead">Toca cualquier imagen y se abre en una pestaña nueva. Estas son las que uso de verdad para mover todos mis negocios con IA.</p>
+    <div class="disc">🤝 <b>Transparencia:</b> algunos son links de afiliado. Si te sirven y te unes, me das una mano <b>sin costo extra para ti</b>. Solo recomiendo lo que uso todos los días.</div>
+  </header>
+
+  <h2 class="sec"><span class="tag t-gana">Empieza aquí</span> Con las que puedes armar lo tuyo</h2>
+  <p class="sub">Mis favoritas para partir. Hostinger y la comunidad primero.</p>
+  <div class="grid">
+
+    <a class="banner" href="https://www.hostinger.com?REFERRALCODE=3HNMATIASCCK" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#673de6;--c2:#2f1c7a"><span class="emoji">🌐</span><span class="badge">Mi link</span></div>
+      <div class="body"><h3>Hostinger</h3><p>Donde vive mi web y mi servidor. Hosting y dominios baratos para arrancar.</p><span class="go">Armar mi web →</span></div>
+    </a>
+
+    <a class="banner" href="https://www.skool.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#f0b429;--c2:#b8770a"><span class="emoji">🎓</span><span class="badge">Comunidad</span></div>
+      <div class="body"><h3>Skool</h3><p>Mi comunidad: aquí te enseño a armar tu propia máquina paso a paso.</p><span class="go">Entrar →</span></div>
+    </a>
+
+    <a class="banner" href="https://www.heygen.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#5b5bf5;--c2:#2b2b9e"><span class="emoji">🎬</span><span class="badge">Video IA</span></div>
+      <div class="body"><h3>HeyGen</h3><p>Videos con avatar IA. La cara y voz de KREA, y mi clon digital.</p><span class="go">Probar →</span></div>
+    </a>
+
+    <a class="banner" href="https://higgsfield.ai" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#ff5a5f;--c2:#a3222a"><span class="emoji">✨</span><span class="badge">Imagen/Video</span></div>
+      <div class="body"><h3>Higgsfield</h3><p>Imágenes y videos IA hiperrealistas. Mis reels de cabañas salen de aquí.</p><span class="go">Probar →</span></div>
+    </a>
+
+    <a class="banner" href="https://elevenlabs.io" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#111827;--c2:#374151"><span class="emoji">🔊</span><span class="badge">Voz IA</span></div>
+      <div class="body"><h3>ElevenLabs</h3><p>Voces IA realistas para narrar videos y crear locuciones.</p><span class="go">Probar →</span></div>
+    </a>
+
+    <a class="banner" href="https://apify.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#ff9012;--c2:#c25e00"><span class="emoji">🕷️</span><span class="badge">Datos web</span></div>
+      <div class="body"><h3>Apify</h3><p>Saca datos reales de internet: precios de competencia, leads, catálogos.</p><span class="go">Probar →</span></div>
+    </a>
+
+    <a class="banner" href="https://www.canva.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#00c4cc;--c2:#7d2ae8"><span class="emoji">🎨</span><span class="badge">Diseño</span></div>
+      <div class="body"><h3>Canva</h3><p>Diseño rápido de gráficas y piezas con tu marca, sin diseñador.</p><span class="go">Probar →</span></div>
+    </a>
+
+    <a class="banner" href="https://www.fiverr.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#1dbf73;--c2:#0e7a48"><span class="emoji">💼</span><span class="badge">Freelancers</span></div>
+      <div class="body"><h3>Fiverr</h3><p>Para lo que aún no automatizas: contrata a alguien por tareas puntuales.</p><span class="go">Ver →</span></div>
+    </a>
+
+  </div>
+
+  <h2 class="sec"><span class="tag t-free">Gratis</span> Descargas que uso todos los días</h2>
+  <p class="sub">El corazón del sistema. Todo esto es gratis para descargar.</p>
+  <div class="grid">
+
+    <a class="banner free" href="https://claude.ai/code" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#d97757;--c2:#8a3f28"><span class="emoji">🧠</span><span class="badge free">El motor</span></div>
+      <div class="body"><h3>Claude Code</h3><p>El cerebro de todo. Con esto construyo apps, bots y contenido sin ser programador.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://obsidian.md" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#7c3aed;--c2:#4c1d95"><span class="emoji">🗂️</span><span class="badge free">Segundo cerebro</span></div>
+      <div class="body"><h3>Obsidian</h3><p>Mi segundo cerebro (JARVIS): aquí vive todo lo que mi IA sabe de mí.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://code.visualstudio.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#2563eb;--c2:#1e3a8a"><span class="emoji">💻</span><span class="badge free">Editor</span></div>
+      <div class="body"><h3>VS Code</h3><p>La ventana donde trabajo con Claude Code. Editor de código gratis.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://nodejs.org" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#3c873a;--c2:#215220"><span class="emoji">⚙️</span><span class="badge free">Base</span></div>
+      <div class="body"><h3>Node.js</h3><p>Motor que hace correr muchas de mis apps y herramientas.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://www.python.org" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#356fa1;--c2:#d9a520"><span class="emoji">🐍</span><span class="badge free">Base</span></div>
+      <div class="body"><h3>Python</h3><p>Para automatizaciones, audio y scripts. La navaja suiza del sistema.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://git-scm.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#f1502f;--c2:#a3300f"><span class="emoji">🔀</span><span class="badge free">Versiones</span></div>
+      <div class="body"><h3>Git</h3><p>La caja fuerte con historial: guarda y respalda cada versión de tus proyectos.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://ffmpeg.org" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#0f766e;--c2:#0a4a44"><span class="emoji">🎞️</span><span class="badge free">Video/Audio</span></div>
+      <div class="body"><h3>FFmpeg</h3><p>El músculo detrás de mis editores: corta, convierte y arma videos y audio.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://obsproject.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#302e31;--c2:#111"><span class="emoji">⏺️</span><span class="badge free">Grabar</span></div>
+      <div class="body"><h3>OBS Studio</h3><p>Para grabar la pantalla en tutoriales largos. Gratis y potente.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://github.com/Genymobile/scrcpy" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#22c55e;--c2:#14532d"><span class="emoji">📱</span><span class="badge free">Celular</span></div>
+      <div class="body"><h3>scrcpy</h3><p>Muestra y graba la pantalla de tu celular Android en el computador.</p><span class="go">Descargar →</span></div>
+    </a>
+
+    <a class="banner free" href="https://github.com" target="_blank" rel="noopener">
+      <div class="art" style="--c1:#4b5563;--c2:#1f2937"><span class="emoji">🐙</span><span class="badge free">Repos</span></div>
+      <div class="body"><h3>GitHub</h3><p>Donde viven mis proyectos y donde se publica gratis matiwlog.com.</p><span class="go">Ver →</span></div>
+    </a>
+
+  </div>
+
+  <footer class="f">Solo recomiendo lo que uso · MatiWlog · Algunos links son de afiliado</footer>
+</div>
+</body>
+</html>

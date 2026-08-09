@@ -16,6 +16,11 @@ SETUP.md
 DEPLOY-HOSTINGER.md
 ESTRATEGIA-VIRAL.md
 ROADMAP.md
+ESTRATEGIA_REELS_MATIWLOG.md
+EMPEZAR-AQUI.md
+analisis-reels-estructura.md
+guion-matiwlog-reel-template.md
+heygen-config.json
 
 # Script de deploy (contendra credenciales FTP)
 deploy.ps1
@@ -32,3 +37,10 @@ og-card.html
 # Sistema
 Thumbs.db
 desktop.ini
+
+# Bloquear secretos (agregado por seguridad)
+.env
+*.env
+.env.*
+**/.env
+**/*.env
