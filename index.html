@@ -60,7 +60,7 @@
   "alternateName": "MATIWLOG",
   "url": "https://matiwlog.com",
   "jobTitle": "Emprendedor digital · Fundador Kreathur",
-  "description": "Emprendedor digital desde los 16 años. Fundador de Kreathur. Negocios propios: Uniformes Maully, Puntoski, Importadora Maully. Piloto de drones DGAC, desarrollador full-stack y creador de contenido desde Pichilemu, Chile.",
+  "description": "Emprendedor digital desde los 16 años. Fundador de Kreathur. Trabaja en proyectos como Puntoski, Importadora Maully y Pichilemu Wear. Piloto de drones DGAC, desarrollador full-stack y creador de contenido desde Pichilemu, Chile.",
   "telephone": "+56977877602",
   "address": {
     "@type": "PostalAddress",
@@ -182,7 +182,7 @@
     {
       "@type": "Question",
       "name": "Que es un agente de IA para negocios y sirve para el mio?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Un agente de IA es un programa que ejecuta tareas solo: responde WhatsApp, cotiza, agenda y hace seguimiento sin que estes conectado. No es teoria — yo los uso en mis propios negocios (el bot que cotiza en el WhatsApp de Importadora Maully corre 24/7). Si atiendes clientes por WhatsApp o redes, casi seguro te sirve. Escribeme y te digo honestamente si aplica a tu caso." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Un agente de IA es un programa que ejecuta tareas solo: responde WhatsApp, cotiza, agenda y hace seguimiento sin que estes conectado. No es teoria — yo los uso en los proyectos en los que trabajo (el bot que cotiza en el WhatsApp de Importadora Maully corre 24/7). Si atiendes clientes por WhatsApp o redes, casi seguro te sirve. Escribeme y te digo honestamente si aplica a tu caso." }
     }
   ]
 }
@@ -1111,6 +1111,143 @@ body::after {
   font-size: 16px;
   color: var(--text-muted);
   margin-bottom: 20px;
+}
+
+/* ═══ PROYECTOS EN LOS QUE TRABAJO (scroll-motion) ═══ */
+.proj-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+.proj-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.3s, box-shadow 0.3s;
+}
+.proj-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--cyan);
+  box-shadow: 0 16px 48px rgba(6,214,160,0.15);
+}
+/* Ventana con la captura (scroll al hover) */
+.proj-window {
+  position: relative;
+  height: 360px;
+  overflow: hidden;
+  background: var(--bg-elevated);
+  border-bottom: 1px solid var(--border);
+}
+.proj-shot {
+  display: block;
+  width: 100%;
+  height: auto;
+  transition: transform 0.6s ease;              /* reset rapido al salir */
+}
+.proj-card:hover .proj-shot {
+  transition: transform 12s linear;             /* recorrido lento del sitio */
+  transform: translateY(calc(-100% + 360px));
+}
+/* Captura estatica (portada, sin scroll) */
+.proj-window.static .proj-shot {
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+.proj-card:hover .proj-window.static .proj-shot { transform: none; }
+/* Cover sin imagen (proyecto sin sitio) */
+.proj-cover-blank {
+  position: relative;
+  height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  text-align: center;
+  padding: 24px;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(150deg, #1a120a, #3a2410);
+}
+.proj-cover-blank .pc-emoji { font-size: 52px; }
+.proj-cover-blank .pc-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: -0.5px;
+  color: #FFCE00;
+}
+.proj-badge {
+  position: absolute;
+  top: 12px; left: 12px;
+  z-index: 3;
+  background: rgba(6,214,160,0.9);
+  backdrop-filter: blur(8px);
+  color: var(--bg);
+  padding: 4px 12px;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+.proj-overlay {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  background: linear-gradient(180deg, transparent, rgba(10,10,15,0.88));
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  color: #fff;
+}
+.proj-see {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  letter-spacing: 1px;
+  color: var(--cyan-bright);
+  white-space: nowrap;
+}
+.proj-info { padding: 20px 22px 24px; flex: 1; display: flex; flex-direction: column; }
+.proj-type {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 9px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--amber);
+  margin-bottom: 8px;
+}
+.proj-info h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.proj-info p { font-size: 13px; color: var(--text-muted); line-height: 1.6; }
+.proj-info .proj-see { align-self: flex-start; }
+
+/* Sin scroll al tocar (movil) o si el usuario pide menos movimiento */
+@media (hover: none) {
+  .proj-card:hover .proj-shot { transform: none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .proj-card:hover .proj-shot { transform: none; }
+}
+@media (max-width: 768px) {
+  .proj-grid { grid-template-columns: 1fr; }
+  .proj-window, .proj-cover-blank { height: 240px; }
+  .proj-card:hover .proj-shot { transform: translateY(calc(-100% + 240px)); }
+  .proj-card:hover .proj-window.static .proj-shot { transform: none; }
 }
 
 /* ═══ TIENDA ═══ */
@@ -3065,7 +3202,7 @@ body::after {
       <a href="#importo-europa">🇩🇪 Importo</a>
       <a href="#tienda">📚 Libros</a>
       <a href="#videos">YouTube</a>
-      <a href="#proyectos">Kreathur</a>
+      <a href="#proyectos">Proyectos</a>
       <a href="./herramientas.html">🧰 Herramientas</a>
       <a href="#importo-europa" class="nav-cta">Importar desde EU →</a>
     </div>
@@ -3367,7 +3504,7 @@ body::after {
       </div>
 
       <p style="text-align:center; margin-top: 26px; font-size: 13px; color: var(--text-dim); font-family: 'JetBrains Mono', monospace;">
-        // de esto mismo nacieron mis propias tiendas → <a href="#mis-negocios" style="color: var(--cyan);">PuntoSki, Importadora Maully y Pichilemu Wear</a>
+        // de esto mismo nacen proyectos en los que trabajo → <a href="#proyectos" style="color: var(--cyan);">PuntoSki, Importadora Maully y Pichilemu Wear</a>
       </p>
     </div>
   </div>
@@ -3516,108 +3653,6 @@ body::after {
       </a>
     </div>
 
-    <!-- VIDEOS EXTRA (ocultos por defecto, se muestran con "Cargar mas") -->
-    <!-- INSTRUCCIONES PARA MATI: cuando subas un video nuevo, reemplaza el href, src y title de cualquiera de estos bloques -->
-    <div class="videos-grid videos-extra" id="videosExtra">
-      <a class="video-card placeholder reveal" href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <div class="video-thumb-content">
-            <span class="video-thumb-icon">🛸</span>
-            <div class="video-thumb-text">// drone reels</div>
-          </div>
-          <div class="video-tag">drone</div>
-          <div class="video-play"><div class="video-play-btn"></div></div>
-        </div>
-        <div class="video-info">
-          <h3>Mas videos de drone — Pichilemu desde el aire</h3>
-          <p class="video-meta">@MatiWlog // VER EN EL CANAL</p>
-        </div>
-      </a>
-
-      <a class="video-card placeholder reveal" href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <div class="video-thumb-content">
-            <span class="video-thumb-icon">⚡</span>
-            <div class="video-thumb-text">// tutoriales IA</div>
-          </div>
-          <div class="video-tag">ia</div>
-          <div class="video-play"><div class="video-play-btn"></div></div>
-        </div>
-        <div class="video-info">
-          <h3>Mas tutoriales de IA — ChatGPT, n8n, automatización</h3>
-          <p class="video-meta">@MatiWlog // VER EN EL CANAL</p>
-        </div>
-      </a>
-
-      <a class="video-card placeholder reveal" href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <div class="video-thumb-content">
-            <span class="video-thumb-icon">🌊</span>
-            <div class="video-thumb-text">// vlogs pichilemu</div>
-          </div>
-          <div class="video-tag">vlog</div>
-          <div class="video-play"><div class="video-play-btn"></div></div>
-        </div>
-        <div class="video-info">
-          <h3>Vida en Pichilemu — vlogs sin filtro</h3>
-          <p class="video-meta">@MatiWlog // VER EN EL CANAL</p>
-        </div>
-      </a>
-
-      <a class="video-card placeholder reveal" href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <div class="video-thumb-content">
-            <span class="video-thumb-icon">🚐</span>
-            <div class="video-thumb-text">// detras de la camper</div>
-          </div>
-          <div class="video-tag">camper</div>
-          <div class="video-play"><div class="video-play-btn"></div></div>
-        </div>
-        <div class="video-info">
-          <h3>Mas behind-the-scenes de la camper</h3>
-          <p class="video-meta">@MatiWlog // VER EN EL CANAL</p>
-        </div>
-      </a>
-
-      <a class="video-card placeholder reveal" href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <div class="video-thumb-content">
-            <span class="video-thumb-icon">💻</span>
-            <div class="video-thumb-text">// dev & webs</div>
-          </div>
-          <div class="video-tag">dev</div>
-          <div class="video-play"><div class="video-play-btn"></div></div>
-        </div>
-        <div class="video-info">
-          <h3>Como construyo sitios web — proceso real</h3>
-          <p class="video-meta">@MatiWlog // VER EN EL CANAL</p>
-        </div>
-      </a>
-
-      <a class="video-card placeholder reveal" href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">
-        <div class="video-thumb">
-          <div class="video-thumb-content">
-            <span class="video-thumb-icon">🎬</span>
-            <div class="video-thumb-text">// todo el canal</div>
-          </div>
-          <div class="video-tag">+ mas</div>
-          <div class="video-play"><div class="video-play-btn"></div></div>
-        </div>
-        <div class="video-info">
-          <h3>Ver todos mis videos en el canal</h3>
-          <p class="video-meta">@MatiWlog // SUSCRIBIRME</p>
-        </div>
-      </a>
-    </div>
-
-    <!-- BOTON CARGAR MAS -->
-    <div class="load-more-wrap reveal">
-      <button class="load-more-btn" id="loadMoreVideos" onclick="toggleMoreVideos()">
-        <span id="loadMoreText">Cargar mas videos</span>
-        <svg class="load-more-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"></polyline></svg>
-      </button>
-    </div>
-
     <div class="projects-cta reveal" style="margin-top: 32px;">
       <p>Subo nuevo cada semana — los suscriptores me dan tema y yo lo hago.</p>
       <a href="https://youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener" class="btn btn-primary" style="background:#FF0000; color:white;">
@@ -3708,130 +3743,132 @@ body::after {
   </div>
 </section>
 
-<!-- MIS NEGOCIOS (tiendas propias) -->
-<section class="section" id="mis-negocios">
-  <div class="container">
-    <p class="section-tag reveal">Mis tiendas</p>
-    <h2 class="section-heading reveal reveal-left rd1">Compra directo en<br><span style="color:var(--amber)">mis negocios.</span></h2>
-    <p class="section-sub reveal rd2">No solo construyo para otros — tengo mis propias tiendas funcionando. Entra y compra: ropa de nieve, importaciones al por mayor, moda hecha en Pichilemu.</p>
-    <div class="projects-grid">
-
-      <a class="project-card reveal rd1" href="https://puntoski.com" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="./assets/img/shot-puntoski.jpg" alt="PuntoSki - ropa de nieve premium" loading="lazy" width="800" height="500">
-          <div class="project-live-tag">🛒 TIENDA ABIERTA</div>
-          <div class="project-thumb-overlay"><span>Comprar en PuntoSki →</span></div>
-        </div>
-        <div class="project-info">
-          <div class="project-type">Ropa Outdoor & Nieve</div>
-          <h3>PuntoSki</h3>
-          <p>Columbia, The North Face, Burton hasta 60% off. Ropa premium de nieve importada — mi proyecto desde cero.</p>
-          <div class="project-tags">
-            <span>Columbia</span><span>North Face</span><span>Burton</span>
-          </div>
-          <span class="project-visit" style="background:rgba(244,162,97,0.12);border-color:rgba(244,162,97,0.35);color:var(--amber);">puntoski.com →</span>
-        </div>
-      </a>
-
-      <a class="project-card reveal rd2" href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20comprar%20al%20por%20mayor%20en%20Importadora%20Maully" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="./assets/img/shot-maully.jpg" alt="Importadora Maully - ropa al por mayor" loading="lazy" width="800" height="500">
-          <div class="project-live-tag" style="background:rgba(244,162,97,0.9);">🔧 EN RENOVACIÓN</div>
-          <div class="project-thumb-overlay"><span>Pedidos por WhatsApp →</span></div>
-        </div>
-        <div class="project-info">
-          <div class="project-type">Ropa Americana & Europea · B2B</div>
-          <h3>Importadora Maully</h3>
-          <p>Ropa importada al por mayor para revendedores. El negocio familiar que me llevo a viajar por Canada, EEUU y Europa. <strong>Sitio en renovación — tomamos pedidos por WhatsApp.</strong></p>
-          <div class="project-tags">
-            <span>Mayorista</span><span>Importación</span><span>B2B</span>
-          </div>
-          <span class="project-visit" style="background:rgba(37,211,102,0.12);border-color:rgba(37,211,102,0.4);color:#25D366;">💬 Pedir por WhatsApp →</span>
-        </div>
-      </a>
-
-      <a class="project-card reveal rd3" href="https://pichilemuwear.com" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="./assets/img/shot-pichilemuwear.jpg" alt="Pichilemu Wear - moda hecha en Pichilemu" loading="lazy" width="800" height="500">
-          <div class="project-live-tag">🛒 TIENDA ABIERTA</div>
-          <div class="project-thumb-overlay"><span>Comprar en Pichilemu Wear →</span></div>
-        </div>
-        <div class="project-info">
-          <div class="project-type">Moda · Hecha en Pichilemu</div>
-          <h3>Pichilemu Wear</h3>
-          <p>Ropa por concepto, hecha en Pichilemu. Mi marca de moda con identidad del lugar donde vivo.</p>
-          <div class="project-tags">
-            <span>Moda</span><span>Marca propia</span><span>Pichilemu</span>
-          </div>
-          <span class="project-visit" style="background:rgba(244,162,97,0.12);border-color:rgba(244,162,97,0.35);color:var(--amber);">pichilemuwear.com →</span>
-        </div>
-      </a>
-
-    </div>
-  </div>
-</section>
-
-<!-- PROYECTOS WEB (trabajo Kreathur para clientes) -->
+<!-- PROYECTOS EN LOS QUE TRABAJO (fusion: tiendas propias + clientes Kreathur) -->
 <section class="section" id="proyectos">
   <div class="container">
-    <p class="section-tag reveal">Trabajo para clientes · Kreathur</p>
-    <h2 class="section-heading reveal reveal-right rd1">Tambien lo hago<br><span style="color:var(--cyan)">para otros negocios.</span></h2>
-    <p class="section-sub reveal rd2">Con Kreathur le construyo a otros lo mismo que a los mios: sitios, e-commerce, bots con IA. Estos estan en produccion ahora — haz clic y velos en vivo.</p>
-    <div class="projects-grid">
+    <p class="section-tag reveal">Proyectos en los que trabajo</p>
+    <h2 class="section-heading reveal reveal-left rd1">Proyectos en los<br><span style="color:var(--amber)">que trabajo.</span></h2>
+    <p class="section-sub reveal rd2">Tiendas, marcas y plataformas en las que estoy metido — algunas propias, otras de clientes con Kreathur. Pasa el mouse por cada una y recorre el sitio completo; haz clic para abrirlo.</p>
+    <div class="proj-grid">
 
-      <a class="project-card reveal rd1" href="https://lilafken.com" target="_blank" rel="noopener">
-        <div class="project-thumb-real">
-          <img src="https://s.wordpress.com/mshots/v1/https%3A%2F%2Flilafken.com?w=800&h=600" alt="Lilafken - Arriendos y propiedades" loading="lazy" onerror="this.closest('.project-thumb-real').classList.add('thumb-fallback')" width="800" height="600">
-          <div class="project-live-tag">🟢 EN VIVO</div>
-          <div class="project-thumb-overlay"><span>Ver sitio en vivo →</span></div>
+      <a class="proj-card reveal rd1" href="https://lapapabrava.kreathur.agency" target="_blank" rel="noopener">
+        <div class="proj-window">
+          <img class="proj-shot" src="./assets/projects/lapapabrava.jpg" alt="La Papa Brava - web inmersiva del restaurante" loading="lazy">
+          <div class="proj-badge">🟢 EN VIVO</div>
+          <div class="proj-overlay"><span>La Papa Brava</span><span class="proj-see">Ver sitio →</span></div>
         </div>
-        <div class="project-info">
-          <div class="project-type">Plataforma de Arriendos</div>
-          <h3>Lilafken Apart & Real Estate</h3>
-          <p>Plataforma completa de arriendos + venta de propiedades + sistema de reservas + videos 4K con drone propio.</p>
-          <div class="project-stats">
-            <div><strong>4K</strong> drone</div>
-            <div><strong>Auto</strong> booking</div>
-            <div><strong>CRM</strong> integrado</div>
-          </div>
-          <div class="project-tags">
-            <span>WordPress</span><span>Booking</span><span>Drone 4K</span>
-          </div>
-          <span class="project-visit">lilafken.com →</span>
+        <div class="proj-info">
+          <div class="proj-type">Restaurante · Web inmersiva</div>
+          <h3>La Papa Brava</h3>
+          <p>La cocina de mi hermano Gonzalo con web inmersiva: hero con scroll y menú en 3D. Hecha con Kreathur.</p>
         </div>
       </a>
 
-      <a class="project-card reveal rd2" href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20probar%20el%20Bot%20Lemu%20%2F%20un%20bot%20de%20WhatsApp%20con%20IA" target="_blank" rel="noopener">
-        <div class="project-thumb-real thumb-fallback" data-label="Bot Lemu · WhatsApp IA">
-          <div class="project-live-tag">🤖 BOT ACTIVO</div>
-          <div class="project-thumb-overlay"><span>Probar el bot →</span></div>
+      <a class="proj-card reveal rd2" href="https://kreathur.agency" target="_blank" rel="noopener">
+        <div class="proj-window">
+          <img class="proj-shot" src="./assets/projects/kreathur.jpg" alt="Kreathur Agency - sitios, bots con IA y automatizaciones" loading="lazy">
+          <div class="proj-badge">🟢 EN VIVO</div>
+          <div class="proj-overlay"><span>Kreathur Agency</span><span class="proj-see">Ver sitio →</span></div>
         </div>
-        <div class="project-info">
-          <div class="project-type">WhatsApp Bot con IA · Turismo</div>
+        <div class="proj-info">
+          <div class="proj-type">Agencia IA & Automatización</div>
+          <h3>Kreathur Agency</h3>
+          <p>Mi agencia: sitios, bots de WhatsApp con IA y automatizaciones para negocios reales.</p>
+        </div>
+      </a>
+
+      <a class="proj-card reveal rd3" href="https://lilafken.com" target="_blank" rel="noopener">
+        <div class="proj-window">
+          <img class="proj-shot" src="./assets/projects/lilafken.jpg" alt="Lilafken Apart & Real Estate - plataforma de arriendos" loading="lazy">
+          <div class="proj-badge">🟢 EN VIVO</div>
+          <div class="proj-overlay"><span>Lilafken</span><span class="proj-see">Ver sitio →</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Apart & Real Estate · Cliente</div>
+          <h3>Lilafken Apart & Real Estate</h3>
+          <p>Plataforma de arriendos y propiedades con reservas y videos 4K de drone. Proyecto Kreathur en producción.</p>
+        </div>
+      </a>
+
+      <a class="proj-card reveal rd1" href="https://puntoski.com" target="_blank" rel="noopener">
+        <div class="proj-window">
+          <img class="proj-shot" src="./assets/projects/puntoski.jpg" alt="PuntoSki - ropa de nieve premium" loading="lazy">
+          <div class="proj-badge" style="background:rgba(244,162,97,0.92);">🛒 TIENDA ABIERTA</div>
+          <div class="proj-overlay"><span>PuntoSki</span><span class="proj-see">Ver sitio →</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Ropa Outdoor & Nieve</div>
+          <h3>PuntoSki</h3>
+          <p>Columbia, The North Face y Burton hasta 60% off. Ropa premium de nieve importada.</p>
+        </div>
+      </a>
+
+      <a class="proj-card reveal rd2" href="https://pichilemuwear.com" target="_blank" rel="noopener">
+        <div class="proj-window">
+          <img class="proj-shot" src="./assets/projects/pichilemuwear.jpg" alt="Pichilemu Wear - moda hecha en Pichilemu" loading="lazy">
+          <div class="proj-badge" style="background:rgba(244,162,97,0.92);">🛒 TIENDA ABIERTA</div>
+          <div class="proj-overlay"><span>Pichilemu Wear</span><span class="proj-see">Ver sitio →</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Moda · Hecha en Pichilemu</div>
+          <h3>Pichilemu Wear</h3>
+          <p>Ropa por concepto con la identidad de Pichilemu, el lugar donde vivo.</p>
+        </div>
+      </a>
+
+      <a class="proj-card reveal rd3" href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20comprar%20al%20por%20mayor%20en%20Importadora%20Maully" target="_blank" rel="noopener">
+        <div class="proj-cover-blank">
+          <div class="proj-badge" style="background:rgba(244,162,97,0.92);">🔧 EN RENOVACIÓN</div>
+          <span class="pc-emoji">📦</span>
+          <span class="pc-label">Importadora Maully</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Ropa importada · Mayorista B2B</div>
+          <h3>Importadora Maully</h3>
+          <p>Ropa importada al por mayor para revendedores. Sitio en renovación — pedidos por WhatsApp.</p>
+          <span class="proj-see" style="margin-top:14px;color:#25D366;">💬 Pedir por WhatsApp →</span>
+        </div>
+      </a>
+
+      <a class="proj-card reveal rd1" href="https://www.skool.com/kreathur-agency-6804" target="_blank" rel="noopener">
+        <div class="proj-window static">
+          <img class="proj-shot" src="./assets/projects/matiwlog-skool.jpg" alt="Comunidad MatiWlog en Skool: Arma tu propia máquina" loading="lazy">
+          <div class="proj-badge" style="background:rgba(139,92,246,0.92);color:#fff;">👥 COMUNIDAD</div>
+          <div class="proj-overlay"><span>Arma tu propia máquina</span><span class="proj-see">Entrar →</span></div>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">Comunidad · Skool</div>
+          <h3>Comunidad: Arma tu propia máquina</h3>
+          <p>Aprende a dirigir la IA para tu negocio, sin programar.</p>
+        </div>
+      </a>
+
+      <a class="proj-card reveal rd2" href="https://wa.me/56977877602?text=Hola%20Mati!%20Quiero%20probar%20el%20Bot%20Lemu%20%2F%20un%20bot%20de%20WhatsApp%20con%20IA" target="_blank" rel="noopener">
+        <div class="proj-cover-blank" style="background:linear-gradient(150deg,#06140f,#0c2c20);">
+          <div class="proj-badge" style="background:rgba(6,214,160,0.92);">🤖 BOT ACTIVO</div>
+          <span class="pc-emoji">💬</span>
+          <span class="pc-label" style="color:var(--cyan-bright);">Bot Lemu</span>
+        </div>
+        <div class="proj-info">
+          <div class="proj-type">WhatsApp Bot con IA · Turismo</div>
           <h3>Bot Lemu — guía virtual 24/7</h3>
-          <p>Le construi a Pichilemu un chatbot en WhatsApp con IA que responde a turistas a cualquier hora — donde dormir, comer, surfear. El mismo tipo de bot que te puedo hacer a ti.</p>
-          <div class="project-stats">
-            <div><strong>24/7</strong> activo</div>
-            <div><strong>IA</strong> entrenada</div>
-            <div><strong>WhatsApp</strong> nativo</div>
-          </div>
-          <div class="project-tags">
-            <span>IA</span><span>WhatsApp Bot</span><span>Turismo</span>
-          </div>
-          <span class="project-visit">Probar por WhatsApp →</span>
+          <p>Chatbot de WhatsApp con IA para turistas de Pichilemu: dónde dormir, comer y surfear. El mismo tipo de bot que te puedo hacer.</p>
+          <span class="proj-see" style="margin-top:14px;color:#25D366;">💬 Probar por WhatsApp →</span>
         </div>
       </a>
 
     </div>
 
     <div class="projects-cta reveal">
-      <p>Quieres uno asi para tu negocio?</p>
+      <p>Quieres uno así para tu negocio?</p>
       <a href="https://kreathur.agency" target="_blank" rel="noopener" class="btn btn-primary">
-        Ver mas en Kreathur Agency →
+        Ver más en Kreathur Agency →
       </a>
     </div>
   </div>
 </section>
+
+<!-- (Seccion de clientes Kreathur fusionada arriba en #proyectos) -->
 
 <!-- KREATHUR REEL (video promo vertical 9:16) -->
 <section class="kreathur-reel-section" id="kreathur-reel">
@@ -4152,7 +4189,7 @@ body::after {
       </details>
       <details class="faq-item">
         <summary>Que es un agente de IA para negocios y sirve para el mio?</summary>
-        <p>Un agente de IA es un programa que ejecuta tareas solo: responde WhatsApp, cotiza, agenda y hace seguimiento sin que estes conectado. No es teoría — yo los uso en mis propios negocios (el bot que cotiza en el WhatsApp de Importadora Maully corre 24/7). Si atiendes clientes por WhatsApp o redes, casi seguro te sirve. Escribeme y te digo honestamente si aplica a tu caso.</p>
+        <p>Un agente de IA es un programa que ejecuta tareas solo: responde WhatsApp, cotiza, agenda y hace seguimiento sin que estes conectado. No es teoría — yo los uso en los proyectos en los que trabajo (el bot que cotiza en el WhatsApp de Importadora Maully corre 24/7). Si atiendes clientes por WhatsApp o redes, casi seguro te sirve. Escribeme y te digo honestamente si aplica a tu caso.</p>
       </details>
     </div>
   </div>
@@ -4306,22 +4343,6 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
   });
 });
-
-// Toggle mas videos
-function toggleMoreVideos() {
-  const extra = document.getElementById('videosExtra');
-  const btn = document.getElementById('loadMoreVideos');
-  const txt = document.getElementById('loadMoreText');
-  const isShown = extra.classList.toggle('shown');
-  btn.classList.toggle('expanded', isShown);
-  txt.textContent = isShown ? 'Ver menos videos' : 'Cargar mas videos';
-  // Trigger reveal animation for new cards
-  if (isShown) {
-    extra.querySelectorAll('.reveal').forEach((el, i) => {
-      setTimeout(() => el.classList.add('vis'), i * 80);
-    });
-  }
-}
 
 // Forms: al enviar, llevamos al visitante a gracias.html, donde la guia (PDF)
 // se descarga sola. Web3Forms ya esta activo (access_key real), asi que ademas
