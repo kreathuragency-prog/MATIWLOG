@@ -144,8 +144,26 @@ h1 .hl {
   font-size: 12px;
   color: var(--text-dim);
   font-family: 'JetBrains Mono', monospace;
-  margin-bottom: 60px;
+  margin-bottom: 14px;
 }
+
+/* Siguiente paso: quien acaba de suscribirse esta en su momento mas tibio.
+   Antes de mostrarle un pago, se le da mas valor gratis y el camino a las herramientas. */
+.next-step {
+  font-size: 14px;
+  line-height: 1.65;
+  color: var(--text-muted);
+  max-width: 520px;
+  margin: 0 auto 60px;
+}
+.next-step a {
+  color: var(--cyan);
+  text-decoration: none;
+  font-weight: 600;
+  border-bottom: 1px solid rgba(6,214,160,0.3);
+  transition: color 0.3s, border-color 0.3s;
+}
+.next-step a:hover { color: var(--amber); border-bottom-color: rgba(244,162,97,0.5); }
 
 /* Upsell card */
 .upsell {
@@ -293,6 +311,7 @@ h1 .hl {
         📥 Descargar la guia ahora
       </a>
       <p class="tiny">// descarga directa · es tuya para siempre</p>
+      <p class="next-step">Mientras la revisas, llevate el resto: <a href="recursos.html">los otros 3 PDF gratis</a> (5 IAs gratis, como no te estafen, checklist de drone) y <a href="herramientas.html">las 18 herramientas que uso a diario</a>.</p>
 
       <!-- UPSELL -->
       <div class="upsell">
@@ -323,6 +342,8 @@ h1 .hl {
       <div class="links-row">
         <a href="https://youtube.com/@MatiWlog" target="_blank" rel="noopener">▶ YouTube</a>
         <a href="https://instagram.com/matiwlog" target="_blank" rel="noopener">📸 Instagram</a>
+        <a href="recursos.html">📚 Recursos gratis</a>
+        <a href="herramientas.html">🧰 Mis herramientas</a>
         <a href="./">← Volver al sitio</a>
       </div>
     </div>
