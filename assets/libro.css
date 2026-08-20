@@ -99,6 +99,10 @@ a { color: var(--accent); text-decoration: none; }
 .book-cover .bc-title { font-family: 'Space Grotesk', sans-serif; font-size: 34px; font-weight: 700; line-height: 1.0; letter-spacing: -1px; color: #fff; }
 .book-cover .bc-sub { font-size: 13px; color: rgba(255,255,255,0.85); margin-top: 10px; line-height: 1.4; }
 .book-cover .bc-bottom { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: rgba(255,255,255,0.7); border-top: 1px solid rgba(255,255,255,0.2); padding-top: 12px; }
+/* portada 3D */
+.hero-visual { perspective: 1200px; }
+.book-cover { transform: rotateY(-18deg); transform-origin: center; transition: transform .55s cubic-bezier(0.16,1,0.3,1), box-shadow .55s cubic-bezier(0.16,1,0.3,1); }
+.book-cover:hover { transform: rotateY(-6deg); box-shadow: 0 30px 70px -18px rgba(0,0,0,0.75), inset 0 1px 0 rgba(255,255,255,0.08); }
 
 /* ─── SECTIONS ─── */
 .section { padding: 56px 0; border-top: 1px solid var(--border); }
@@ -194,4 +198,10 @@ a { color: var(--accent); text-decoration: none; }
   .hero { padding: 40px 0 36px; }
   .section { padding: 44px 0; }
   .toc { padding: 24px 20px; }
+}
+
+/* Accesibilidad: respeta a quien prefiere menos movimiento */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; }
+  .book-cover { transform: none !important; }
 }
