@@ -38,6 +38,7 @@
   --text:#ededf2; --text-muted:#9898b0; --text-dim:#606080;
   --cyan:#06d6a0; --cyan-bright:#00f5b8; --cyan-glow:rgba(6,214,160,0.2);
   --amber:#f4a261; --amber-bright:#ffb347; --amber-glow:rgba(244,162,97,0.2);
+  --violet:#8b5cf6; --violet-bright:#b794f4;
   --ocean:#00b4d8;
 }
 body{font-family:'Inter',sans-serif; background:var(--bg); color:var(--text); min-height:100vh; display:flex; flex-direction:column; overflow-x:hidden; -webkit-font-smoothing:antialiased;}
@@ -64,25 +65,29 @@ h1 .hl{background:linear-gradient(135deg,var(--cyan-bright),var(--ocean),var(--a
 .res-card p{font-size:13px; color:var(--text-muted); line-height:1.55; margin-bottom:20px; flex:1;}
 .res-btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; padding:13px 20px; background:var(--cyan); color:var(--bg); border-radius:100px; font-weight:700; font-size:14px; text-decoration:none; transition:all .3s;}
 .res-btn:hover{background:var(--amber); transform:translateY(-2px); box-shadow:0 8px 24px var(--amber-glow);}
-/* Upsell */
-.upsell{background:linear-gradient(135deg,#1a0d08,#2a1510,#200d08); border:1px solid var(--amber); border-radius:18px; padding:36px 32px; text-align:left; position:relative; overflow:hidden; box-shadow:0 0 80px rgba(244,162,97,0.1);}
-.upsell::before{content:''; position:absolute; top:-40%; right:-20%; width:400px; height:400px; background:radial-gradient(circle,var(--amber-glow),transparent 60%); pointer-events:none;}
-.upsell-tag{display:inline-block; background:var(--amber); color:var(--bg); font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; padding:5px 12px; border-radius:100px; font-weight:700; margin-bottom:16px; position:relative;}
-.upsell h2{font-family:'Space Grotesk',sans-serif; font-size:clamp(1.4rem,3vw,1.9rem); font-weight:700; line-height:1.15; letter-spacing:-1px; margin-bottom:12px; position:relative;}
-.upsell h2 .hl{color:var(--amber);}
-.upsell p{color:var(--text-muted); font-size:14px; line-height:1.6; margin-bottom:20px; position:relative;}
-.upsell-features{list-style:none; margin-bottom:24px; position:relative;}
-.upsell-features li{font-size:13px; color:var(--text); padding:4px 0; display:flex; align-items:flex-start; gap:8px;}
-.upsell-features li::before{content:'★'; color:var(--amber); font-weight:700; flex-shrink:0;}
-.upsell-cta-row{display:flex; align-items:center; gap:20px; flex-wrap:wrap; position:relative;}
-.upsell-price{font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--amber); letter-spacing:-1.5px;}
-.upsell-btn{display:inline-flex; align-items:center; gap:8px; padding:14px 26px; background:var(--amber); color:var(--bg); border-radius:100px; font-weight:700; font-size:14px; text-decoration:none; transition:all .3s;}
-.upsell-btn:hover{background:var(--cyan); transform:translateY(-2px); box-shadow:0 8px 30px var(--cyan-glow);}
+/* Invitacion a la comunidad (Skool) */
+.skool-card{background:linear-gradient(135deg,#0d0a18,#1a0d25,#0f0a1e); border:1px solid var(--violet); border-radius:18px; overflow:hidden; box-shadow:0 0 80px rgba(139,92,246,0.12);}
+.skool-banner{display:block; position:relative; line-height:0;}
+.skool-banner img{width:100%; height:auto; display:block;}
+.skool-banner::after{content:''; position:absolute; inset:0; background:linear-gradient(to bottom,transparent 55%,rgba(13,10,24,0.95)); pointer-events:none;}
+.skool-body{padding:30px 32px 34px;}
+.skool-tag{display:inline-block; background:var(--violet); color:#fff; font-family:'JetBrains Mono',monospace; font-size:10px; letter-spacing:2px; padding:5px 12px; border-radius:100px; font-weight:700; margin-bottom:16px;}
+.skool-card h2{font-family:'Space Grotesk',sans-serif; font-size:clamp(1.4rem,3vw,1.9rem); font-weight:700; line-height:1.15; letter-spacing:-1px; margin-bottom:12px;}
+.skool-card h2 .hl{color:var(--violet-bright);}
+.skool-card p{color:var(--text-muted); font-size:14px; line-height:1.6; margin-bottom:20px;}
+.skool-features{list-style:none; margin-bottom:24px;}
+.skool-features li{font-size:13px; color:var(--text); padding:4px 0; display:flex; align-items:flex-start; gap:8px;}
+.skool-features li::before{content:'\2605'; color:var(--violet-bright); font-weight:700; flex-shrink:0;}
+.skool-cta-row{display:flex; align-items:center; gap:20px; flex-wrap:wrap;}
+.skool-price{font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:var(--violet-bright); letter-spacing:-1.5px;}
+.skool-price small{font-size:14px; font-weight:400; color:var(--text-muted); letter-spacing:0;}
+.skool-btn{display:inline-flex; align-items:center; gap:8px; padding:14px 26px; background:var(--violet-bright); color:#160b26; border-radius:100px; font-weight:700; font-size:14px; text-decoration:none; transition:all .3s;}
+.skool-btn:hover{background:var(--cyan); color:var(--bg); transform:translateY(-2px); box-shadow:0 8px 30px var(--cyan-glow);}
 .links-row{display:flex; justify-content:center; gap:24px; margin-top:48px; flex-wrap:wrap;}
 .links-row a{font-size:13px; color:var(--text-muted); text-decoration:none; font-family:'JetBrains Mono',monospace; transition:color .3s;}
 .links-row a:hover{color:var(--cyan);}
 .footer{padding:32px 0; border-top:1px solid var(--border); text-align:center; font-size:12px; color:var(--text-dim); font-family:'JetBrains Mono',monospace;}
-@media(max-width:600px){.res-grid{grid-template-columns:1fr;} .upsell{padding:30px 22px;} .upsell-cta-row{flex-direction:column; align-items:flex-start;}}
+@media(max-width:600px){.res-grid{grid-template-columns:1fr;} .skool-body{padding:24px 20px 28px;} .skool-cta-row{flex-direction:column; align-items:flex-start;}}
 </style>
 </head>
 <body>
@@ -128,22 +133,27 @@ h1 .hl{background:linear-gradient(135deg,var(--cyan-bright),var(--ocean),var(--a
         </div>
       </div>
 
-      <!-- UPSELL al ebook -->
-      <div class="upsell">
-        <div class="upsell-tag">SIGUIENTE PASO</div>
-        <h2>¿Quieres ir <span class="hl">de cero a cien con IA?</span></h2>
-        <p>Estos recursos son el comienzo. El ebook <strong>IA Practica de Cero a Cien</strong> es el sistema completo: prompts probados, automatizaciones para tu negocio y casos reales con numeros — el que uso en mis propias tiendas.</p>
-        <ul class="upsell-features">
-          <li>Guia completa paso a paso (sin vueltas)</li>
-          <li>Prompts listos para copiar y pegar</li>
-          <li>Casos reales de mis negocios, con numeros</li>
-          <li>Como automatizar tareas que hoy te roban horas</li>
-        </ul>
-        <div class="upsell-cta-row">
-          <div>
-            <span class="upsell-price">$14.990 <small style="font-size:14px;font-weight:400;color:var(--text-muted);">CLP</small></span>
+      <!-- INVITACION A LA COMUNIDAD (Skool) -->
+      <div class="skool-card">
+        <a class="skool-banner" href="https://www.skool.com/kreathur-agency-6804" target="_blank" rel="noopener">
+          <img src="./assets/img/banner-skool.jpg" alt="No se programar y funciona solo - comunidad Arma tu propia maquina en Skool" width="1280" height="720" loading="lazy">
+        </a>
+        <div class="skool-body">
+          <div class="skool-tag">SIGUIENTE PASO</div>
+          <h2>Arma tu propia maquina <span class="hl">— todo en un solo lugar.</span></h2>
+          <p>Estos recursos son el comienzo. Adentro de la comunidad esta el curso completo, paso a paso: yo no se programar y mis proyectos funcionan solos. Te muestro exactamente como lo hago.</p>
+          <ul class="skool-features">
+            <li>El curso completo, clase por clase (sin vueltas)</li>
+            <li>Los pedidos listos para copiar y pegar</li>
+            <li>Videos que NO estan en YouTube</li>
+            <li>Una clase en vivo cada semana + preguntas</li>
+          </ul>
+          <div class="skool-cta-row">
+            <div>
+              <span class="skool-price">$9.900 <small>CLP / mes</small></span>
+            </div>
+            <a href="https://www.skool.com/kreathur-agency-6804" target="_blank" rel="noopener" class="skool-btn">Entrar a la comunidad &rarr;</a>
           </div>
-          <a href="libro-ia.html" class="upsell-btn">Ver el ebook →</a>
         </div>
       </div>
 
