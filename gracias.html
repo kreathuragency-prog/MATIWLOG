@@ -140,6 +140,24 @@ h1 .hl {
 }
 .download-btn:hover { background: var(--amber); transform: translateY(-2px); box-shadow: 0 8px 30px var(--amber-glow); }
 
+.guias-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(215px, 1fr));
+  gap: 10px;
+  margin: 6px 0 18px;
+}
+.guia-item {
+  display: flex; align-items: center; gap: 9px;
+  padding: 14px 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  color: var(--text); text-decoration: none;
+  font-size: 14px; font-weight: 600; text-align: left;
+  transition: all 0.25s;
+}
+.guia-item:hover { border-color: var(--cyan); color: var(--cyan); transform: translateY(-2px); }
+
 .tiny {
   font-size: 12px;
   color: var(--text-dim);
@@ -304,14 +322,19 @@ h1 .hl {
     <div class="success-box">
       <div class="check-icon"></div>
       <p class="eyebrow">// suscripcion confirmada</p>
-      <h1>Listo. Tu guia <span class="hl">se esta descargando.</span></h1>
-      <p class="lead">Tu <strong>Guia IA Practica</strong> (PDF) empieza a descargarse sola en un segundo. Si no arranca, usa el boton de abajo. Guardala en tu telefono o computadora.</p>
+      <h1>Listo. Aqui estan <span class="hl">tus 6 guias.</span></h1>
+      <p class="lead">Son tuyas, gratis y para siempre. Descargalas ahora desde aqui — cada una es un PDF directo. Guardalas en tu telefono o computadora.</p>
 
-      <a href="guia-ia-practica.pdf" class="download-btn" download="Guia-IA-Practica-MATIWLOG.pdf">
-        📥 Descargar la guia ahora
-      </a>
-      <p class="tiny">// descarga directa · es tuya para siempre</p>
-      <p class="next-step">Mientras la revisas, llevate el resto: <a href="recursos.html">los otros 3 PDF gratis</a> (5 IAs gratis, como no te estafen, checklist de drone) y <a href="herramientas.html">las 18 herramientas que uso a diario</a>.</p>
+      <div class="guias-grid">
+        <a href="./recursos/guia-ia-para-tu-negocio.pdf" class="guia-item" download="Guia-IA-para-tu-negocio-MATIWLOG.pdf">📄 IA para tu negocio</a>
+        <a href="./recursos/guia-ecommerce-tienda.pdf" class="guia-item" download="Guia-Ecommerce-MATIWLOG.pdf">📄 Tu tienda online</a>
+        <a href="./recursos/guia-arriendos-turismo.pdf" class="guia-item" download="Guia-Arriendos-Turismo-MATIWLOG.pdf">📄 Arriendos y turismo</a>
+        <a href="./recursos/guia-marca-moda.pdf" class="guia-item" download="Guia-Marca-Moda-MATIWLOG.pdf">📄 Crear tu marca de moda</a>
+        <a href="./recursos/guia-gastronomia-local.pdf" class="guia-item" download="Guia-Gastronomia-Local-MATIWLOG.pdf">📄 Gastronomia local</a>
+        <a href="./recursos/guia-importar-exportar-chile.pdf" class="guia-item" download="Guia-Importar-Exportar-MATIWLOG.pdf">📄 Importar y exportar en Chile</a>
+      </div>
+      <p class="tiny">// 6 PDF · descarga directa · son tuyas para siempre</p>
+      <p class="next-step">Y si quieres mas: <a href="recursos.html">los PDF extra</a> (Guia IA Practica, 5 IAs gratis, como no te estafen y el checklist de drone) y <a href="herramientas.html">las 18 herramientas que uso a diario</a>.</p>
 
       <!-- UPSELL -->
       <div class="upsell">
@@ -356,16 +379,5 @@ h1 .hl {
   </div>
 </footer>
 
-<script>
-  // La guia se descarga sola al entrar (ademas del boton manual)
-  window.addEventListener('load', function () {
-    setTimeout(function () {
-      var a = document.createElement('a');
-      a.href = 'guia-ia-practica.pdf';
-      a.setAttribute('download', 'Guia-IA-Practica-MATIWLOG.pdf');
-      document.body.appendChild(a); a.click(); a.remove();
-    }, 700);
-  });
-</script>
 </body>
 </html>

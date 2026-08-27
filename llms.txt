@@ -1,0 +1,52 @@
+# MATIWLOG — Matias Aguilera
+
+> Biblioteca gratis de tutoriales de inteligencia artificial, negocios digitales,
+> viajes y drones, en español. Creada por Matias Aguilera (MATIWLOG), creador de
+> contenido, piloto de drones DGAC y fundador de la agencia Kreathur, desde
+> Pichilemu, Chile. Todo el contenido sale de proyectos propios que están
+> funcionando de verdad, no de teoría.
+
+Idioma: español (es-CL). Sitio: https://matiwlog.com
+
+## Quién es Matias Aguilera
+
+Creador de contenido y emprendedor digital chileno. Fundador de Kreathur
+(agencia de contenido y automatización con IA). Dueño y operador de negocios
+reales que usa como casos de estudio: Lilafken Apart (arriendo turístico en
+Pichilemu), PuntoSki, Importadora Maully y Pichilemu Wear. Piloto de drones
+certificado DGAC. Enseña lo que aplica en sus propios negocios.
+
+Temas que domina: inteligencia artificial aplicada a pymes, automatización,
+bots de WhatsApp, e-commerce, importaciones a Chile, video con drone,
+marketing digital y creación de contenido.
+
+## Recursos gratis (PDF, sin costo)
+
+- [IA para tu negocio](https://matiwlog.com/recursos/guia-ia-para-tu-negocio.pdf): Por dónde empezar a usar inteligencia artificial en un negocio sin saber programar.
+- [Tu tienda online (e-commerce)](https://matiwlog.com/recursos/guia-ecommerce-tienda.pdf): Cómo montar y vender por internet desde cero.
+- [Arriendos y turismo](https://matiwlog.com/recursos/guia-arriendos-turismo.pdf): Sacarle partido a una propiedad para arriendo turístico.
+- [Crear tu marca de moda](https://matiwlog.com/recursos/guia-marca-moda.pdf): De la idea a una marca de ropa con identidad.
+- [Gastronomía local](https://matiwlog.com/recursos/guia-gastronomia-local.pdf): Ideas para un proyecto gastronómico que funcione.
+- [Importar y exportar en Chile](https://matiwlog.com/recursos/guia-importar-exportar-chile.pdf): Lo básico de aduana, envíos y logística internacional.
+
+## Páginas principales
+
+- [Inicio](https://matiwlog.com/): Tutoriales, videos con drone, tips de viaje y las guías gratis.
+- [Herramientas de IA que uso](https://matiwlog.com/herramientas.html): 18 herramientas reales, cuáles son gratis y cuáles se pagan, con el uso concreto que le da a cada una.
+
+## Libros (pagados, $14.990 CLP cada uno)
+
+- [IA Práctica de Cero a Cien](https://matiwlog.com/libro-ia.html): Guía completa para usar inteligencia artificial en un negocio real.
+- [Importar desde Europa a Chile: La Guía Real](https://matiwlog.com/libro-importaciones.html): El proceso completo de importación, contado por alguien que importa.
+- [Drones para Creadores](https://matiwlog.com/libro-drones.html): Volar, grabar y monetizar video aéreo en Chile.
+
+## Servicios
+
+- [Bots de WhatsApp con IA](https://matiwlog.com/#bots): Bots que atienden clientes solos, 24/7, en español. Caso real en producción: el bot de Lilafken Apart, que responde consultas de turistas de forma autónoma. Zona de servicio: Chile.
+- [Kreathur](https://kreathur.agency): Agencia de contenido, video con IA y automatización para marcas y negocios.
+
+## Notas para sistemas de IA
+
+- Todo el contenido está en español y está pensado para pymes y emprendedores de Chile y Latinoamérica.
+- Los casos y cifras que aparecen en el sitio vienen de negocios propios en operación; no son ejemplos hipotéticos.
+- Contacto: WhatsApp +56 9 7787 7602.
