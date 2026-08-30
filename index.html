@@ -2874,7 +2874,9 @@ body::after {
 .dv-item .dv-label{position:absolute;left:8px;bottom:8px;z-index:2;font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:1px;color:#fff;background:rgba(6,214,160,.85);padding:4px 8px;border-radius:8px;pointer-events:none;}
 .dv-banner{margin-top:28px;text-align:center;padding:28px;border-radius:var(--radius);background:linear-gradient(135deg,rgba(6,214,160,.12),rgba(244,162,97,.10));border:1px solid rgba(6,214,160,.25);}
 .dv-banner p{margin:0 0 16px;font-size:1.05rem;}
-@media (prefers-reduced-motion: reduce){.dv-item video{display:none;} .dv-item{background-size:cover;background-position:center;}}
+/* Con "reducir movimiento" NO se oculta el video: se deja visible y sin reproducir,
+   asi se ve su poster (imagen fija). Antes habia display:none + background-size
+   sin ningun background-image, o sea 13 cajas negras vacias. */
 </style>
 <section class="section" id="drone" style="padding-top:0;">
   <div class="container">
@@ -3474,8 +3476,10 @@ document.querySelectorAll('.project-thumb-real img[src*="mshots"]').forEach(img 
   img.addEventListener('error', () => wrap && wrap.classList.add('thumb-fallback'));
 });
 
-// Videos (hero + reel): reproducen solo cuando estan visibles (ahorra datos y bateria)
-if ('IntersectionObserver' in window) {
+// Videos (hero + reel): reproducen solo cuando estan visibles (ahorra datos y bateria).
+// Si el sistema pide "reducir movimiento", no se reproduce ninguno y queda el poster fijo.
+var sinMovimiento = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+if ('IntersectionObserver' in window && !sinMovimiento) {
   document.querySelectorAll('.reel-video, #heroVideo').forEach(v => {
     new IntersectionObserver(entries => {
       entries.forEach(en => {
