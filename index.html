@@ -3508,6 +3508,7 @@ if ('IntersectionObserver' in window && !sinMovimiento) {
         { t: '🌊 Viajes', scroll: '#viajes' },
         { t: '💡 Tips cortos', scroll: '#tips' },
         { t: '📚 Recursos gratis', go: 'recursos' },
+        { t: '📕 Los 3 libros', go: 'libros' },
         { t: '👥 Comunidad Skool', go: 'skool' },
         { t: '🤖 Web/bot para mi negocio', go: 'kreathur' },
         { t: '🙋 ¿Quién es Mati?', go: 'quien' },
@@ -3518,7 +3519,18 @@ if ('IntersectionObserver' in window && !sinMovimiento) {
             'Solo déjame tu email y te llegan al instante. Cero spam.'],
       chips: [
         { t: '📥 Ir a recursos gratis', scroll: '#recursos' },
+        { t: '📕 ¿Y la versión completa?', go: 'libros' },
         { t: '⚡ Ver tutoriales', scroll: '#tutoriales' },
+        { t: '← Volver', go: 'inicio' },
+      ]
+    },
+    libros: {
+      say: ['Las guías gratis te muestran por dónde partir. Los <b>libros</b> son la versión larga: el paso a paso completo, con lo que me funcionó y lo que no. <b>$14.990 cada uno.</b>',
+            '¿Cuál te sirve más?'],
+      chips: [
+        { t: '🤖 IA Práctica de Cero a Cien', link: './libro-ia.html' },
+        { t: '📦 Importar desde Europa a Chile', link: './libro-importaciones.html' },
+        { t: '🚁 Drones para Creadores', link: './libro-drones.html' },
         { t: '← Volver', go: 'inicio' },
       ]
     },
