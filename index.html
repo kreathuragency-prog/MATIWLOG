@@ -167,7 +167,7 @@
   "@type": "Service",
   "name": "Bot de WhatsApp con IA para negocios",
   "serviceType": "Chatbot de WhatsApp con inteligencia artificial",
-  "description": "Bot de WhatsApp entrenado con la informacion de tu negocio: responde preguntas frecuentes las 24 horas, atiende a varios clientes a la vez y te pasa la conversacion cuando el caso es serio. Se conecta a tu WhatsApp Business actual.",
+  "description": "Piloto de WhatsApp con IA para un negocio y un canal: hasta 15 preguntas aprobadas, captura de consultas, derivación humana y pruebas antes de activar. Conexión, alcance, valor y plazo sujetos a revisión del caso.",
   "url": "https://matiwlog.com/#bots",
   "provider": {
     "@type": "Person",
@@ -189,7 +189,7 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Bot de WhatsApp entrenado con tu informacion",
-          "description": "Entrenamiento del bot con tus productos, precios y preguntas frecuentes, con traspaso a una persona cuando hace falta y reporte semanal por email."
+          "description": "Piloto con respuestas aprobadas, captura de datos necesarios, derivación a una persona, pruebas, una ronda de ajustes y guía de uso. Implementación, soporte y costos externos se detallan por separado."
         }
       }
     ]
@@ -2643,6 +2643,19 @@ body::after {
 .rd2 { transition-delay: 0.2s; }
 .rd3 { transition-delay: 0.3s; }
 .rd4 { transition-delay: 0.4s; }
+
+/* Piloto comercial WhatsApp: estilos limitados a esta sección. */
+#bots{scroll-margin-top:90px}#bots .kreathur-grid{align-items:start}
+#bots .pilot-scope{background:rgba(0,0,0,.22);border:1px solid rgba(255,255,255,.18);border-radius:16px;padding:28px;color:#e7f3f5;min-width:0}
+#bots .pilot-kicker{font:11px 'JetBrains Mono',monospace;letter-spacing:1.5px;color:#8ef2b1;margin:0 0 24px}
+#bots .pilot-scope ol{list-style:none;padding:0;margin:0}#bots .pilot-scope li{padding:0 0 22px}
+#bots .pilot-scope b{display:block;font-size:16px;margin-bottom:6px}#bots .pilot-scope span,#bots .pilot-scope>p:last-child{font-size:14px;line-height:1.65;color:#c4d5df}
+#bots .pilot-disclosure{font-size:13px;line-height:1.6;margin:18px 0 0;color:#c4d5df}
+#bots .pilot-faq{position:relative;z-index:2;margin-top:30px}#bots details{border-top:1px solid rgba(255,255,255,.2);padding:18px 0;color:white}
+#bots summary{font-size:15px;font-weight:600;cursor:pointer}#bots details p{font-size:14px;line-height:1.7;max-width:800px;color:#c4d5df;margin-top:12px}
+#bots a:focus-visible,#bots summary:focus-visible{outline:3px solid #8ef2b1;outline-offset:5px}
+#bots .kreathur-content{min-width:0}#bots .kreathur-tag{letter-spacing:1px;white-space:normal}
+@media(max-width:600px){#bots .kreathur-box{padding:26px 18px}#bots .pilot-scope{padding:20px}#bots .kreathur-grid{gap:28px}#bots .kreathur-actions{flex-direction:column}#bots .kreathur-actions a{text-align:center;justify-content:center;white-space:normal}}
 </style>
 </head>
 <body>
@@ -2692,6 +2705,7 @@ body::after {
         <a href="#tutoriales" class="btn btn-outline">
           Ver tutoriales
         </a>
+        <a href="#bots" class="btn btn-outline">WhatsApp para tu negocio →</a>
       </div>
       <div class="hero-stats reveal rd4">
         <div class="hero-stat">
@@ -3220,69 +3234,40 @@ body::after {
 </section>
 
 <!-- KREATHUR / BOTS WHATSAPP -->
-<section class="kreathur-section" id="bots">
+<section class="kreathur-section" id="bots" aria-labelledby="pilot-heading">
+  <span id="whatsapp" aria-hidden="true"></span>
   <div class="container">
-    <div class="kreathur-box reveal">
+    <div class="kreathur-box">
       <div class="kreathur-grid">
         <div class="kreathur-content">
-          <span class="kreathur-tag">💬 LO QUE MAS ME PIDEN</span>
-          <h2>Te armo un bot de <span class="hl">WhatsApp</span><br>que atiende solo.</h2>
-          <p>Esto es lo que más me piden. Le hicimos uno a Pichilemu Online — se llama Lemu, atiende turistas a cualquier hora, recomienda hoteles, restaurantes, lugares para surfear. Funciona con IA entrenada y ya nadie del equipo responde lo mismo 80 veces al dia.</p>
-
+          <span class="kreathur-tag">WHATSAPP CON IA · KREATHUR</span>
+          <h2 id="pilot-heading">Las preguntas se repiten.<br><span class="hl">Tu tiempo cuenta.</span></h2>
+          <p>Si recibes las mismas preguntas sobre tu negocio, podemos preparar un asistente que use información aprobada por ti, ordene las consultas y las derive a una persona cuando haga falta.</p>
           <ul class="kreathur-features">
-            <li>Se conecta a tu WhatsApp Business actual</li>
-            <li>Lo entreno con tu info — productos, precios, FAQ</li>
-            <li>Atiende a varios al mismo tiempo</li>
-            <li>Si es algo serio, te pasa la conversacion</li>
-            <li>Te llega un reporte cada lunes por email</li>
+            <li>Un negocio, un canal y hasta 15 preguntas frecuentes</li>
+            <li>Captura de los datos necesarios para atender la consulta</li>
+            <li>Derivación humana y pruebas antes de activar</li>
+            <li>Una ronda de ajustes y una guía de uso</li>
           </ul>
-
-          <p style="font-size: 13px; color: rgba(255,255,255,0.6); margin-bottom: 20px;">
-            Si tienes un negocio donde la gente pregunta lo mismo todo el dia, esto vale el costo. Escríbeme y te cuento sin compromiso cuanto seria para tu caso.
-          </p>
-
           <div class="kreathur-actions">
-            <a href="https://wa.me/56977877602?text=Hola%20Mati!%20Vi%20tu%20sitio%20y%20quiero%20saber%20de%20bots%20de%20WhatsApp" target="_blank" rel="noopener" class="btn-whatsapp">
-              💬 Escribirme por WhatsApp
-            </a>
-            <a href="https://kreathur.agency" target="_blank" rel="noopener" class="btn-kreathur">
-              Conocer Kreathur →
-            </a>
+            <a href="./demo-whatsapp.html" class="btn-whatsapp">Probar la demostración →</a>
+            <a href="https://wa.me/56977877602?text=Hola%20Mat%C3%ADas%2C%20quiero%20evaluar%20un%20piloto%20de%20WhatsApp%20con%20IA%20para%20mi%20negocio." target="_blank" rel="noopener" class="btn-kreathur">Cotizar mi piloto</a>
           </div>
+          <p class="pilot-disclosure">La demo usa respuestas predefinidas y datos ficticios. No está conectada a WhatsApp ni a un modelo de IA.</p>
         </div>
-
-        <div class="whatsapp-mockup">
-          <div class="phone-frame">
-            <div class="phone-screen">
-              <div class="wa-header">
-                <div class="wa-avatar">L</div>
-                <div>
-                  <div class="wa-name">Bot Lemu</div>
-                  <div class="wa-status">● en linea · responde al instante</div>
-                </div>
-              </div>
-              <div class="wa-body">
-                <div class="wa-msg wa-msg-out">
-                  Hola! Llego mañana a Pichilemu, donde puedo aprender a surfear?
-                  <span class="wa-time">10:42</span>
-                </div>
-                <div class="wa-msg wa-msg-in">
-                  Bienvenido a Pichi! 🏄 Para principiantes te recomiendo <strong>Escuela La Puntilla</strong> — clases desde $25 mil. Si ya tienes nivel, anda a <strong>Punta de Lobos</strong>.
-                  <span class="wa-time">10:42</span>
-                </div>
-                <div class="wa-msg wa-msg-in">
-                  Quieres que te reserve clase para mañana?
-                  <span class="wa-time">10:42</span>
-                </div>
-                <div class="wa-msg wa-msg-out">
-                  Si porfa, a las 10am
-                  <span class="wa-time">10:43</span>
-                </div>
-                <div class="wa-typing"><span></span><span></span><span></span></div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <aside class="pilot-scope" aria-label="Cómo empezamos">
+          <p class="pilot-kicker">DE LA CONSULTA AL PILOTO</p>
+          <ol>
+            <li><b>01 / Revisamos tu atención</b><span>Tu canal actual, las preguntas que se repiten y quién recibe las consultas.</span></li>
+            <li><b>02 / Definimos el alcance</b><span>Respuestas aprobadas, datos necesarios y derivación a una persona.</span></li>
+            <li><b>03 / Probamos antes de activar</b><span>Preguntas conocidas, dudas y solicitudes de atención humana.</span></li>
+          </ol>
+          <p>Implementación, soporte y costos de plataforma se detallan por separado. El valor y el plazo se confirman después de revisar tu caso.</p>
+        </aside>
+      </div>
+      <div class="pilot-faq">
+        <details><summary>¿Debo cambiar el número de mi negocio?</summary><p>Primero revisamos cómo conservar el número que ya usas y si permite la conexión necesaria. La propuesta se prepara después de verificar el canal.</p></details>
+        <details><summary>¿Puede confirmar reservas o pagos?</summary><p>Solo con una integración acordada y comprobada. El piloto inicial puede recoger una solicitud y derivarla; no confirma disponibilidad, reservas ni pagos por su cuenta.</p></details>
       </div>
     </div>
   </div>
@@ -3366,6 +3351,7 @@ body::after {
       <div class="footer-brand">mati<span class="w">w</span>log</div>
       <div class="footer-tagline">Hecho con IA y cafe desde Pichilemu ☕ · +56 9 7787 7602</div>
       <div class="footer-links">
+        <a href="#bots">WhatsApp con IA</a>
         <a href="#tutoriales">Tutoriales</a>
         <a href="#recursos">📚 Recursos gratis</a>
         <a href="#faq">FAQ</a>
@@ -3449,19 +3435,24 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   });
 });
 
-// Forms: al enviar, llevamos al visitante a gracias.html, donde la guia (PDF)
-// se descarga sola. Web3Forms ya esta activo (access_key real), asi que ademas
-// se captura el email. El fallback de abajo solo actua si la key vuelve a ser
-// un placeholder — asi el visitante nunca se queda sin la guia.
+// Una clave ausente no confirma una suscripción. Los recursos siguen disponibles.
 document.querySelectorAll('form[action*="web3forms"]').forEach(f => {
   f.addEventListener('submit', e => {
     const key = f.querySelector('[name="access_key"]');
-    if (key && key.value.indexOf('REEMPLAZAR') !== -1) {
-      // Web3Forms aun no configurado: igual entregamos la guia al instante.
+    if (!key || !key.value.trim() || /REEMPLAZAR/i.test(key.value)) {
       e.preventDefault();
-      const btn = f.querySelector('button');
-      if (btn) btn.textContent = 'Listo ✓';
-      window.location.href = './gracias.html';
+      let notice = f.querySelector('[data-form-notice]');
+      if (!notice) {
+        notice = document.createElement('p');
+        notice.dataset.formNotice = '';
+        notice.setAttribute('role', 'status');
+        f.appendChild(notice);
+      }
+      notice.textContent = 'No se envió tu correo. Puedes descargar las guías gratis aquí: ';
+      const link = document.createElement('a');
+      link.href = './gracias.html';
+      link.textContent = 'Descargar las guías';
+      notice.appendChild(link);
     }
   });
 });
@@ -3721,6 +3712,61 @@ if ('IntersectionObserver' in window && !sinMovimiento) {
 
   /* ── menú móvil: no enfocable cuando está cerrado ── */
   @media (max-width:768px){ .nav-links{visibility:hidden;} .nav-links.open{visibility:visible;} }
+  </style>
+
+  <style id="mobile-layout-fix">
+  /* Mobile: readable cards, usable controls and a single floating action. */
+  @media (max-width:768px) {
+    .container,.nav-inner { padding-left:18px; padding-right:18px; }
+    .nav { background:rgba(10,10,15,.96); }
+    body.menu-open .nav { z-index:200; }
+    body.menu-open::after { width:100%; height:100%; animation:none; transform:none; }
+    .nav-toggle { min-width:44px; min-height:44px; }
+    .nav-links { overflow-y:auto; justify-content:flex-start; gap:12px; padding:80px 24px 24px; }
+    .nav-links a { padding:10px 0; }
+    .nav-links .nav-cta { padding:12px 20px; }
+    .hero { min-height:auto; padding:108px 0 72px; }
+    .hero-grid { min-width:0; gap:32px; }
+    .hero-text { width:100%; min-width:0; }
+    .hero h1 { font-size:clamp(2.15rem,9vw,3.2rem); letter-spacing:-1.3px; line-height:1.12; }
+    .hero-eyebrow { letter-spacing:1px; font-size:10px; flex-wrap:wrap; }
+    .hero-desc { font-size:16px; }
+    .hero-actions { display:grid; grid-template-columns:minmax(0,1fr); margin-bottom:28px; }
+    .hero-actions .btn { justify-content:center; text-align:center; padding:14px 16px; }
+    .hero-stats { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+    .hero-stat { min-width:0; text-align:center; }
+    .hero-stat-label { font-size:10px; letter-spacing:0; overflow-wrap:anywhere; }
+    .hero-real-tag { right:18px; bottom:12px; font-size:9px; letter-spacing:0; }
+    .hero-watermark { left:18px; bottom:36px; font-size:11px; }
+    .section,.kreathur-section,.lead-section,.kreathur-reel-section,.maully-section { padding-top:56px; padding-bottom:56px; }
+    .lead-box,.reel-box,.import-box,.maully-box,.product-hero { padding:28px 20px; gap:28px; }
+    .bento-grid>*,.hero-grid>*,.kreathur-grid>*,.lead-box>*,.reel-box>*,.product-hero>* { min-width:0; }
+    #bots .kreathur-box { padding:28px 20px; }
+    #bots .kreathur-grid { grid-template-columns:minmax(0,1fr); gap:24px; }
+    #bots .kreathur-content h2 { font-size:clamp(1.8rem,7.8vw,2.4rem); line-height:1.14; letter-spacing:-.8px; }
+    #bots .kreathur-tag { font-size:10px; padding:8px 10px; line-height:1.5; }
+    #bots .kreathur-features li { align-items:flex-start; line-height:1.6; }
+    #bots .kreathur-features li::before { margin-top:2px; }
+    #bots .kreathur-actions { flex-direction:column; }
+    #bots .kreathur-actions a { justify-content:center; text-align:center; padding:14px 16px; min-height:48px; }
+    #bots .btn-whatsapp { color:#062a17; }
+    #bots .pilot-scope { padding:20px 16px; }
+    #bots .pilot-kicker { letter-spacing:.6px; line-height:1.6; }
+    #bots summary { line-height:1.6; min-height:44px; }
+    .social-bar { position:relative; inset:auto; transform:none; width:fit-content; margin:0 auto 90px; flex-direction:row; padding:8px; }
+    .social-bar a { width:44px; height:44px; }
+    .matibot-fab { padding:10px; right:16px; }
+    .matibot-fab span.matibot-fab-label { display:none; }
+    .matibot-panel { z-index:220; top:auto; left:8px; right:8px; bottom:calc(8px + env(safe-area-inset-bottom)); width:auto; max-width:none; height:580px; max-height:calc(100dvh - 24px - env(safe-area-inset-bottom)); border-radius:18px; }
+    .matibot-header,.matibot-quick { flex-shrink:0; }
+    .matibot-body { min-height:0; }
+    .matibot-quick { max-height:32dvh; overflow-y:auto; }
+    .matibot-close,.matibot-chip { min-height:44px; min-width:44px; }
+    input,select,textarea { font-size:16px; }
+  }
+  @media (hover:none) {
+    .proj-card:hover .proj-shot { transform:none; }
+  }
   </style>
 
   <!-- parallax de orbes (solo con puntero fino y si se permite movimiento) -->
