@@ -69,6 +69,9 @@ a { color: var(--cyan); }
   .box, .cta, table { break-inside: avoid; }
 }
 </style>
+<!-- Analítica propia (Umami, sin cookies) -->
+<script defer src="https://analytics.kreathur.agency/k.js" data-website-id="b46c27ed-659f-4b1c-bff2-28f5792f7e93" data-domains="matiwlog.com,www.matiwlog.com"></script>
+<script>document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a[href]"):null;if(!a||!window.umami)return;var h=a.getAttribute("href")||"",t=/wa\.me|whatsapp\.com/i.test(h)?"whatsapp":/^tel:/i.test(h)?"llamada":/^mailto:/i.test(h)?"email":null;if(t)window.umami.track(t,{destino:h.split("?")[0].slice(0,80),pagina:location.pathname});},true);</script>
 </head>
 <body>
 <div class="page">

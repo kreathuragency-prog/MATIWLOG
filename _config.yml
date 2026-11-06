@@ -1,0 +1,12 @@
+# GitHub Pages (Jekyll): archivos internos que NO deben publicarse en matiwlog.com.
+# Agregado 26-sep-2026: CLAUDE.md, informes del agente y notas de agentes estaban visibles.
+exclude:
+  - CLAUDE.md
+  - AGENTS.md
+  - agents/
+  - reports/
+  - .claude/
+  - .agents/
+  - "*.py"
+  - "*.ps1"
+  - "*.bat"
