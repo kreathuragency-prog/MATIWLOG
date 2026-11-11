@@ -314,7 +314,7 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(243,233,214,
 
 <nav class="nav"><div class="wrap">
   <a class="brand" href="#">MatiWlog</a>
-  <ul><li><a href="#trabajo">Caso real</a></li><li><a href="#catalogo">Catálogo</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#gratis">Gratis</a></li><li><a href="#ecosistema">Ecosistema</a></li><li><a href="#contacto">Conversemos</a></li></ul>
+  <ul><li><a href="#trabajo">Caso real</a></li><li><a href="#catalogo">Catálogo</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#gratis">Gratis</a></li><li><a href="#portafolio">Portafolio</a></li><li><a href="#oficina">Oficina</a></li><li><a href="#ecosistema">Ecosistema</a></li><li><a href="#contacto">Conversemos</a></li></ul>
   <a class="m-cta" href="https://wa.me/56968442594">WhatsApp</a>
 </div></nav>
 
@@ -499,6 +499,47 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(243,233,214,
   </div>
 </section>
 
+<section class="ofi" id="oficina">
+  <style>
+  .ofi{background:var(--ink);color:var(--sand);padding:clamp(4rem,9vw,7rem) 0}
+  .ofi .g{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
+  .ofi h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;margin:.6rem 0 1rem}
+  .ofi h2 em{color:var(--foam);font-style:italic}
+  .ofi p{color:rgba(243,233,214,.82);line-height:1.6;max-width:52ch}
+  .ofi ul{list-style:none;padding:0;margin:1.2rem 0 1.6rem;display:grid;gap:.55rem}
+  .ofi li{display:flex;gap:.6rem;line-height:1.45}
+  .ofi li::before{content:"";flex:none;width:.55rem;height:.55rem;margin-top:.45rem;border-radius:50%;background:var(--foam)}
+  .ofi .cta{display:flex;flex-wrap:wrap;gap:.8rem}
+  .ofi .vid{position:relative;border-radius:22px;overflow:hidden;border:1.5px solid rgba(255,255,255,.14);box-shadow:0 30px 60px rgba(0,0,0,.4);background:var(--ink-2)}
+  .ofi video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
+  .ofi .tag{position:absolute;left:12px;top:12px;font:500 .66rem "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .6rem;border-radius:999px;background:rgba(13,22,30,.75);color:var(--sand)}
+  .ofi .mas{display:inline-block;margin-top:1rem;font-size:.88rem;color:var(--foam)}
+  @media (max-width:860px){.ofi .g{grid-template-columns:1fr}.ofi .vid{order:-1}}
+  </style>
+  <div class="wrap g">
+    <div class="rv">
+      <span class="eyebrow">Así se ordena un proyecto</span>
+      <h2>Una oficina <em>virtual</em> que se recorre como un juego.</h2>
+      <p>Cada sala es un área del proyecto: web, marketing, operación, finanzas y legal. Las salas encendidas son lo que ya funciona; las apagadas, lo que falta. La hicimos en Kreathur para ver de un vistazo dónde está todo y qué sigue.</p>
+      <ul>
+        <li>Ves qué está listo, qué falta y qué es lo más importante hoy.</li>
+        <li>Te llegan misiones, no tareas sueltas: cada una cumplida enciende una sala.</li>
+        <li>Lo técnico aparece solo cuando tocas «Cómo se hace».</li>
+      </ul>
+      <div class="cta">
+        <a class="btn btn-sun" href="https://kreathur.agency/portafolio/oficina/" target="_blank" rel="noopener">Recórrela jugando →</a>
+        <a class="btn btn-ghost" href="https://wa.me/56968442594?text=Hola%20Mati%2C%20vi%20la%20Oficina%20Virtual%20en%20matiwlog.com%20y%20quiero%20una%20para%20mi%20proyecto." target="_blank" rel="noopener">Quiero una para mi proyecto</a>
+      </div>
+      <a class="mas" href="#portafolio">O mira todo el portafolio →</a>
+    </div>
+    <div class="vid rv">
+      <video src="https://kreathur.agency/portafolio/v/oficina-virtual.mp4" poster="https://kreathur.agency/portafolio/t/oficina-virtual.jpg" muted loop playsinline preload="none" aria-label="Recorrido por la Oficina Virtual de Kreathur, con empresas de ejemplo"></video>
+      <span class="tag">Video con empresas de ejemplo</span>
+    </div>
+  </div>
+  <script>(function(){var v=document.querySelector('#oficina video');if(!v||!('IntersectionObserver' in window))return;new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?v.play().catch(function(){}):v.pause()})},{threshold:.35}).observe(v)})();</script>
+</section>
+
 <section class="eco" id="ecosistema">
   <div class="wrap">
     <div class="rv"><span class="eyebrow" style="color:var(--foam)">Mi ecosistema</span><h2>Tres puertas, <em>un mismo</em> equipo.</h2><p>Todo lo que hago sale de aquí. Entra por la que te sirva.</p></div>
@@ -521,7 +562,6 @@ footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(243,233,214,
   </div>
 </section>
 
-<div class="proto">Prototipo local · 5 nov 2026 · nada publicado</div>
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
@@ -606,5 +646,6 @@ document.querySelectorAll('.reel video,.film video').forEach(v=>vo.observe(v));
 document.querySelectorAll('#ytgrid .v').forEach(v=>{const id=v.dataset.id;fetch('https://noembed.com/embed?url=https://www.youtube.com/watch?v='+id).then(r=>r.json()).then(d=>{v.querySelector('.t').textContent=d.title||'Ver en YouTube'}).catch(()=>{v.querySelector('.t').textContent='Ver en YouTube'});
 v.addEventListener('click',()=>{if(v.querySelector('iframe'))return;const f=document.createElement('iframe');f.src=`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;v.appendChild(f)})});
 </script>
+<script src="js/portafolio-flotante.js?v=20261110c" defer></script>
 </body>
 </html>
