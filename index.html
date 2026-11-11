@@ -2,650 +2,367 @@
 <html lang="es">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>MatiWlog — Historias y herramientas desde Pichilemu</title>
-<meta name="description" content="Soy Mati. 20 años diseñando webs, apps y campañas. Hoy cuento historias con dron y construyo lo que tu negocio necesita para que lo encuentren.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,700;1,9..144,300;1,9..144,500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-:root{
-  --sand:#f3e9d6; --sand-2:#e7d9bf; --ink:#0d161e; --ink-2:#142230; --sea:#0f3a4a; --sea-2:#1c6f7d; --foam:#9fe3dc; --sun:#f4a259; --sun-2:#e2742c; --coral:#ff6b57;
-}
-*{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:auto}
-html.lenis{height:auto}.lenis.lenis-smooth{scroll-behavior:auto!important}
-body{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--ink);color:var(--sand);line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden;cursor:none}
-@media (hover:none){body{cursor:auto}}
-h1,h2,h3,.serif{font-family:Fraunces,Georgia,serif;font-weight:500;letter-spacing:-.025em;line-height:1.02}
-.mono{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase}
-a{color:inherit;text-decoration:none}
-img,video{display:block;max-width:100%}
-.wrap{width:min(1240px,92vw);margin-inline:auto}
-.eyebrow{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--foam);display:inline-flex;align-items:center;gap:.6rem}
-.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
-.btn{display:inline-flex;align-items:center;gap:.6rem;padding:1rem 1.6rem;border-radius:999px;font-weight:600;font-size:.95rem;border:1.5px solid transparent;position:relative;overflow:hidden;transition:color .3s;will-change:transform}
-.btn span{position:relative;z-index:1}
-.btn::before{content:"";position:absolute;inset:0;background:var(--sun-2);transform:translateY(101%);transition:transform .45s cubic-bezier(.76,0,.24,1);border-radius:inherit}
-.btn:hover::before{transform:translateY(0)}
-.btn-sun{background:var(--sun);color:var(--ink)}
-.btn-ghost{border-color:rgba(243,233,214,.5);color:var(--sand)}
-.btn-ghost:hover{color:var(--ink)}
-.btn-ghost::before{background:var(--sand)}
-
-/* cursor */
-.cur{position:fixed;left:0;top:0;width:14px;height:14px;border-radius:50%;background:var(--sun);pointer-events:none;z-index:999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .3s,height .3s,background .3s}
-.cur-ring{position:fixed;left:0;top:0;width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(244,162,89,.8);pointer-events:none;z-index:998;transform:translate(-50%,-50%);transition:width .35s,height .35s,border-color .35s,opacity .3s}
-body.hovering .cur{width:6px;height:6px}
-body.hovering .cur-ring{width:72px;height:72px;border-color:var(--foam)}
-.cur-ring.lbl{width:96px;height:96px;background:var(--sun);border-color:var(--sun);display:grid;place-items:center;color:var(--ink);font:600 .75rem "Instrument Sans";mix-blend-mode:normal}
-.cur-ring.lbl::after{content:attr(data-lbl)}
-@media (hover:none){.cur,.cur-ring{display:none}}
-
-/* grain + progress */
-.grain{position:fixed;inset:-50%;width:200%;height:200%;pointer-events:none;z-index:900;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");animation:grain 1.2s steps(6) infinite}
-@keyframes grain{0%{transform:translate(0,0)}20%{transform:translate(-5%,3%)}40%{transform:translate(4%,-6%)}60%{transform:translate(-3%,5%)}80%{transform:translate(6%,2%)}100%{transform:translate(0,0)}}
-.prog{position:fixed;left:0;top:0;height:3px;width:100%;z-index:950;transform-origin:left;transform:scaleX(0);background:linear-gradient(90deg,var(--foam),var(--sun),var(--coral))}
-
-/* loader */
-.loader{position:fixed;inset:0;z-index:1000;background:var(--ink);display:grid;place-items:center;transition:clip-path 1s cubic-bezier(.76,0,.24,1)}
-.loader.done{clip-path:inset(0 0 100% 0);pointer-events:none}
-.loader .word{font-family:Fraunces,serif;font-size:clamp(2.6rem,9vw,7rem);font-weight:300;letter-spacing:-.03em;display:flex;gap:.02em}
-.loader .word i{font-style:normal;display:inline-block;opacity:0;transform:translateY(40%);animation:up .7s cubic-bezier(.2,.8,.2,1) forwards}
-.loader .word i:nth-child(n){animation-delay:calc(var(--i)*60ms)}
-@keyframes up{to{opacity:1;transform:none}}
-.loader .line{position:absolute;bottom:14vh;left:50%;width:min(60vw,420px);height:1px;background:rgba(243,233,214,.15);transform:translateX(-50%);overflow:hidden}
-.loader .line i{position:absolute;inset:0;background:var(--sun);transform-origin:left;animation:fill 1.6s .3s cubic-bezier(.76,0,.24,1) forwards;transform:scaleX(0)}
-@keyframes fill{to{transform:scaleX(1)}}
-
-/* NAV */
-.nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:1.2rem 0;mix-blend-mode:difference;color:#fff}
-.nav .wrap{display:flex;justify-content:space-between;align-items:center}
-.nav .brand{font-family:Fraunces,serif;font-size:1.4rem;font-weight:700;letter-spacing:-.02em}
-.nav ul{display:flex;gap:1.8rem;list-style:none;font-size:.88rem}
-.nav ul a{position:relative}
-.nav ul a::after{content:"";position:absolute;left:0;right:0;bottom:-4px;height:1px;background:#fff;transform:scaleX(0);transform-origin:right;transition:transform .35s}
-.nav ul a:hover::after{transform:scaleX(1);transform-origin:left}
-.nav .m-cta{display:none}
-@media (max-width:760px){.nav ul{display:none}.nav .m-cta{display:inline-flex;padding:.55rem 1rem;font-size:.85rem;border:1.5px solid currentColor;border-radius:999px;font-weight:600}}
-
-/* HERO */
-.hero{position:relative;min-height:100svh;display:flex;flex-direction:column;overflow:hidden;background:var(--sea)}
-.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.08)}
-#ocean{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;mix-blend-mode:screen;opacity:.8}
-.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 30% 20%,rgba(159,227,220,.18),transparent 50%),linear-gradient(180deg,rgba(13,22,30,.25) 0%,rgba(13,22,30,.1) 40%,rgba(13,22,30,.95) 100%)}
-.hero .wrap{position:relative;z-index:2;margin-top:auto;padding:8rem 0 4rem;display:grid;gap:1.6rem}
-.hero .chip{display:inline-flex;align-items:center;gap:.7rem;background:rgba(255,255,255,.1);backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18);border-radius:999px;padding:.4rem 1rem .4rem .4rem;font-size:.85rem;width:max-content;max-width:100%}
-.hero .chip img{width:34px;height:34px;border-radius:50%;object-fit:cover}
-.hero .chip i{width:8px;height:8px;border-radius:50%;background:#4ade80;display:inline-block;box-shadow:0 0 0 4px rgba(74,222,128,.25);animation:pulse 2s infinite}
-@keyframes pulse{50%{box-shadow:0 0 0 8px rgba(74,222,128,0)}}
-.hero h1{font-size:clamp(2.9rem,8.6vw,7.6rem);font-weight:300;max-width:14ch;color:#fff}
-.hero h1 em{font-style:italic;color:var(--foam)}
-.hero h1 .w{display:inline-block;overflow:hidden;vertical-align:bottom}
-.hero h1 .w i{display:inline-block;font-style:inherit;transform:translateY(110%);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
-.hero.in h1 .w i{transform:none}
-.hero p.lead{font-size:clamp(1.05rem,1.6vw,1.35rem);max-width:46ch;color:rgba(255,255,255,.85)}
-.hero .cta{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:.4rem}
-.hero .meta{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1.4rem 2rem;margin-top:1.6rem;padding-top:1.4rem;border-top:1px solid rgba(255,255,255,.15)}
-.hero .meta div{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6)}
-.hero .meta b{display:block;color:#fff;font-size:1.7rem;letter-spacing:-.02em;text-transform:none;font-family:Fraunces,serif;font-weight:500}
-.hero .coords{position:absolute;right:4vw;top:50%;z-index:2;writing-mode:vertical-rl;font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.2em;color:rgba(255,255,255,.5)}
-@media (max-width:760px){.hero .coords{display:none}}
-
-/* MARQUEE */
-.marquee{background:var(--sun);color:var(--ink);overflow:hidden;padding:.9rem 0;font-family:Fraunces,serif;font-size:1.35rem;white-space:nowrap;transform:rotate(-1.2deg) scale(1.02);position:relative;z-index:3;margin-top:-1.4rem}
-.marquee span{display:inline-block;padding-right:3rem;animation:slide 26s linear infinite}
-.marquee em{font-style:italic;font-weight:300}
-@keyframes slide{to{transform:translateX(-50%)}}
-
-section{padding:clamp(5rem,10vw,9rem) 0;position:relative}
-.sec-head{display:grid;gap:1rem;max-width:64ch;margin-bottom:3.2rem}
-.sec-head h2{font-size:clamp(2.2rem,5vw,4.2rem)}
-.sec-head p{font-size:1.1rem;color:rgba(243,233,214,.68)}
-.light{background:var(--sand);color:var(--ink)}
-.light .sec-head p{color:#44525f}
-.light .eyebrow{color:var(--sea-2)}
-.split .l{display:inline-block;overflow:hidden;vertical-align:bottom;padding-bottom:.08em;margin-bottom:-.08em}
-.split .l i{display:inline-block;font-style:inherit;transform:translateY(110%)}
-
-/* ABOUT */
-.about{overflow:hidden}
-.about .grid{display:grid;grid-template-columns:1fr 1.1fr;gap:4rem;align-items:center}
-.about .photo{position:relative;border-radius:26px;overflow:hidden;aspect-ratio:4/5;transform:rotate(-2.5deg)}
-.about .photo img{width:100%;height:120%;object-fit:cover;will-change:transform}
-.about .photo .tag{position:absolute;left:1rem;bottom:1rem;background:rgba(255,255,255,.92);padding:.5rem .9rem;border-radius:999px;font-size:.82rem;font-weight:600}
-.about .photo .stamp{position:absolute;right:-1.4rem;top:-1.4rem;width:120px;height:120px;animation:spin 14s linear infinite}
-@keyframes spin{to{transform:rotate(360deg)}}
-.about h2{font-size:clamp(2.3rem,5vw,4.2rem);margin:.6rem 0 1.4rem}
-.about p{font-size:1.12rem;color:#2f3b46;margin-bottom:1rem;max-width:54ch}
-.about .facts{display:flex;gap:2rem;flex-wrap:wrap;margin-top:2rem}
-.about .facts div{border-left:2px solid var(--sun);padding-left:.9rem}
-.about .facts b{font-family:Fraunces,serif;font-size:1.7rem;display:block}
-.about .facts small{color:#5a6773}
-.blob{position:absolute;border-radius:50%;filter:blur(80px);opacity:.55;pointer-events:none}
-@media (max-width:860px){.about .grid{grid-template-columns:1fr}}
-
-/* TIMELINE */
-.tl{background:var(--ink-2);overflow:hidden}
-.tl .track{position:relative;margin-top:3rem}
-.tl .line{position:absolute;left:0;right:0;top:11px;height:1px;background:rgba(243,233,214,.15)}
-.tl .line i{position:absolute;inset:0;background:var(--sun);transform-origin:left;transform:scaleX(0)}
-.tl ol{list-style:none;display:grid;grid-template-columns:repeat(5,1fr);gap:1.2rem}
-.tl li{position:relative;padding-top:2.2rem}
-.tl li::before{content:"";position:absolute;left:0;top:6px;width:11px;height:11px;border-radius:50%;background:var(--ink-2);border:1.5px solid var(--sun)}
-.tl li.on::before{background:var(--sun);box-shadow:0 0 0 6px rgba(244,162,89,.2)}
-.tl .yr{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;color:var(--foam)}
-.tl h3{font-size:1.35rem;margin:.4rem 0 .4rem}
-.tl p{font-size:.92rem;color:rgba(243,233,214,.65)}
-.tl .counters{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:4rem}
-.tl .counters div{border-top:1px solid rgba(243,233,214,.15);padding-top:1rem}
-.tl .counters b{font-family:Fraunces,serif;font-size:clamp(2.4rem,5vw,4rem);font-weight:300;display:block;line-height:1}
-.tl .counters small{font-family:"JetBrains Mono",monospace;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(243,233,214,.55)}
-@media (max-width:900px){.tl ol{grid-template-columns:1fr 1fr}.tl .counters{grid-template-columns:1fr 1fr}}
-
-/* WORK: case */
-.work{background:var(--ink)}
-.case{display:grid;grid-template-columns:1fr 1fr;gap:3.5rem;align-items:start}
-.case-img{position:sticky;top:6rem;border-radius:26px;overflow:hidden;aspect-ratio:4/3;background:#172532}
-.case-img img{width:100%;height:120%;object-fit:cover}
-.case-img .badge{position:absolute;left:1rem;top:1rem;background:var(--sun);color:var(--ink);font-family:"JetBrains Mono",monospace;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;padding:.45rem .8rem;border-radius:999px}
-.steps{list-style:none;display:grid;gap:.4rem}
-.steps li{display:grid;grid-template-columns:3.2rem 1fr;gap:1rem;padding:1.4rem 0;border-top:1px solid rgba(243,233,214,.12)}
-.steps b{font-family:Fraunces,serif;font-size:1.6rem;font-weight:300;color:var(--foam)}
-.steps h3{font-size:1.45rem;margin-bottom:.4rem}
-.steps p{color:rgba(243,233,214,.68);font-size:.98rem}
-.case-cta{display:flex;gap:.9rem;flex-wrap:wrap;margin-top:1.6rem}
-.webs{margin-top:5rem;display:grid;gap:1.2rem}
-.pills{display:flex;flex-wrap:wrap;gap:.6rem}
-.pills a{font-family:"JetBrains Mono",monospace;font-size:.78rem;padding:.65rem 1.1rem;border:1px solid rgba(243,233,214,.25);border-radius:999px;transition:background .3s,color .3s,transform .3s}
-.pills a::after{content:" \2197";opacity:.5}
-.pills a:hover{background:var(--sand);color:var(--ink);transform:translateY(-2px)}
-@media (max-width:860px){.case{grid-template-columns:1fr}.case-img{position:static}}
-
-/* CATALOG 3D */
-.cat{background:radial-gradient(ellipse at 50% 0%,#17303d 0%,var(--ink) 60%);overflow:hidden;padding-bottom:4rem}
-.cat .glow{position:absolute;left:50%;top:45%;width:60vw;height:60vw;max-width:900px;max-height:900px;transform:translate(-50%,-50%);background:radial-gradient(circle,rgba(159,227,220,.18),rgba(244,162,89,.08) 40%,transparent 70%);filter:blur(40px);pointer-events:none}
-.stage{position:relative;height:min(62vh,560px);perspective:1400px;perspective-origin:50% 40%;cursor:grab;user-select:none;touch-action:pan-y}
-.stage.drag{cursor:grabbing}
-.ring{position:absolute;left:50%;top:50%;width:0;height:0;transform-style:preserve-3d;will-change:transform}
-.fc{position:absolute;left:0;top:0;width:var(--cw,420px);height:calc(var(--cw,420px)*.68);margin:0;transform-style:preserve-3d;backface-visibility:hidden;animation:bob 6s ease-in-out infinite}
-.fc:nth-child(2n){animation-duration:7s}.fc:nth-child(3n){animation-duration:8s;animation-delay:-2s}.fc:nth-child(5n){animation-delay:-4s}
-@keyframes bob{50%{margin-top:-14px}}
-.fc .frame{position:absolute;inset:0;border-radius:14px;overflow:hidden;background:#101a22;box-shadow:0 40px 80px -30px rgba(0,0,0,.8),0 0 0 1px rgba(243,233,214,.12);transition:box-shadow .4s}
-.fc .frame i{position:absolute;left:0;right:0;top:0;height:22px;background:#1b2832;z-index:2}
-.fc .frame i::before{content:"";position:absolute;left:10px;top:7px;width:8px;height:8px;border-radius:50%;background:#ff5f57;box-shadow:14px 0 0 #febc2e,28px 0 0 #28c840}
-.fc img{position:absolute;inset:22px 0 0 0;width:100%;height:calc(100% - 22px);object-fit:cover;object-position:top}
-.fc figcaption{position:absolute;left:0;right:0;bottom:-2.2rem;text-align:center;font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.14em;color:rgba(243,233,214,.55)}
-.fc.front .frame{box-shadow:0 60px 120px -30px rgba(0,0,0,.9),0 0 0 1.5px var(--sun),0 0 60px -10px rgba(244,162,89,.5)}
-.fc.front figcaption{color:var(--sun)}
-.floor{position:absolute;left:50%;bottom:4%;width:70%;height:120px;transform:translateX(-50%);background:radial-gradient(ellipse at center,rgba(159,227,220,.14),transparent 70%);filter:blur(20px);pointer-events:none}
-.cat-info{display:grid;grid-template-columns:1.4fr auto;gap:2rem;align-items:end;margin-top:2.5rem;padding-top:1.6rem;border-top:1px solid rgba(243,233,214,.14)}
-.cat-info h3{font-size:clamp(1.6rem,3.4vw,2.6rem);margin:.4rem 0 .5rem}
-.cat-info p{color:rgba(243,233,214,.7);max-width:52ch}
-.ci-r{display:grid;gap:1rem;justify-items:end}
-.ci-nav{display:flex;gap:.8rem;align-items:center}
-.nb{width:44px;height:44px;border-radius:50%;border:1.5px solid rgba(243,233,214,.4);background:transparent;color:var(--sand);font-size:1.1rem;cursor:none;transition:.3s}
-.nb:hover{background:var(--sand);color:var(--ink)}
-@media (max-width:760px){.stage{height:50vh;--cw:280px}.cat-info{grid-template-columns:1fr}.ci-r{justify-items:start}}
-
-/* FILM */
-.film{position:relative;min-height:90vh;display:grid;place-items:center;overflow:hidden;padding:0}
-.film video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.15)}
-.film::after{content:"";position:absolute;inset:0;background:rgba(13,22,30,.5)}
-.film blockquote{position:relative;z-index:2;font-family:Fraunces,serif;font-style:italic;font-weight:300;font-size:clamp(2rem,5.2vw,4.8rem);line-height:1.08;text-align:center;max-width:22ch;padding:6rem 4vw;color:#fff}
-.film cite{display:block;font-style:normal;font-family:"JetBrains Mono",monospace;font-size:.7rem;letter-spacing:.2em;text-transform:uppercase;margin-top:2rem;color:var(--foam)}
-
-/* SERVICES */
-.svc{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:1.4rem;perspective:1400px}
-.svc .featured{background:var(--ink);color:var(--sand);outline:2px solid var(--sun)}
-.svc .featured ul{color:rgba(243,233,214,.8)}
-.svc .featured .n{color:rgba(243,233,214,.08)}
-.svc .featured .tools span{background:rgba(243,233,214,.1);color:var(--foam)}
-.svc .featured .eyebrow{color:var(--sun)}
-.svc article{background:#fff;border-radius:26px;padding:2.2rem;display:grid;grid-template-rows:auto 1fr auto;gap:1.2rem;position:relative;overflow:hidden;min-height:470px;box-shadow:0 30px 60px -40px rgba(13,22,30,.5);transform-style:preserve-3d;transition:box-shadow .3s}
-.svc article::before{content:"";position:absolute;inset:0;background:radial-gradient(400px circle at var(--mx,50%) var(--my,50%),rgba(159,227,220,.35),transparent 50%);opacity:0;transition:opacity .4s}
-.svc article:hover::before{opacity:1}
-.svc article>*{position:relative}
-.svc article .n{font-family:Fraunces,serif;font-size:5rem;line-height:1;color:var(--sand-2);position:absolute;right:1.2rem;top:.4rem;font-weight:700}
-.svc h3{font-size:1.8rem;max-width:12ch}
-.svc ul{list-style:none;display:grid;gap:.5rem;color:#2f3b46;font-size:.95rem}
-.svc li::before{content:"— ";color:var(--sun-2)}
-.svc .tools{display:flex;gap:.5rem;flex-wrap:wrap}
-.svc .tools span{font-size:.72rem;padding:.3rem .65rem;border-radius:999px;background:var(--sand);color:var(--sea)}
-.svc img{height:120px;object-fit:contain;justify-self:start;border-radius:12px}
-@media (max-width:900px){.svc{grid-template-columns:1fr}}
-
-/* DEMO */
-.demo{background:var(--sea);color:#fff;overflow:hidden}
-.demo .grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
-.demo h2{font-size:clamp(2.2rem,5vw,4.2rem)}
-.demo p{color:rgba(255,255,255,.8);font-size:1.1rem;max-width:46ch;margin:1rem 0 1.6rem}
-.phone{background:#0b2a36;border-radius:40px;padding:14px;box-shadow:0 50px 100px -40px rgba(0,0,0,.7);max-width:360px;margin-inline:auto;width:100%;transform:rotate(3deg)}
-.phone .screen{background:#e7e1d8;border-radius:28px;overflow:hidden;font-size:.9rem;color:#111}
-.phone .top{background:#075e54;color:#fff;padding:.8rem 1rem;font-weight:600;display:flex;gap:.6rem;align-items:center}
-.phone .top i{width:28px;height:28px;border-radius:50%;background:var(--sun);display:inline-block}
-.chat{padding:1rem;display:grid;gap:.6rem;min-height:330px;background:#e5ddd5;align-content:start}
-.msg{padding:.55rem .8rem;border-radius:12px;max-width:85%;line-height:1.35;opacity:0;transform:translateY(8px) scale(.96)}
-.msg.in{background:#fff;border-top-left-radius:4px}
-.msg.out{background:#dcf8c6;justify-self:end;border-top-right-radius:4px}
-.typing{display:inline-flex;gap:4px;padding:.6rem .8rem;background:#fff;border-radius:12px;border-top-left-radius:4px;opacity:0;overflow:hidden}
-.typing i{width:6px;height:6px;border-radius:50%;background:#999;animation:dot 1s infinite}
-.typing i:nth-child(2){animation-delay:.15s}.typing i:nth-child(3){animation-delay:.3s}
-@keyframes dot{50%{transform:translateY(-4px);opacity:.5}}
-@media (max-width:860px){.demo .grid{grid-template-columns:1fr}}
-
-/* YOUTUBE */
-.yt{background:var(--ink)}
-.yt .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
-.yt .v{position:relative;border-radius:18px;overflow:hidden;aspect-ratio:16/9;background:#1a2733;cursor:none}
-.yt .v img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .4s;filter:saturate(.9)}
-.yt .v:hover img{transform:scale(1.06);filter:saturate(1.15)}
-.yt .v::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(13,22,30,.9));pointer-events:none}
-.yt .v .t{position:absolute;left:1rem;right:1rem;bottom:1rem;z-index:2;font-family:Fraunces,serif;font-size:1.1rem;line-height:1.15;color:#fff}
-.yt .v .play{position:absolute;left:50%;top:50%;z-index:2;width:58px;height:58px;border-radius:50%;background:rgba(244,162,89,.95);transform:translate(-50%,-50%) scale(.8);display:grid;place-items:center;opacity:0;transition:.35s}
-.yt .v .play::after{content:"";border-left:16px solid var(--ink);border-top:10px solid transparent;border-bottom:10px solid transparent;margin-left:4px}
-.yt .v:hover .play{opacity:1;transform:translate(-50%,-50%) scale(1)}
-.yt .v iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:3}
-.yt .big{grid-column:span 2;grid-row:span 2}
-.yt .big .t{font-size:1.6rem}
-.yt .sub{display:flex;gap:1rem;align-items:center;margin-top:2.4rem;flex-wrap:wrap}
-@media (max-width:900px){.yt .grid{grid-template-columns:1fr 1fr}.yt .big{grid-column:span 2;grid-row:span 1}}
-
-/* REELS */
-.reels{display:grid;grid-template-columns:repeat(6,1fr);gap:.9rem}
-.reel{aspect-ratio:9/16;border-radius:18px;overflow:hidden;position:relative;background:#222}
-.reel video,.reel img{width:100%;height:100%;object-fit:cover}
-.reel span{position:absolute;left:.8rem;bottom:.8rem;color:#fff;font-size:.78rem;font-weight:600;text-shadow:0 2px 8px rgba(0,0,0,.6)}
-@media (max-width:900px){.reels{grid-template-columns:repeat(3,1fr)}}
-
-/* FREE */
-.free .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
-.free article{border:1.5px solid var(--sand-2);border-radius:22px;padding:1.7rem;display:grid;gap:.7rem;transition:border-color .25s,transform .3s;background:#fff}
-.free article:hover{border-color:var(--sun);transform:translateY(-4px)}
-.free h3{font-size:1.45rem}
-.free p{color:#44525f;font-size:.95rem}
-.free .link{font-weight:600;color:var(--sea-2)}
-@media (max-width:860px){.free .grid{grid-template-columns:1fr}}
-
-/* PO */
-.eco{background:var(--sea-2);color:#fff}
-.eco h2{font-size:clamp(1.9rem,4vw,3rem)}.eco h2 em{color:var(--foam);font-style:italic}
-.eco>.wrap>.rv>p{color:rgba(255,255,255,.8);max-width:56ch;margin-top:.6rem}
-.eco .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:2.4rem}
-.eco .card{display:grid;gap:.7rem;align-content:start;padding:1.8rem;border-radius:22px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.14);color:#fff;text-decoration:none;transition:border-color .25s,background .25s,transform .3s}
-.eco .card:hover{border-color:var(--foam);background:rgba(255,255,255,.1)}
-.eco .k{font-family:'JetBrains Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--foam)}
-.eco h3{font-family:Fraunces,serif;font-size:1.5rem;font-weight:600}.eco p{color:rgba(255,255,255,.78);font-size:.95rem}
-.eco .go{margin-top:.6rem;color:var(--sun);font-weight:600}
-@media (max-width:860px){.eco .grid{grid-template-columns:1fr}}
-.po{background:var(--sea-2);color:#fff}
-.po .box{display:grid;grid-template-columns:1fr auto;gap:2rem;align-items:center}
-.po h2{font-size:clamp(1.9rem,4vw,3rem)}
-.po p{color:rgba(255,255,255,.85);max-width:56ch;margin-top:.6rem}
-@media (max-width:760px){.po .box{grid-template-columns:1fr}}
-
-/* CONTACT */
-.contact{padding-bottom:3rem;overflow:hidden}
-.contact h2{font-size:clamp(2.8rem,8vw,7rem);font-weight:300;max-width:12ch;line-height:.98}
-.contact h2 em{font-style:italic;color:var(--foam)}
-.contact .grid{display:grid;grid-template-columns:1.2fr 1fr;gap:3rem;align-items:end}
-.contact form{display:grid;gap:.8rem}
-.contact input,.contact textarea{width:100%;padding:1rem;border-radius:14px;border:1px solid rgba(243,233,214,.25);background:rgba(255,255,255,.04);color:#fff;font:inherit;transition:border-color .3s}
-.contact input:focus,.contact textarea:focus{outline:0;border-color:var(--sun)}
-.contact textarea{min-height:120px;resize:vertical}
-.contact .big-word{position:absolute;left:0;bottom:4rem;font-family:Fraunces,serif;font-size:22vw;font-weight:700;color:rgba(243,233,214,.03);white-space:nowrap;pointer-events:none;line-height:1}
-footer{margin-top:4rem;padding-top:1.5rem;border-top:1px solid rgba(243,233,214,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:1rem;font-size:.85rem;color:rgba(243,233,214,.6);position:relative}
-@media (max-width:860px){.contact .grid{grid-template-columns:1fr}}
-
-.rv{opacity:0;transform:translateY(28px)}
-.proto{position:fixed;left:1rem;bottom:1rem;z-index:960;background:#fff;color:var(--ink);font-size:.7rem;padding:.4rem .7rem;border-radius:999px;box-shadow:0 6px 20px rgba(0,0,0,.25)}
-@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv,.split .l i,.hero h1 .w i{opacity:1;transform:none}}
-</style>
-<!-- Analítica propia (Umami, sin cookies) -->
-<script defer src="https://analytics.kreathur.agency/k.js" data-website-id="b46c27ed-659f-4b1c-bff2-28f5792f7e93" data-domains="matiwlog.com,www.matiwlog.com"></script>
-<script>document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a[href]"):null;if(!a||!window.umami)return;var h=a.getAttribute("href")||"",t=/wa\.me|whatsapp\.com/i.test(h)?"whatsapp":/^tel:/i.test(h)?"llamada":/^mailto:/i.test(h)?"email":null;if(t)window.umami.track(t,{destino:h.split("?")[0].slice(0,80),pagina:location.pathname});},true);</script>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>MatiWlog · De mochilero a construir proyectos desde Pichilemu</title>
+<meta name="description" content="Soy Mati. Viajo desde los 22, grabo con dron y armo con IA lo que un proyecto chico necesita para funcionar solo. Esta es la historia corta, contada desde Pichilemu.">
 <link rel="canonical" href="https://matiwlog.com/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="icon" href="favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<meta name="theme-color" content="#0d161e">
+<meta property="og:title" content="MatiWlog · De mochilero a construir proyectos desde Pichilemu">
+<meta property="og:description" content="Viajes, dron e IA: la historia corta de Mati y los proyectos que nacieron en el camino.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://matiwlog.com/">
+<meta property="og:locale" content="es_CL">
+<meta property="og:site_name" content="MatiWlog">
+<meta property="og:image" content="https://matiwlog.com/og-image.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://matiwlog.com/og-image.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Matías Aguilera","alternateName":"MatiWlog","url":"https://matiwlog.com/","image":"https://matiwlog.com/assets/costa/img/mati-foto.jpg","jobTitle":"Creador de contenido y fundador de Kreathur","worksFor":{"@type":"Organization","name":"Kreathur Agency","url":"https://kreathur.agency"},"address":{"@type":"PostalAddress","addressLocality":"Pichilemu","addressCountry":"CL"},"sameAs":["https://www.youtube.com/@MatiWlog","https://www.instagram.com/matiwlog","https://tiktok.com/@matiwlog","https://kreathur.agency"]}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shrikhand&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="media/historia/hero-pichilemu.jpg">
+<style>
+:root{--sand:#f3e9d6;--sand-2:#e7d9bf;--ink:#0d161e;--ink-2:#142230;--sea:#0f3a4a;--sea-2:#1c6f7d;--foam:#9fe3dc;--sun:#f4a259;--gold:#ffd166;--coral:#ff6b57}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Instrument Sans",system-ui,sans-serif;background:var(--ink);color:var(--sand);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img,video{display:block;max-width:100%}
+a{color:inherit}
+.wrap{width:min(1180px,100% - 32px);margin:0 auto}
+.surf{font-family:Shrikhand,Georgia,serif;font-weight:400;letter-spacing:.005em;line-height:1.02}
+.mono{font-family:"JetBrains Mono",monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase}
+.cap{display:inline-flex;align-items:center;gap:.6rem;color:var(--foam)}
+.cap::before{content:"";width:26px;height:2px;background:currentColor;border-radius:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.5rem;padding:.95rem 1.5rem;border-radius:999px;font-weight:600;font-size:.95rem;text-decoration:none;border:1.5px solid transparent;transition:transform .2s,background .2s,border-color .2s}
+.btn:hover{transform:translateY(-2px)}
+.btn-sun{background:var(--sun);color:var(--ink)}
+.btn-line{border-color:rgba(243,233,214,.5);color:var(--sand)}
+.btn-line:hover{border-color:var(--foam)}
+:focus-visible{outline:2px solid var(--foam);outline-offset:3px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1;transform:none}
+
+/* nav */
+.nav{position:fixed;inset:0 0 auto 0;z-index:60;padding:14px 0;transition:background .3s,backdrop-filter .3s}
+.nav.solid{background:rgba(13,22,30,.82);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.logo{display:flex;align-items:center;gap:.55rem;text-decoration:none;font-size:1.45rem}
+.logo svg{width:38px;height:38px;flex:none}
+.logo b{font-weight:400;color:var(--sand)}
+.logo b span{color:var(--gold)}
+.nav ul{display:flex;gap:1.6rem;list-style:none;font-size:.92rem}
+.nav ul a{text-decoration:none;opacity:.85}
+.nav ul a:hover{opacity:1;color:var(--foam)}
+.nav .btn{padding:.6rem 1.1rem;font-size:.86rem}
+@media (max-width:860px){.nav ul{display:none;position:absolute;top:100%;left:16px;right:16px;flex-direction:column;gap:0;padding:.4rem;border-radius:18px;background:rgba(13,22,30,.96);border:1px solid rgba(243,233,214,.15)}.nav ul.on{display:flex}.nav ul a{display:block;padding:.85rem 1rem;font-size:1rem}.menu{display:grid}}
+.menu{display:none;place-items:center;width:44px;height:44px;margin-left:auto;border-radius:50%;border:1.5px solid rgba(243,233,214,.4);background:rgba(13,22,30,.5);color:var(--sand);font-size:1.1rem;cursor:pointer}
+
+/* hero */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;padding:120px 0 72px}
+.hero video,.hero .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(13,22,30,.35) 0%,rgba(13,22,30,.15) 35%,rgba(13,22,30,.86) 82%,var(--ink) 100%)}
+.hero .wrap{position:relative;z-index:2}
+.hero .coord{color:var(--sand);opacity:.85;margin-bottom:1rem}
+.hero h1{font-size:clamp(2.6rem,min(8.4vw,9.5vh),5.6rem);max-width:15ch;text-shadow:0 6px 30px rgba(0,0,0,.35)}
+.hero h1 em{font-style:normal;color:var(--gold)}
+.hero p.lead{max-width:56ch;margin-top:1.3rem;font-size:clamp(1rem,2.2vw,1.18rem);color:rgba(243,233,214,.9)}
+.hero .cta{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:1.8rem}
+.hero .yo{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.2rem;padding:.35rem .9rem .35rem .35rem;border-radius:999px;background:rgba(13,22,30,.55);backdrop-filter:blur(8px);font-size:.85rem}
+.hero .yo img{width:34px;height:34px;border-radius:50%;object-fit:cover}
+.hero .yo i{width:8px;height:8px;border-radius:50%;background:#4ade80;box-shadow:0 0 0 4px rgba(74,222,128,.2)}
+.scrollhint{position:absolute;z-index:2;left:50%;bottom:18px;transform:translateX(-50%);opacity:.7}@media (max-width:760px){.scrollhint{display:none}}
+
+/* capítulo */
+.chap{padding:clamp(4.5rem,10vw,8rem) 0}
+.chap h2{font-size:clamp(2.1rem,6vw,4rem);margin:.8rem 0 1rem;max-width:18ch}
+.chap h2 em{font-style:normal;color:var(--gold)}
+.chap .intro{max-width:60ch;color:rgba(243,233,214,.82);font-size:1.05rem}
+
+/* la ruta: scroll horizontal fijado */
+.ruta{position:relative;background:linear-gradient(180deg,var(--ink) 0%,#10263a 100%);overflow:hidden}
+.ruta .head{padding:clamp(4.5rem,9vw,7rem) 0 1.4rem}
+.ruta .pin{position:relative;height:100svh;display:flex;flex-direction:column;justify-content:center}
+.track{display:flex;gap:clamp(18px,3vw,36px);padding:0 calc((100vw - min(82vw,560px))/2);will-change:transform}
+.post{flex:none;width:min(82vw,560px);border-radius:22px;background:var(--sand);color:var(--ink);overflow:hidden;box-shadow:0 30px 60px rgba(0,0,0,.4);transform:rotate(var(--r,0deg));position:relative}
+.post .media{position:relative;aspect-ratio:16/10;background:var(--ink-2);overflow:hidden}
+.post .media video,.post .media img{width:100%;height:100%;object-fit:cover}
+.post .media .ill{position:absolute;inset:0;display:grid;place-items:center;background:radial-gradient(circle at 50% 120%,var(--sun) 0,var(--coral) 35%,#3b2a4a 75%)}
+.post .media .ill svg{width:42%;height:auto;color:var(--sand);opacity:.95}
+.post .body{padding:1.1rem 1.25rem 1.3rem;display:grid;gap:.35rem}
+.post .n{color:var(--sea-2)}
+.post h3{font-family:Shrikhand,Georgia,serif;font-weight:400;font-size:clamp(1.5rem,3.6vw,2rem);line-height:1.05}
+.post p{font-size:.95rem;color:#2c3a44}
+.post .stamp{position:absolute;right:14px;top:14px;z-index:2;padding:.35rem .6rem;border:2px dashed rgba(13,22,30,.55);border-radius:8px;background:rgba(243,233,214,.88);color:var(--ink);font:500 .62rem "JetBrains Mono",monospace;letter-spacing:.12em;text-transform:uppercase;transform:rotate(6deg)}
+.rail{position:relative;height:56px;margin-top:clamp(18px,4vh,36px)}
+.rail::before{content:"";position:absolute;left:16px;right:16px;top:30px;height:3px;background:repeating-linear-gradient(90deg,rgba(243,233,214,.55) 0 14px,transparent 14px 22px)}
+.rail .tren{position:absolute;top:2px;left:16px;width:64px;transform:translateX(0);will-change:transform;color:var(--gold)}
+.rail .km{position:absolute;right:16px;top:40px;color:rgba(243,233,214,.6)}
+@media (prefers-reduced-motion:reduce){.ruta .pin{height:auto;padding-bottom:3rem}.track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem}.post{scroll-snap-align:center}.rail{display:none}}
+.ruta.sinpin .pin{height:auto;padding-bottom:3rem}.ruta.sinpin .track{overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:1rem}.ruta.sinpin .post{scroll-snap-align:center}.ruta.sinpin .rail{display:none}
+
+/* proyectos */
+.proy{background:var(--sand);color:var(--ink)}
+.proy .cap{color:var(--sea-2)}
+.proy .intro{color:#34434e}
+.proy h2 em{color:var(--coral)}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;margin-top:2.6rem}
+.pcard{display:flex;flex-direction:column;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 40px rgba(13,22,30,.12);text-decoration:none;color:inherit;transition:transform .3s}
+.pcard:hover{transform:translateY(-6px)}
+.pcard .media{aspect-ratio:16/10;background:var(--ink-2);overflow:hidden}
+.pcard .media img,.pcard .media video{width:100%;height:100%;object-fit:cover}
+.pcard .body{padding:1.2rem 1.3rem 1.4rem;display:grid;gap:.45rem;flex:1}
+.pcard h3{font-family:Shrikhand,Georgia,serif;font-weight:400;font-size:1.45rem;line-height:1.1}
+.pcard p{font-size:.95rem;color:#34434e}
+.pcard .go{margin-top:auto;padding-top:.6rem;font-weight:600;color:var(--sea-2)}
+.pcard small{color:#5b6973;font-size:.8rem}
+@media (max-width:900px){.pgrid{grid-template-columns:1fr}}
+
+/* hoy */
+.hoy .g{display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(1.6rem,4vw,3.6rem);align-items:center}
+.hoy .foto{position:relative;border-radius:26px;overflow:hidden;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.hoy .foto img{width:100%;aspect-ratio:16/10;object-fit:cover}
+.hoy .foto figcaption{position:absolute;left:12px;bottom:12px;padding:.35rem .65rem;border-radius:999px;background:rgba(13,22,30,.78);font-size:.72rem}
+.tira{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px}
+.tira img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:14px;opacity:.9}
+.tres{display:grid;gap:12px;margin-top:1.6rem}
+.tres a{display:flex;align-items:center;gap:1rem;padding:1rem 1.1rem;border-radius:18px;background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.12);text-decoration:none;transition:border-color .2s,background .2s}
+.tres a:hover{border-color:var(--foam);background:rgba(255,255,255,.08)}
+.tres .ic{flex:none;width:46px;height:46px;border-radius:14px;display:grid;place-items:center;background:var(--sea);color:var(--foam);font-size:1.3rem}
+.tres b{display:block}
+.tres span{font-size:.88rem;color:rgba(243,233,214,.72)}
+@media (max-width:900px){.hoy .g{grid-template-columns:1fr}}
+
+/* youtube */
+.yt{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:2rem}
+.yt button{position:relative;border:0;padding:0;border-radius:16px;overflow:hidden;aspect-ratio:16/9;background:#000;cursor:pointer;color:#fff}
+.yt img{width:100%;height:100%;object-fit:cover;opacity:.85;transition:opacity .2s,transform .4s}
+.yt button:hover img{opacity:1;transform:scale(1.04)}
+.yt button::after{content:"";position:absolute;left:50%;top:50%;width:58px;height:58px;margin:-29px 0 0 -29px;border-radius:50%;background:rgba(244,162,89,.92) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5v14l11-7z' fill='%230d161e'/%3E%3C/svg%3E") center/26px no-repeat}
+.yt iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+@media (max-width:760px){.yt{grid-template-columns:1fr}.yt button:nth-child(n+3){display:none}}
+
+/* gratis */
+.free{background:var(--sea);}
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:2rem}
+.fgrid a{display:grid;gap:.35rem;padding:1.3rem;border-radius:20px;background:rgba(13,22,30,.35);border:1.5px solid rgba(159,227,220,.25);text-decoration:none}
+.fgrid a:hover{border-color:var(--foam)}
+.fgrid b{font-size:1.05rem}
+.fgrid span{font-size:.9rem;color:rgba(243,233,214,.75)}
+.fgrid em{font-style:normal;font-weight:600;color:var(--gold);margin-top:.3rem}
+@media (max-width:760px){.fgrid{grid-template-columns:1fr}}
+
+/* contacto */
+.contact .g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:start}
+.contact form{display:grid;gap:12px}
+.contact label{display:grid;gap:.35rem;font-size:.85rem;color:rgba(243,233,214,.8)}
+.contact input,.contact textarea{width:100%;padding:.9rem 1rem;border-radius:14px;border:1.5px solid rgba(243,233,214,.25);background:rgba(255,255,255,.05);color:var(--sand);font:inherit;font-size:1rem}
+.contact textarea{min-height:110px;resize:vertical}
+.contact input:focus,.contact textarea:focus{outline:none;border-color:var(--foam)}
+.contact .nota{font-size:.82rem;color:rgba(243,233,214,.6)}
+@media (max-width:860px){.contact .g{grid-template-columns:1fr}}
+footer{margin-top:4rem;padding:1.6rem 0 6rem;border-top:1px solid rgba(243,233,214,.14);display:flex;flex-wrap:wrap;gap:1rem 2rem;justify-content:space-between;font-size:.86rem;color:rgba(243,233,214,.7)}
+footer a{text-decoration:none}footer a:hover{color:var(--foam)}
+.eco{display:flex;flex-wrap:wrap;gap:.5rem 1.2rem}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}</style></noscript>
+<!-- Analítica propia (Umami, sin cookies) -->
+<script defer src="https://analytics.kreathur.agency/script.js" data-website-id="b46c27ed-659f-4b1c-bff2-28f5792f7e93" data-domains="matiwlog.com,www.matiwlog.com"></script>
+<script>document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a[href]"):null;if(!a||!window.umami)return;var h=a.getAttribute("href")||"",t=/wa\.me|whatsapp\.com/i.test(h)?"whatsapp":/^tel:/i.test(h)?"llamada":/^mailto:/i.test(h)?"email":null;if(t)window.umami.track(t,{destino:h.split("?")[0].slice(0,80),pagina:location.pathname});},true);</script>
 </head>
 <body>
 
-<div class="loader" id="loader"><div class="word" id="lw"></div><div class="line"><i></i></div></div>
-<div class="cur" id="cur"></div><div class="cur-ring" id="ring"></div>
-<div class="grain"></div>
-<div class="prog" id="prog"></div>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="marca" viewBox="0 0 64 64"><defs><linearGradient id="mg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffd166"/><stop offset="1" stop-color="#ff6b57"/></linearGradient><clipPath id="mc"><circle cx="32" cy="29.5" r="20"/></clipPath></defs><g clip-path="url(#mc)"><rect x="10" y="9" width="44" height="42" fill="url(#mg)"/><rect x="10" y="32.7" width="44" height="2.5" fill="#0d161e"/><rect x="10" y="38.2" width="44" height="3.2" fill="#0d161e"/><rect x="10" y="44.5" width="44" height="4" fill="#0d161e"/></g><path d="M0 50.5q5.3-6 10.6 0t10.7 0 10.6 0 10.7 0 10.6 0 10.8 0V64H0z" fill="#9fe3dc"/></symbol>
+</svg>
 
-<nav class="nav"><div class="wrap">
-  <a class="brand" href="#">MatiWlog</a>
-  <ul><li><a href="#trabajo">Caso real</a></li><li><a href="#catalogo">Catálogo</a></li><li><a href="#servicios">Servicios</a></li><li><a href="#youtube">YouTube</a></li><li><a href="#gratis">Gratis</a></li><li><a href="#portafolio">Portafolio</a></li><li><a href="#oficina">Oficina</a></li><li><a href="#ecosistema">Ecosistema</a></li><li><a href="#contacto">Conversemos</a></li></ul>
-  <a class="m-cta" href="https://wa.me/56968442594">WhatsApp</a>
+<nav class="nav" id="nav"><div class="wrap">
+  <a class="logo surf" href="#inicio" aria-label="MatiWlog, inicio"><svg aria-hidden="true"><use href="#marca"/></svg><b>Mati<span>W</span>log</b></a>
+  <button class="menu" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu">☰</button>
+  <ul id="menu"><li><a href="#ruta">La ruta</a></li><li><a href="#proyectos">Proyectos</a></li><li><a href="#hoy">Hoy</a></li><li><a href="#portafolio">Portafolio</a></li><li><a href="#gratis">Gratis</a></li></ul>
+  <a class="btn btn-sun" href="#contacto">Conversemos</a>
 </div></nav>
 
-<header class="hero" id="hero">
-  <video autoplay muted loop playsinline poster="media/hero-dron-20s-poster.jpg" src="media/hero-dron-20s.mp4" data-parallax></video>
-  <canvas id="ocean"></canvas>
-  <div class="coords">34.3867° S · 72.0033° W · PICHILEMU</div>
+<header class="hero" id="inicio">
+  <img class="poster" src="media/historia/hero-pichilemu.jpg" alt="" fetchpriority="high">
+  <video src="media/historia/hero-pichilemu.mp4" poster="media/historia/hero-pichilemu.jpg" muted loop playsinline autoplay preload="metadata" aria-hidden="true"></video>
   <div class="wrap">
-    <div class="chip"><img src="assets/costa/img/mati-avatar.jpg" alt=""><i></i>Mati · disponible para proyectos</div>
-    <h1 id="h1">Cuento historias.<br>Y construyo lo que tu negocio <em>necesita</em> para que lo encuentren.</h1>
-    <p class="lead">Soy Mati. 20 años haciendo webs, apps y campañas. Hoy, además, grabo con dron y uso IA para que un negocio chico atienda como uno grande. Primero te muestro lo que hice. Después hablamos de lo tuyo.</p>
-    <div class="cta">
-      <a class="btn btn-sun" href="#trabajo" data-mag><span>Ver el caso real ↓</span></a>
-      <a class="btn btn-ghost" href="#contacto" data-mag><span>Conversemos</span></a>
-    </div>
-    <div class="meta">
-      <div><b data-count="20">0</b>años en web y apps</div>
-      <div><b data-count="50" data-suffix="+">0</b>proyectos entregados</div>
-      <div><b>DGAC</b>piloto de dron</div>
-      <div><b>@MatiWlog</b>en YouTube</div>
-    </div>
+    <div class="yo"><img src="assets/costa/img/mati-avatar.jpg" alt="Foto de Mati"><i></i>Mati · disponible para proyectos</div>
+    <p class="mono coord">34.39° S · 72.00° O · Pichilemu, Chile</p>
+    <h1 class="surf">De mochilero a construir <em>proyectos</em> desde Pichilemu.</h1>
+    <p class="lead">Soy Mati. Viajo desde los 22, llevo 20 años haciendo webs y campañas, grabo con dron y hoy armo con IA lo que un proyecto chico necesita para funcionar solo. Esta es la historia corta.</p>
+    <div class="cta"><a class="btn btn-sun" href="#ruta">Empieza el viaje ↓</a><a class="btn btn-line" href="#portafolio">Ver el portafolio</a></div>
   </div>
+  <span class="scrollhint mono">Desliza</span>
 </header>
 
-<div class="marquee"><span>Dron · Web · IA · Reels · Reservas · Google Ads · <em>Pichilemu</em> · Dron · Web · IA · Reels · Reservas · Google Ads · <em>Pichilemu</em> · </span><span>Dron · Web · IA · Reels · Reservas · Google Ads · <em>Pichilemu</em> · Dron · Web · IA · Reels · Reservas · Google Ads · <em>Pichilemu</em> · </span></div>
-
-<section class="about light" id="quien">
-  <div class="blob" style="width:520px;height:520px;background:var(--foam);left:-200px;top:-100px"></div>
-  <div class="blob" style="width:420px;height:420px;background:var(--sun);right:-160px;bottom:-120px"></div>
-  <div class="wrap grid">
-    <div class="photo rv"><img src="assets/costa/img/mati-foto.jpg" alt="Mati en Pichilemu" data-parallax><span class="tag">Hola, soy Mati 👋</span>
-      <svg class="stamp" viewBox="0 0 120 120"><defs><path id="c" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"/></defs><text font-family="JetBrains Mono" font-size="10.5" letter-spacing="2.2" fill="#0d161e"><textPath href="#c">DESDE PICHILEMU · 20 AÑOS · WEB · DRON · IA · </textPath></text></svg>
+<section class="ruta" id="ruta" aria-labelledby="ruta-t">
+  <div class="wrap head">
+    <span class="cap mono">Capítulo 1 · La ruta</span>
+    <h2 class="surf rv" id="ruta-t" style="font-size:clamp(2.1rem,6vw,4rem);margin-top:.8rem;max-width:18ch">Trece años con la <em style="font-style:normal;color:var(--gold)">mochila</em> puesta.</h2>
+    <p class="intro rv" style="max-width:60ch;color:rgba(243,233,214,.82);margin-top:1rem">Por tierra, en auto y en tren. Cada viaje dejó algo que hoy uso en un proyecto. Sigue bajando: el tren avanza contigo.</p>
+  </div>
+  <div class="pin">
+    <div class="track" id="track">
+      <article class="post" style="--r:-1.2deg">
+        <div class="media"><div class="ill"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 18a10 10 0 0 1 20 0v4"/><rect x="14" y="22" width="36" height="34" rx="9"/><path d="M14 38h36M26 38v6h12v-6"/></svg></div></div>
+        <div class="body"><span class="mono n">Parada 01 · Sudamérica</span><h3>Mochila al hombro</h3><p>Recorrí Sudamérica por tierra hasta Colombia. Ahí aprendí a moverme con poco y a preguntar todo.</p></div>
+      </article>
+      <article class="post" style="--r:1deg">
+        <div class="media"><div class="ill" style="background:radial-gradient(circle at 50% 120%,var(--gold) 0,var(--sun) 30%,#1c3f55 78%)"><svg viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 40l5-13a5 5 0 0 1 5-3h28a5 5 0 0 1 5 3l5 13v9H8z"/><path d="M8 40h48"/><circle cx="19" cy="49" r="5"/><circle cx="45" cy="49" r="5"/></svg></div></div>
+        <div class="body"><span class="mono n">Parada 02 · Canadá y EE. UU.</span><h3>En auto, buscando ropa</h3><p>Arrendaba auto para encontrar proveedores de ropa americana. De esos viajes salió un proyecto entero.</p></div>
+      </article>
+      <article class="post" style="--r:-.8deg">
+        <div class="media"><video data-src="media/historia/europa-mar.mp4" poster="media/historia/europa-mar.jpg" muted loop playsinline preload="none" aria-label="Mar Báltico al atardecer, grabado con dron"></video><span class="stamp">Con mi dron</span></div>
+        <div class="body"><span class="mono n">Parada 03 · Europa en tren</span><h3>Tres meses de rieles</h3><p>Viajé en tren por Europa del Este y el norte, una y otra vez. Ventana, cuaderno y muchas ideas.</p></div>
+      </article>
+      <article class="post" style="--r:1.4deg">
+        <div class="media"><video data-src="media/historia/brasil.mp4" poster="media/historia/brasil.jpg" muted loop playsinline preload="none" aria-label="Playa de Prainha, Brasil, desde el dron"></video><span class="stamp">Prainha · 2022</span></div>
+        <div class="body"><span class="mono n">Parada 04 · Brasil</span><h3>El dron se suma al viaje</h3><p>Empecé a grabar desde el aire. Mirar un lugar desde arriba cambia cómo lo cuentas.</p></div>
+      </article>
+      <article class="post" style="--r:-1deg">
+        <div class="media"><video data-src="media/historia/dinamarca.mp4" poster="media/historia/dinamarca.jpg" muted loop playsinline preload="none" aria-label="Campo y mar en Dinamarca, desde el dron"></video><span class="stamp">Dinamarca · 2024</span></div>
+        <div class="body"><span class="mono n">Parada 05 · Dinamarca</span><h3>Campo, mar y silencio</h3><p>Lugares chicos que funcionan bien. Ahí entendí que lo simple, bien hecho, alcanza.</p></div>
+      </article>
+      <article class="post" style="--r:.8deg">
+        <div class="media"><video data-src="media/historia/pichilemu-vuelta.mp4" poster="media/historia/pichilemu-vuelta.jpg" muted loop playsinline preload="none" aria-label="Pichilemu desde el dron"></video><span class="stamp">Pichilemu</span></div>
+        <div class="body"><span class="mono n">Parada 06 · De vuelta</span><h3>Todo vuelve a Pichilemu</h3><p>Lo que aprendí afuera lo traje aquí, para construir proyectos con lo que hay en el lugar.</p></div>
+      </article>
     </div>
-    <div>
-      <span class="eyebrow rv">Quién soy</span>
-      <h2 class="split">Vivo aquí. Trabajo con lo que veo todos los días.</h2>
-      <p class="rv">Llevo 20 años diseñando y desarrollando webs y aplicaciones, y haciendo marketing digital con Google Ads. Enseñé WordPress en cursos online cuando WordPress era la respuesta a todo.</p>
-      <p class="rv">Después empecé a grabar viajes para YouTube. En el camino aprendí a volar drones y a usar la IA para que un negocio chico atienda como uno grande. Hoy lo aplico en la costa: cabañas, restaurantes, escuelas de surf, tiendas. Sin agencia de por medio. Hablas conmigo y trabajo yo.</p>
-      <div class="facts rv">
-        <div><b>57</b><small>videos publicados</small></div>
-        <div><b>Cabañas reales</b><small>reservan con mi sistema cada semana</small></div>
-        <div><b>1</b><small>persona de contacto: yo</small></div>
-      </div>
+    <div class="rail" aria-hidden="true">
+      <svg class="tren" id="tren" viewBox="0 0 64 32" fill="currentColor"><rect x="2" y="6" width="44" height="18" rx="5"/><rect x="44" y="10" width="16" height="14" rx="4"/><rect x="8" y="10" width="9" height="7" rx="2" fill="#0d161e"/><rect x="21" y="10" width="9" height="7" rx="2" fill="#0d161e"/><rect x="48" y="13" width="8" height="5" rx="1.5" fill="#0d161e"/><circle cx="12" cy="27" r="4"/><circle cx="34" cy="27" r="4"/><circle cx="53" cy="27" r="4"/></svg>
+      <span class="mono km" id="km">Parada 01 de 06</span>
     </div>
   </div>
 </section>
 
-<section class="tl" id="camino">
+<section class="chap proy" id="proyectos">
   <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">20 años de camino</span><h2 class="split">Lo viejo suma. Lo nuevo vende.</h2><p class="rv">Lo que aprendí antes es la base de lo que hago ahora.</p></div>
-    <div class="track">
-      <div class="line"><i id="tlfill"></i></div>
-      <ol>
-        <li><span class="yr">2006</span><h3>Primeras webs</h3><p>Diseño y desarrollo para clientes. HTML a mano, Photoshop y mucho café.</p></li>
-        <li><span class="yr">2012</span><h3>WordPress y cursos online</h3><p>Sitios para pymes y cursos que enseñaron a cientos a hacer el suyo. Hoy obsoletos, pero ahí aprendí a explicar.</p></li>
-        <li><span class="yr">2016</span><h3>Google Ads y SEO</h3><p>Campañas y posicionamiento: que el gasto en publicidad se convierta en clientes.</p></li>
-        <li><span class="yr">2019</span><h3>Apps y dron</h3><p>Desarrollo de aplicaciones y licencia DGAC. Empieza el canal de viajes.</p></li>
-        <li><span class="yr">2024</span><h3>IA y sistemas propios</h3><p>Bots de WhatsApp, reservas sin comisión y paneles que trabajan solos.</p></li>
-      </ol>
-    </div>
-    <div class="counters">
-      <div><b data-count="20">0</b><small>años</small></div>
-      <div><b data-count="50" data-suffix="+">0</b><small>proyectos</small></div>
-      <div><b data-count="57">0</b><small>videos</small></div>
-      <div><b data-count="3">0</b><small>servicios, nada más</small></div>
-    </div>
-  </div>
-</section>
-
-<section class="work" id="trabajo">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">Caso real</span><h2 class="split">Lilafken Apart: reservas directas, sin comisión, sin estar pendiente.</h2><p class="rv">Mis propias cabañas en Pichilemu. Aquí probé el sistema que hoy quiero instalarte.</p></div>
-    <div class="case">
-      <div class="case-img rv"><img src="assets/costa/projects/lilafken.jpg" alt="Panel de reservas de Lilafken" data-parallax><span class="badge">En producción · lilafken.com</span></div>
-      <div class="case-txt">
-        <ol class="steps">
-          <li class="rv"><b>01</b><div><h3>Motor de reservas propio</h3><p>El huésped reserva y paga en tu web. Booking y Airbnb siguen, pero ya no se llevan la comisión de los que llegan directo.</p></div></li>
-          <li class="rv"><b>02</b><div><h3>Un solo calendario</h3><p>Sincronizado con las OTA. Se acaban las dobles reservas y el copiar fechas a mano.</p></div></li>
-          <li class="rv"><b>03</b><div><h3>Bot de WhatsApp que atiende solo</h3><p>Responde disponibilidad, precios y cómo llegar, a cualquier hora, con tus datos.</p></div></li>
-          <li class="rv"><b>04</b><div><h3>Panel para tu equipo</h3><p>Limpieza, llegadas y salidas en un lugar. Lo usa mi equipo todos los días.</p></div></li>
-        </ol>
-        <div class="case-cta rv"><a class="btn btn-sun" href="#contacto" data-mag><span>Quiero esto para mi alojamiento</span></a><a class="btn btn-ghost" href="https://lilafken.com" target="_blank" rel="noopener" data-mag><span>Ver lilafken.com →</span></a></div>
-      </div>
+    <span class="cap mono">Capítulo 2 · Lo que nació en el camino</span>
+    <h2 class="surf rv">Proyectos con <em>historia</em> propia.</h2>
+    <p class="intro rv">No son ideas en una pizarra. Son cosas que funcionan hoy en Pichilemu, y aquí te muestro cómo se hicieron.</p>
+    <div class="pgrid">
+      <a class="pcard rv" href="https://importadoramaully.cl/" target="_blank" rel="noopener">
+        <div class="media"><img src="media/web-maully.jpg" alt="Web de Importadora Maully con lotes de ropa americana" loading="lazy"></div>
+        <div class="body"><span class="mono" style="color:var(--sea-2)">Ropa americana</span><h3>Seleccionada a mano</h3><p>De los viajes buscando proveedores nació Importadora Maully: fardos y lotes de ropa americana, revisados prenda por prenda.</p><span class="go">importadoramaully.cl →</span></div>
+      </a>
+      <a class="pcard rv" href="https://camperizate.pichilemuonline.cl/" target="_blank" rel="noopener">
+        <div class="media"><video data-src="media/historia/tiny-puente.mp4" poster="media/historia/tiny-puente.jpg" muted loop playsinline preload="none" aria-label="La tiny home cruzando el puente camino al Pangal"></video></div>
+        <div class="body"><span class="mono" style="color:var(--sea-2)">Tiny Home y Camperízate</span><h3>Una casa sobre ruedas</h3><p>La tiny cruzando el puente camino al Pangal, en mayo de 2026. Camperízate reúne la tiny y la carpa inflable.</p><span class="go">Ver Camperízate →</span></div>
+      </a>
+      <a class="pcard rv" href="https://lilafken.com/" target="_blank" rel="noopener">
+        <div class="media"><img src="media/web-lilafken.jpg" alt="Web de Lilafken Apart" loading="lazy"></div>
+        <div class="body"><span class="mono" style="color:var(--sea-2)">Hospedaje · Caso real</span><h3>Lilafken Apart</h3><p>Un proyecto en el que trabajo: reservas directas en su web, bot de WhatsApp y panel para el equipo. Aquí se probó todo antes de ofrecerlo.</p><span class="go">lilafken.com →</span></div>
+      </a>
     </div>
   </div>
 </section>
 
-<section class="cat" id="catalogo">
-  <div class="glow"></div>
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">Catálogo flotante</span><h2 class="split">Siete webs vivas. Gíralas.</h2><p class="rv">Arrastra, usa la rueda o las flechas. Cada una está en línea hoy.</p></div>
-  </div>
-  <div class="stage" id="stage">
-    <div class="ring" id="cring">
-      <figure class="fc" data-title="Lilafken Apart" data-kind="Alojamiento · Reservas sin comisión" data-url="https://lilafken.com" data-desc="Motor de reservas propio, calendario sincronizado con Booking y Airbnb y bot que atiende de noche."><div class="frame"><i></i><img src="media/web-lilafken.jpg" alt="lilafken.com"></div><figcaption>lilafken.com</figcaption></figure>
-      <figure class="fc" data-title="Pichilemu Online" data-kind="Guía local · Reservas y buscador" data-url="https://pichilemuonline.cl" data-desc="Todo Pichilemu, ahora: qué está abierto, cómo está el mar y reservas directas con cada negocio."><div class="frame"><i></i><img src="media/web-pichilemuonline.jpg" alt="pichilemuonline.cl"></div><figcaption>pichilemuonline.cl</figcaption></figure>
-      <figure class="fc" data-title="La Papa Brava" data-kind="Restaurante · Pedidos en línea" data-url="https://lapapabrava.cl" data-desc="Carta digital, combos y pedido desde el teléfono para una cocina de costa."><div class="frame"><i></i><img src="media/web-lapapabrava.jpg" alt="lapapabrava.cl"></div><figcaption>lapapabrava.cl</figcaption></figure>
-      <figure class="fc" data-title="PichilemuWear" data-kind="Tienda online · Moda vintage" data-url="https://pichilemuwear.com" data-desc="Tienda en cuatro idiomas con despacho a todo Chile y asistente de compra."><div class="frame"><i></i><img src="media/web-pichilemuwear.jpg" alt="pichilemuwear.com"></div><figcaption>pichilemuwear.com</figcaption></figure>
-      <figure class="fc" data-title="Importadora Maully" data-kind="E-commerce · Ropa de marca" data-url="https://importadoramaully.cl" data-desc="Catálogo con fotos reales de cada prenda, lotes y fardos para revendedores."><div class="frame"><i></i><img src="media/web-maully.jpg" alt="importadoramaully.cl"></div><figcaption>importadoramaully.cl</figcaption></figure>
-      <figure class="fc" data-title="DJ RÔ" data-kind="Artista · Booking internacional" data-url="https://djro.kreathur.agency" data-desc="Sitio en cuatro idiomas para una DJ brasileña radicada en Alemania, con radio en vivo y reservas de fechas."><div class="frame"><i></i><img src="media/web-djro.jpg" alt="djro.kreathur.agency"></div><figcaption>djro.kreathur.agency</figcaption></figure>
-      <figure class="fc" data-title="Kreathur" data-kind="Agencia · Casos y suscripciones" data-url="https://kreathur.agency" data-desc="La agencia con la que construí todo esto: hotelería, gastronomía, inmobiliaria y comercio."><div class="frame"><i></i><img src="media/web-kreathur.jpg" alt="kreathur.agency"></div><figcaption>kreathur.agency</figcaption></figure>
-    </div>
-    <div class="floor"></div>
-  </div>
-  <div class="wrap">
-    <div class="cat-info" id="catinfo">
-      <div class="ci-l"><span class="eyebrow" id="ci-kind">—</span><h3 id="ci-title">—</h3><p id="ci-desc">—</p></div>
-      <div class="ci-r"><a class="btn btn-sun" id="ci-link" href="#" target="_blank" rel="noopener" data-mag><span>Abrir sitio ↗</span></a><div class="ci-nav"><button class="nb" id="prev" aria-label="Anterior">←</button><span class="mono" id="ci-idx">1 / 7</span><button class="nb" id="next" aria-label="Siguiente">→</button></div></div>
-    </div>
-  </div>
-</section>
-
-<section class="film">
-  <video muted loop playsinline poster="assets/costa/drone/drone-2.jpg" src="assets/costa/drone/drone-2.mp4" data-parallax></video>
-  <blockquote class="split">“Un negocio chico no necesita más herramientas. Necesita que lo vean, lo encuentren y lo atiendan bien.”<cite>Mati · grabado desde el dron, Pichilemu</cite></blockquote>
-</section>
-
-<section class="light" id="servicios" style="background:var(--sand-2)">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">Qué hago por ti</span><h2 class="split">Tres cosas. Bien hechas.</h2><p class="rv">Sin paquetes confusos. Lo primero es lo que ya uso en mis cabañas. Lo demás, si lo necesitas.</p></div>
-    <div class="svc">
-      <article class="rv featured" data-tilt><span class="n">1</span><div><span class="eyebrow">Que te reserven solo</span><h3>El sistema de reservas de Lilafken, instalado en tu alojamiento</h3></div><img src="media/product-lemu.webp" alt=""><ul><li>Motor de reservas en tu web, sin comisión</li><li>Calendario sincronizado con Booking y Airbnb</li><li>Bot de WhatsApp que responde con tus precios y fechas</li><li>Panel de limpieza, llegadas y salidas</li></ul><div class="tools"><span>Cabañas</span><span>Aparts</span><span>Hostales</span><span>Hoteles chicos</span></div></article>
-      <article class="rv" data-tilt><span class="n">2</span><div><span class="eyebrow">Que te encuentren</span><h3>Web que carga rápido y aparece en Google</h3></div><ul><li>Una página clara, en tu propio dominio</li><li>SEO local y Google Ads bien configurado</li><li>Botón de WhatsApp y reservas integrado</li></ul><div class="tools"><span>SEO</span><span>Google Ads</span><span>Dominio</span></div></article>
-      <article class="rv" data-tilt><span class="n">3</span><div><span class="eyebrow">Que te vean</span><h3>Video con dron y contenido para redes</h3></div><ul><li>Una jornada de grabación en tu local</li><li>Un video principal y tres piezas cortas</li><li>Dos rondas de cambios incluidas</li></ul><div class="tools"><span>Dron DGAC</span><span>Reels</span><span>YouTube</span></div></article>
-    </div>
-  </div>
-</section>
-
-<section class="demo" id="demo">
-  <div class="wrap grid">
-    <div>
-      <span class="eyebrow rv">Pruébalo</span>
-      <h2 class="split">Escríbele. Responde como lo haría yo a las 2 de la mañana.</h2>
-      <p class="rv">Es el mismo bot que atiende mis cabañas. Pregúntale por disponibilidad, precios o cómo llegar, y mira cómo contesta.</p>
-      <a class="btn btn-sun rv" href="demo-whatsapp.html" data-mag><span>Abrir la demo</span></a>
-    </div>
-    <div class="phone rv"><div class="screen">
-      <div class="top"><i></i>Lilafken · en línea</div>
-      <div class="chat" id="chat">
-        <div class="msg out">Hola! Tienen algo para 2 este finde?</div>
-        <div class="typing"><i></i><i></i><i></i></div>
-        <div class="msg in">Hola 👋 Sí, queda un apart con vista al mar para ese fin de semana. ¿Viernes y sábado?</div>
-        <div class="msg out">Sí. Aceptan mascotas?</div>
-        <div class="typing"><i></i><i></i><i></i></div>
-        <div class="msg in">Perros pequeños sí 🐾. Te dejo el enlace para reservar en 1 minuto, sin comisión.</div>
-      </div>
-    </div></div>
-  </div>
-</section>
-
-<section class="yt" id="youtube">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">YouTube · @MatiWlog</span><h2 class="split">Lo que grabo cuando no trabajo. Y a veces cuando sí.</h2><p class="rv">Viajes, olas, dron y pruebas con IA. Toca una miniatura y se reproduce aquí mismo.</p></div>
-    <div class="grid" id="ytgrid">
-      <div class="v big" data-id="MgioF3Ka8Xo"><img src="https://i.ytimg.com/vi/MgioF3Ka8Xo/maxresdefault.jpg" referrerpolicy="no-referrer" alt="" onerror="this.onerror=null;this.src='https://i.ytimg.com/vi/MgioF3Ka8Xo/hqdefault.jpg'"><span class="play"></span><span class="t">Cargando título…</span></div>
-      <div class="v" data-id="Ziqrnw0S41Q"><img src="https://i.ytimg.com/vi/Ziqrnw0S41Q/hqdefault.jpg" referrerpolicy="no-referrer" alt=""><span class="play"></span><span class="t">Cargando título…</span></div>
-      <div class="v" data-id="8qo7YqZRJt4"><img src="https://i.ytimg.com/vi/8qo7YqZRJt4/hqdefault.jpg" referrerpolicy="no-referrer" alt=""><span class="play"></span><span class="t">Cargando título…</span></div>
-      <div class="v" data-id="484seZN8MyI"><img src="https://i.ytimg.com/vi/484seZN8MyI/hqdefault.jpg" referrerpolicy="no-referrer" alt=""><span class="play"></span><span class="t">Cargando título…</span></div>
-      <div class="v" data-id="K7qddivaR2U"><img src="https://i.ytimg.com/vi/K7qddivaR2U/hqdefault.jpg" referrerpolicy="no-referrer" alt=""><span class="play"></span><span class="t">Cargando título…</span></div>
-      <div class="v" data-id="b5g7jlP_PsA"><img src="https://i.ytimg.com/vi/b5g7jlP_PsA/hqdefault.jpg" referrerpolicy="no-referrer" alt=""><span class="play"></span><span class="t">Cargando título…</span></div>
-    </div>
-    <div class="sub rv"><a class="btn btn-sun" href="https://www.youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener" data-mag><span>Suscribirme al canal</span></a><span class="mono" style="color:rgba(243,233,214,.55)">57 videos · viajes, dron e IA</span></div>
-    <div class="reels" style="margin-top:3rem">
-      <div class="reel"><video muted loop playsinline preload="none" poster="assets/costa/drone/drone-1.jpg" src="assets/costa/drone/drone-1.mp4"></video><span>Punta de Lobos</span></div>
-      <div class="reel"><img src="assets/costa/img/ig-1.jpg" alt=""><span>Viaje</span></div>
-      <div class="reel"><video muted loop playsinline preload="none" poster="assets/costa/drone/drone-3.jpg" src="assets/costa/drone/drone-3.mp4"></video><span>Costa</span></div>
-      <div class="reel"><img src="assets/costa/img/ig-4.jpg" alt=""><span>Pueblo</span></div>
-      <div class="reel"><video muted loop playsinline preload="none" poster="assets/costa/drone/drone-5.jpg" src="assets/costa/drone/drone-5.mp4"></video><span>Dron</span></div>
-      <div class="reel"><img src="assets/costa/img/ig-6.jpg" alt=""><span>Proyecto</span></div>
-    </div>
-  </div>
-</section>
-
-<section class="free light" id="gratis">
-  <div class="wrap">
-    <div class="sec-head"><span class="eyebrow rv">Aprende gratis</span><h2 class="split">Lo que me preguntan siempre, escrito una sola vez.</h2></div>
-    <div class="grid">
-      <article class="rv"><span class="eyebrow">Guía</span><h3>IA práctica para tu negocio</h3><p>Qué usar, qué no, y cómo empezar hoy sin pagar de más.</p><a class="link" href="media/guia-ia-practica.pdf" target="_blank">Descargar →</a></article>
-      <article class="rv"><span class="eyebrow">Guía</span><h3>Checklist de viaje</h3><p>Lo que reviso antes de salir a grabar, con dron o sin él.</p><a class="link" href="media/checklist-viaje.pdf" target="_blank">Descargar →</a></article>
-      <article class="rv"><span class="eyebrow">Guía</span><h3>Que no te estafen comprando web</h3><p>Preguntas que debes hacer antes de pagar a cualquiera. Incluso a mí.</p><a class="link" href="media/guia-no-te-estafen.pdf" target="_blank">Descargar →</a></article>
-    </div>
-  </div>
-</section>
-
-<section class="ofi" id="oficina">
-  <style>
-  .ofi{background:var(--ink);color:var(--sand);padding:clamp(4rem,9vw,7rem) 0}
-  .ofi .g{display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(1.6rem,4vw,3.4rem);align-items:center}
-  .ofi h2{font-family:Fraunces,Georgia,serif;font-weight:500;font-size:clamp(1.9rem,4vw,3rem);line-height:1.08;margin:.6rem 0 1rem}
-  .ofi h2 em{color:var(--foam);font-style:italic}
-  .ofi p{color:rgba(243,233,214,.82);line-height:1.6;max-width:52ch}
-  .ofi ul{list-style:none;padding:0;margin:1.2rem 0 1.6rem;display:grid;gap:.55rem}
-  .ofi li{display:flex;gap:.6rem;line-height:1.45}
-  .ofi li::before{content:"";flex:none;width:.55rem;height:.55rem;margin-top:.45rem;border-radius:50%;background:var(--foam)}
-  .ofi .cta{display:flex;flex-wrap:wrap;gap:.8rem}
-  .ofi .vid{position:relative;border-radius:22px;overflow:hidden;border:1.5px solid rgba(255,255,255,.14);box-shadow:0 30px 60px rgba(0,0,0,.4);background:var(--ink-2)}
-  .ofi video{display:block;width:100%;aspect-ratio:16/9;object-fit:cover}
-  .ofi .tag{position:absolute;left:12px;top:12px;font:500 .66rem "JetBrains Mono",monospace;letter-spacing:.14em;text-transform:uppercase;padding:.35rem .6rem;border-radius:999px;background:rgba(13,22,30,.75);color:var(--sand)}
-  .ofi .mas{display:inline-block;margin-top:1rem;font-size:.88rem;color:var(--foam)}
-  @media (max-width:860px){.ofi .g{grid-template-columns:1fr}.ofi .vid{order:-1}}
-  </style>
+<section class="chap hoy" id="hoy">
   <div class="wrap g">
-    <div class="rv">
-      <span class="eyebrow">Así se ordena un proyecto</span>
-      <h2>Una oficina <em>virtual</em> que se recorre como un juego.</h2>
-      <p>Cada sala es un área del proyecto: web, marketing, operación, finanzas y legal. Las salas encendidas son lo que ya funciona; las apagadas, lo que falta. La hicimos en Kreathur para ver de un vistazo dónde está todo y qué sigue.</p>
-      <ul>
-        <li>Ves qué está listo, qué falta y qué es lo más importante hoy.</li>
-        <li>Te llegan misiones, no tareas sueltas: cada una cumplida enciende una sala.</li>
-        <li>Lo técnico aparece solo cuando tocas «Cómo se hace».</li>
-      </ul>
-      <div class="cta">
-        <a class="btn btn-sun" href="https://kreathur.agency/portafolio/oficina/" target="_blank" rel="noopener">Recórrela jugando →</a>
-        <a class="btn btn-ghost" href="https://wa.me/56968442594?text=Hola%20Mati%2C%20vi%20la%20Oficina%20Virtual%20en%20matiwlog.com%20y%20quiero%20una%20para%20mi%20proyecto." target="_blank" rel="noopener">Quiero una para mi proyecto</a>
+    <div>
+      <figure class="foto rv"><img src="media/historia/mati-ia-micro-2.webp" alt="Mati frente al micrófono, imagen creada con IA" loading="lazy"><figcaption>Imagen creada con IA (HeyGen) a partir de mi cara</figcaption></figure>
+      <div class="tira rv"><img src="media/historia/mati-ia-oliva.webp" alt="Mati con camisa verde, imagen creada con IA" loading="lazy"><img src="media/historia/mati-ia-podcast.webp" alt="Mati grabando un podcast, imagen creada con IA" loading="lazy"><img src="media/historia/mati-ia-hoodie-azul.webp" alt="Mati con polerón azul, imagen creada con IA" loading="lazy"></div>
+    </div>
+    <div>
+      <span class="cap mono">Capítulo 3 · Hoy</span>
+      <h2 class="surf rv">Ahora cuento el <em>cómo</em>.</h2>
+      <p class="intro rv">Grabo lo que aprendo: dron, IA y cómo armar proyectos que funcionan solos. Hasta estas fotos mías están hechas con IA. En Kreathur hacemos el resultado; aquí te muestro el camino.</p>
+      <div class="tres rv">
+        <a href="#portafolio"><span class="ic" aria-hidden="true">✦</span><span><b>Portafolio flotante</b><span>9 casos reales y 31 demos en una nube 3D. Tócala y gira.</span></span></a>
+        <a href="https://kreathur.agency/portafolio/oficina/" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">▦</span><span><b>Oficina Virtual</b><span>Un proyecto ordenado como una oficina que se recorre jugando.</span></span></a>
+        <a href="https://kreathur.agency" target="_blank" rel="noopener"><span class="ic" aria-hidden="true">K</span><span><b>Kreathur Agency</b><span>Webs, reservas, bots y apps por suscripción.</span></span></a>
       </div>
-      <a class="mas" href="#portafolio">O mira todo el portafolio →</a>
-    </div>
-    <div class="vid rv">
-      <video src="https://kreathur.agency/portafolio/v/oficina-virtual.mp4" poster="https://kreathur.agency/portafolio/t/oficina-virtual.jpg" muted loop playsinline preload="none" aria-label="Recorrido por la Oficina Virtual de Kreathur, con empresas de ejemplo"></video>
-      <span class="tag">Video con empresas de ejemplo</span>
     </div>
   </div>
-  <script>(function(){var v=document.querySelector('#oficina video');if(!v||!('IntersectionObserver' in window))return;new IntersectionObserver(function(es){es.forEach(function(e){e.isIntersecting?v.play().catch(function(){}):v.pause()})},{threshold:.35}).observe(v)})();</script>
+  <div class="wrap" style="margin-top:clamp(3rem,7vw,5rem)">
+    <div style="display:flex;flex-wrap:wrap;align-items:end;justify-content:space-between;gap:1rem">
+      <div><span class="cap mono">En YouTube</span><h3 class="surf" style="font-size:clamp(1.6rem,4vw,2.4rem);margin-top:.6rem">Mira cómo se hace</h3></div>
+      <a class="btn btn-line" href="https://www.youtube.com/@MatiWlog?sub_confirmation=1" target="_blank" rel="noopener">Suscríbete al canal</a>
+    </div>
+    <div class="yt" id="yt">
+      <button type="button" data-id="8qo7YqZRJt4" aria-label="Reproducir video de YouTube"><img src="https://i.ytimg.com/vi/8qo7YqZRJt4/hqdefault.jpg" alt="" loading="lazy"></button>
+      <button type="button" data-id="484seZN8MyI" aria-label="Reproducir video de YouTube"><img src="https://i.ytimg.com/vi/484seZN8MyI/hqdefault.jpg" alt="" loading="lazy"></button>
+      <button type="button" data-id="K7qddivaR2U" aria-label="Reproducir video de YouTube"><img src="https://i.ytimg.com/vi/K7qddivaR2U/hqdefault.jpg" alt="" loading="lazy"></button>
+    </div>
+  </div>
 </section>
 
-<section class="eco" id="ecosistema">
+<section class="chap free" id="gratis">
   <div class="wrap">
-    <div class="rv"><span class="eyebrow" style="color:var(--foam)">Mi ecosistema</span><h2>Tres puertas, <em>un mismo</em> equipo.</h2><p>Todo lo que hago sale de aquí. Entra por la que te sirva.</p></div>
-    <div class="grid">
-      <a class="card rv" href="https://kreathur.agency" target="_blank" rel="noopener" data-tilt><span class="k">Agencia</span><h3>Kreathur Agency</h3><p>Webs, reservas, bots y apps por suscripción para hotelería, gastronomía, inmobiliaria y comercio.</p><span class="go">kreathur.agency →</span></a>
-      <a class="card rv" href="https://www.instagram.com/soy.lenia/" target="_blank" rel="noopener" data-tilt><span class="k">Avatar IA</span><h3>LenIA</h3><p>La presentadora con IA que muestra el portafolio y colabora con marcas. Pídele que presente tu negocio.</p><span class="go">@soy.lenia →</span></a>
-      <a class="card rv" href="https://pichilemuonline.cl" target="_blank" rel="noopener" data-tilt><span class="k">Guía local</span><h3>Pichilemu Online</h3><p>La guía gratis de los negocios de Pichilemu. Si tienes uno, tu ficha debería estar ahí.</p><span class="go">pichilemuonline.cl →</span></a>
+    <span class="cap mono">Gratis</span>
+    <h2 class="surf rv">Lo que me preguntan, escrito <em>una vez</em>.</h2>
+    <div class="fgrid">
+      <a class="rv" href="media/guia-ia-practica.pdf" target="_blank" rel="noopener"><b>IA práctica para tu proyecto</b><span>Qué usar, qué no y cómo empezar hoy sin pagar de más.</span><em>Descargar PDF →</em></a>
+      <a class="rv" href="media/checklist-viaje.pdf" target="_blank" rel="noopener"><b>Checklist de viaje</b><span>Lo que reviso antes de salir a grabar, con dron o sin él.</span><em>Descargar PDF →</em></a>
+      <a class="rv" href="media/guia-no-te-estafen.pdf" target="_blank" rel="noopener"><b>Que no te estafen con tu web</b><span>Preguntas que debes hacer antes de pagarle a cualquiera. Incluso a mí.</span><em>Descargar PDF →</em></a>
     </div>
   </div>
 </section>
 
-<section class="contact" id="contacto">
-  <div class="big-word">MATIWLOG</div>
+<section class="chap contact" id="contacto">
   <div class="wrap">
-    <div class="grid">
-      <div><span class="eyebrow rv">Conversemos</span><h2 class="split">Cuéntame qué <em>quieres</em> que pase con tu negocio.</h2><p class="rv" style="margin-top:1.4rem;color:rgba(243,233,214,.7)">Te respondo yo, no un formulario. Por WhatsApp o desde aquí.</p><p class="rv" style="margin-top:1rem"><a class="btn btn-sun" href="https://wa.me/56968442594" target="_blank" rel="noopener" data-mag><span>WhatsApp directo</span></a></p></div>
-      <form class="rv" onsubmit="return false"><input placeholder="Tu nombre"><input placeholder="Tu negocio"><textarea placeholder="¿Qué necesitas?"></textarea><button class="btn btn-ghost" type="submit" data-mag><span>Enviar</span></button></form>
+    <div class="g">
+      <div>
+        <span class="cap mono">Fin del capítulo · Tu turno</span>
+        <h2 class="surf rv">¿Qué proyecto quieres <em>echar a andar</em>?</h2>
+        <p class="intro rv">Te respondo yo, por WhatsApp. Escribe abajo y se abre el mensaje listo para enviar.</p>
+      </div>
+      <form id="fwa" class="rv">
+        <label>Tu nombre<input name="n" autocomplete="name" required></label>
+        <label>Tu proyecto<input name="p" placeholder="Ej.: cabañas en Cáhuil, tienda de ropa…"></label>
+        <label>¿Qué necesitas?<textarea name="q" required></textarea></label>
+        <button class="btn btn-sun" type="submit">Enviar por WhatsApp</button>
+        <p class="nota">No guardamos lo que escribes: el texto va directo a WhatsApp.</p>
+      </form>
     </div>
-    <footer><span>© MatiWlog · Pichilemu · <a href="biblioteca.html">Biblioteca y libros</a> · <a href="recursos.html">Recursos</a> · <a href="privacidad.html">Privacidad</a></span><span><a href="https://www.youtube.com/@MatiWlog" target="_blank" rel="noopener">YouTube</a> · <a href="https://www.instagram.com/matiwlog" target="_blank" rel="noopener">Instagram</a> · <a href="https://tiktok.com/@matiwlog" target="_blank" rel="noopener">TikTok</a></span></footer>
+    <footer>
+      <span>© MatiWlog · Pichilemu · <a href="recursos.html">Recursos</a> · <a href="biblioteca.html">Biblioteca</a> · <a href="privacidad.html">Privacidad</a></span>
+      <span class="eco"><a href="https://www.youtube.com/@MatiWlog" target="_blank" rel="noopener">YouTube</a><a href="https://www.instagram.com/matiwlog" target="_blank" rel="noopener">Instagram</a><a href="https://tiktok.com/@matiwlog" target="_blank" rel="noopener">TikTok</a><a href="https://kreathur.agency" target="_blank" rel="noopener">Kreathur</a><a href="https://www.instagram.com/soy.lenia/" target="_blank" rel="noopener">LenIA</a><a href="https://pichilemuonline.cl" target="_blank" rel="noopener">Pichilemu Online</a></span>
+    </footer>
   </div>
 </section>
-
 
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.18/dist/lenis.min.js"></script>
 <script>
-const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
-const fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
-
-/* loader */
-const lw=document.getElementById('lw');[...'MatiWlog'].forEach((c,i)=>{const s=document.createElement('i');s.textContent=c;s.style.setProperty('--i',i);lw.appendChild(s)});
-window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('done');document.getElementById('hero').classList.add('in');},reduce?0:1700)});
-
-/* split text */
-function split(el){const nodes=[...el.childNodes];el.innerHTML='';nodes.forEach(n=>{if(n.nodeType===3){n.textContent.split(/(\s+)/).forEach(w=>{if(!w.trim()){el.appendChild(document.createTextNode(' '));return}const s=document.createElement('span');s.className='l';const i=document.createElement('i');i.textContent=w;s.appendChild(i);el.appendChild(s)})}else if(n.nodeName==='EM'){split(n);el.appendChild(n)}else el.appendChild(n)})}
-document.querySelectorAll('.split').forEach(split);
-const h1=document.getElementById('h1');split(h1);h1.querySelectorAll('.l').forEach((l,i)=>{l.classList.add('w');l.querySelector('i').style.transitionDelay=(i*45)+'ms'});
-
-/* smooth scroll + gsap */
-gsap.registerPlugin(ScrollTrigger);
-let lenis;
-if(!reduce&&window.Lenis){lenis=new Lenis({lerp:.09,smoothWheel:true});lenis.on('scroll',ScrollTrigger.update);gsap.ticker.add(t=>lenis.raf(t*1000));gsap.ticker.lagSmoothing(0);
-document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const t=document.querySelector(a.getAttribute('href'));if(t){e.preventDefault();lenis.scrollTo(t)}}))}
-
-/* progress */
-gsap.to('#prog',{scaleX:1,ease:'none',scrollTrigger:{scrub:.3}});
-
-/* reveals */
-document.querySelectorAll('.rv').forEach(el=>gsap.to(el,{opacity:1,y:0,duration:1,ease:'power3.out',scrollTrigger:{trigger:el,start:'top 88%'}}));
-document.querySelectorAll('.split').forEach(el=>gsap.to(el.querySelectorAll('.l i'),{y:0,duration:1,stagger:.04,ease:'power4.out',scrollTrigger:{trigger:el,start:'top 85%'}}));
-document.querySelectorAll('[data-parallax]').forEach(el=>gsap.fromTo(el,{yPercent:-8},{yPercent:8,ease:'none',scrollTrigger:{trigger:el.parentElement,scrub:true}}));
-
-/* counters */
-document.querySelectorAll('[data-count]').forEach(el=>{const n=+el.dataset.count,suf=el.dataset.suffix||'';ScrollTrigger.create({trigger:el,start:'top 90%',once:true,onEnter:()=>{const o={v:0};gsap.to(o,{v:n,duration:1.6,ease:'power3.out',onUpdate:()=>{el.textContent=Math.round(o.v)+suf}})}})});
-
-/* timeline fill */
-gsap.to('#tlfill',{scaleX:1,ease:'none',scrollTrigger:{trigger:'.tl .track',start:'top 75%',end:'bottom 60%',scrub:.5}});
-document.querySelectorAll('.tl li').forEach(li=>ScrollTrigger.create({trigger:li,start:'top 80%',onEnter:()=>li.classList.add('on')}));
-
-/* magnetic buttons + cursor */
-if(fine&&!reduce){
-  const cur=document.getElementById('cur'),ring=document.getElementById('ring');let mx=innerWidth/2,my=innerHeight/2,rx=mx,ry=my;
-  addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`});
-  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;ring.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;requestAnimationFrame(loop)})();
-  document.querySelectorAll('a,button,.v,.reel,.fc').forEach(el=>{el.addEventListener('mouseenter',()=>{document.body.classList.add('hovering');if(el.classList.contains('v')){ring.classList.add('lbl');ring.dataset.lbl='Ver'}});el.addEventListener('mouseleave',()=>{document.body.classList.remove('hovering');ring.classList.remove('lbl')})});
-  document.querySelectorAll('[data-mag]').forEach(b=>{b.addEventListener('mousemove',e=>{const r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.3,y:(e.clientY-r.top-r.height/2)*.3,duration:.4})});b.addEventListener('mouseleave',()=>gsap.to(b,{x:0,y:0,duration:.6,ease:'elastic.out(1,.4)'}))});
-  document.querySelectorAll('[data-tilt]').forEach(c=>{c.addEventListener('mousemove',e=>{const r=c.getBoundingClientRect(),x=(e.clientX-r.left)/r.width,y=(e.clientY-r.top)/r.height;c.style.setProperty('--mx',x*100+'%');c.style.setProperty('--my',y*100+'%');gsap.to(c,{rotateY:(x-.5)*10,rotateX:(.5-y)*10,duration:.5})});c.addEventListener('mouseleave',()=>gsap.to(c,{rotateY:0,rotateX:0,duration:.8,ease:'power3.out'}))});
-}
-
-/* ocean particles */
-(function(){const c=document.getElementById('ocean'),x=c.getContext('2d');let W,H,P=[],mx=.5,my=.5;const d=Math.min(devicePixelRatio||1,2);function rs(){W=c.width=innerWidth*d;H=c.height=innerHeight*d;c.style.width=innerWidth+'px';c.style.height=innerHeight+'px';P=Array.from({length:innerWidth<760?60:160},()=>({x:Math.random()*W,y:Math.random()*H,r:(Math.random()*1.6+.4)*d,s:Math.random()*.4+.15,a:Math.random()*Math.PI*2}))}rs();addEventListener('resize',rs);addEventListener('mousemove',e=>{mx=e.clientX/innerWidth;my=e.clientY/innerHeight});
-function f(){x.clearRect(0,0,W,H);for(const p of P){p.a+=.01;p.x+=Math.cos(p.a)*.3*d+(mx-.5)*p.s*2*d;p.y-=p.s*d+(my-.5)*p.s*d;if(p.y<-10)p.y=H+10;if(p.x<-10)p.x=W+10;if(p.x>W+10)p.x=-10;x.beginPath();x.arc(p.x,p.y,p.r,0,7);x.fillStyle=`rgba(159,227,220,${.25+Math.sin(p.a)*.2})`;x.fill()}if(!reduce)requestAnimationFrame(f)}f()})();
-
-/* chat replay */
-(function(){const chat=document.getElementById('chat');const items=[...chat.children];function play(){let t=0;items.forEach(el=>{gsap.set(el,{opacity:0,y:8,scale:.96,height:'auto',padding:''});const isTyping=el.classList.contains('typing');gsap.to(el,{opacity:1,y:0,scale:1,duration:.4,delay:t});t+=isTyping?1.1:1.2;if(isTyping)gsap.to(el,{opacity:0,height:0,paddingTop:0,paddingBottom:0,duration:.25,delay:t-.1})});gsap.delayedCall(t+3,play)}ScrollTrigger.create({trigger:chat,start:'top 80%',once:true,onEnter:play})})();
-
-
-/* 3D catalog */
 (function(){
-  const stage=document.getElementById('stage'),ring=document.getElementById('cring'),cards=[...ring.querySelectorAll('.fc')];
-  const N=cards.length,step=360/N; let R=0,angle=0,vel=0,auto=.06,drag=false,lx=0,tiltX=-6,tiltT=-6,frontIdx=-1;
-  const info={kind:document.getElementById('ci-kind'),title:document.getElementById('ci-title'),desc:document.getElementById('ci-desc'),link:document.getElementById('ci-link'),idx:document.getElementById('ci-idx')};
-  function layout(){const cw=innerWidth<760?280:Math.min(420,innerWidth*.32);stage.style.setProperty('--cw',cw+'px');R=Math.round((cw+40)/(2*Math.tan(Math.PI/N)));cards.forEach((c,i)=>{c.style.transform=`translate(-50%,-50%) rotateY(${i*step}deg) translateZ(${R}px)`})}
-  layout();addEventListener('resize',layout);
-  function setFront(i){if(i===frontIdx)return;frontIdx=i;cards.forEach((c,k)=>c.classList.toggle('front',k===i));const c=cards[i];gsap.fromTo([info.kind,info.title,info.desc],{opacity:0,y:10},{opacity:1,y:0,duration:.5,stagger:.06,ease:'power3.out'});info.kind.textContent=c.dataset.kind;info.title.textContent=c.dataset.title;info.desc.textContent=c.dataset.desc;info.link.href=c.dataset.url;info.idx.textContent=(i+1)+' / '+N}
-  function tick(){if(!drag){angle+=vel+auto;vel*=.94}tiltX+=(tiltT-tiltX)*.06;ring.style.transform=`rotateX(${tiltX}deg) rotateY(${angle}deg)`;let best=-2,bi=0;cards.forEach((c,i)=>{const a=((i*step+angle)%360+360)%360;const cos=Math.cos(a*Math.PI/180);c.style.opacity=.35+.65*((cos+1)/2);c.style.zIndex=Math.round(100+cos*100);if(cos>best){best=cos;bi=i}});setFront(bi);requestAnimationFrame(tick)}
-  tick();
-  const down=e=>{drag=true;stage.classList.add('drag');lx=e.clientX??e.touches[0].clientX};
-  const move=e=>{const x=e.clientX??(e.touches&&e.touches[0].clientX);if(x==null)return;if(drag){const dx=x-lx;lx=x;angle+=dx*.25;vel=dx*.25}if(e.clientY!=null){tiltT=-6+((e.clientY/innerHeight)-.5)*-10}};
-  const up=()=>{drag=false;stage.classList.remove('drag')};
-  stage.addEventListener('pointerdown',down);addEventListener('pointermove',move);addEventListener('pointerup',up);
-  stage.addEventListener('wheel',e=>{if(Math.abs(e.deltaX)>Math.abs(e.deltaY)){e.preventDefault();vel-=e.deltaX*.02}},{passive:false});
-  const snap=d=>{const target=Math.round((angle-frontIdx*0)/step)*step+d*step;gsap.to({a:angle},{a:target,duration:.9,ease:'power3.out',onUpdate:function(){angle=this.targets()[0].a}});vel=0};
-  document.getElementById('prev').onclick=()=>snap(1);document.getElementById('next').onclick=()=>snap(-1);
-  cards.forEach((c,i)=>c.addEventListener('click',()=>{if(c.classList.contains('front'))window.open(c.dataset.url,'_blank');else{const cur=((i*step+angle)%360+360)%360;const d=cur>180?360-cur:-cur;gsap.to({a:angle},{a:angle+d,duration:.9,ease:'power3.out',onUpdate:function(){angle=this.targets()[0].a}})}}));
+  var quieto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  /* nav sólida al bajar */
+  var nav=document.getElementById('nav');
+  addEventListener('scroll',function(){nav.classList.toggle('solid',scrollY>40)},{passive:true});
+
+  var mb=document.querySelector('.menu'),mu=document.getElementById('menu');mb.addEventListener('click',function(){var on=mu.classList.toggle('on');mb.setAttribute('aria-expanded',on);mb.textContent=on?'✕':'☰'});mu.addEventListener('click',function(e){if(e.target.closest('a')){mu.classList.remove('on');mb.setAttribute('aria-expanded',false);mb.textContent='☰'}});
+  /* aparición suave */
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:.15});
+  document.querySelectorAll('.rv').forEach(function(el){io.observe(el)});
+
+  /* videos: cargan y se reproducen solo cuando se ven */
+  var vo=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){if(v.dataset.src&&!v.src){v.src=v.dataset.src}v.play().catch(function(){})}else{v.pause()}})},{threshold:.25});
+  document.querySelectorAll('video[data-src]').forEach(function(v){vo.observe(v)});
+  var hv=document.querySelector('.hero video');if(quieto&&hv){hv.removeAttribute('autoplay');hv.pause()}
+
+  /* la ruta: el scroll vertical mueve las postales y el tren */
+  var ruta=document.getElementById('ruta'),track=document.getElementById('track'),tren=document.getElementById('tren'),km=document.getElementById('km'),posts=track.querySelectorAll('.post');
+  if(quieto||!window.gsap||!window.ScrollTrigger){ruta.classList.add('sinpin');return}
+  gsap.registerPlugin(ScrollTrigger);
+  function largo(){return Math.max(0,track.scrollWidth-innerWidth)}
+  var anim=gsap.to(track,{x:function(){return -largo()},ease:'none',scrollTrigger:{trigger:ruta.querySelector('.pin'),start:'top top',end:function(){return '+='+largo()},pin:true,scrub:.6,invalidateOnRefresh:true,anticipatePin:1,snap:{snapTo:1/(posts.length-1),duration:{min:.2,max:.6},delay:.08,ease:'power1.inOut'},
+    onUpdate:function(s){var p=s.progress,w=ruta.querySelector('.rail').clientWidth-96;tren.style.transform='translateX('+(p*w).toFixed(1)+'px)';var n=Math.round(p*(posts.length-1))+1;km.textContent='Parada '+String(n).padStart(2,'0')+' de '+String(posts.length).padStart(2,'0')}}});
+  /* cada postal se endereza y respira al pasar por el centro */
+  posts.forEach(function(p){gsap.fromTo(p,{scale:.92},{scale:1,ease:'none',scrollTrigger:{trigger:p,containerAnimation:anim,start:'left 90%',end:'center center',scrub:true}})});
+  addEventListener('load',function(){ScrollTrigger.refresh()});
 })();
 
-/* videos in view */
-const vo=new IntersectionObserver(es=>es.forEach(e=>{const v=e.target;e.isIntersecting?v.play().catch(()=>{}):v.pause()}),{threshold:.3});
-document.querySelectorAll('.reel video,.film video').forEach(v=>vo.observe(v));
+/* YouTube: se carga solo al tocar */
+document.querySelectorAll('#yt button').forEach(function(b){b.addEventListener('click',function(){if(b.querySelector('iframe'))return;var f=document.createElement('iframe');f.src='https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0';f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;f.title='Video de MatiWlog en YouTube';b.appendChild(f)})});
 
-/* youtube: titles + inline play */
-document.querySelectorAll('#ytgrid .v').forEach(v=>{const id=v.dataset.id;fetch('https://noembed.com/embed?url=https://www.youtube.com/watch?v='+id).then(r=>r.json()).then(d=>{v.querySelector('.t').textContent=d.title||'Ver en YouTube'}).catch(()=>{v.querySelector('.t').textContent='Ver en YouTube'});
-v.addEventListener('click',()=>{if(v.querySelector('iframe'))return;const f=document.createElement('iframe');f.src=`https://www.youtube-nocookie.com/embed/${id}?autoplay=1&rel=0`;f.allow='autoplay; encrypted-media; picture-in-picture';f.allowFullscreen=true;v.appendChild(f)})});
+/* Contacto: arma el mensaje y abre WhatsApp */
+document.getElementById('fwa').addEventListener('submit',function(e){e.preventDefault();var f=e.target,t='Hola Mati, soy '+f.n.value.trim()+'.'+(f.p.value.trim()?' Mi proyecto: '+f.p.value.trim()+'.':'')+' Necesito: '+f.q.value.trim();if(window.umami)window.umami.track('formulario-whatsapp');window.open('https://wa.me/56968442594?text='+encodeURIComponent(t),'_blank','noopener')});
 </script>
-<script src="js/portafolio-flotante.js?v=20261110c" defer></script>
+<script src="js/portafolio-flotante.js?v=20261111b" defer></script>
 </body>
 </html>
