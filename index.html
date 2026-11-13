@@ -172,6 +172,11 @@ footer a{text-decoration:none}footer a:hover{color:var(--foam)}
 <!-- Analítica propia (Umami, sin cookies) -->
 <script defer src="https://analytics.kreathur.agency/script.js" data-website-id="b46c27ed-659f-4b1c-bff2-28f5792f7e93" data-domains="matiwlog.com,www.matiwlog.com"></script>
 <script>document.addEventListener("click",function(e){var a=e.target&&e.target.closest?e.target.closest("a[href]"):null;if(!a||!window.umami)return;var h=a.getAttribute("href")||"",t=/wa\.me|whatsapp\.com/i.test(h)?"whatsapp":/^tel:/i.test(h)?"llamada":/^mailto:/i.test(h)?"email":null;if(t)window.umami.track(t,{destino:h.split("?")[0].slice(0,80),pagina:location.pathname});},true);</script>
+<!-- IDIOMAS · inicio -->
+<script>!function(){try{var d=document,h=d.documentElement,m=/[?&]lang=(en|de|pt)(&|$)/.exec(location.search),l=m?m[1]:/[?&]lang=es(&|$)/.test(location.search)?"es":localStorage.getItem("kr-idioma");if(/^(en|de|pt)$/.test(l||"")){h.setAttribute("data-kr-idioma",l);h.className+=" kri-espera";var s=d.createElement("script");s.src="/idiomas/textos/"+l+".js?v=20261112";s.async=!0;s.setAttribute("data-kri-textos",l);d.head.appendChild(s);setTimeout(function(){h.className=h.className.replace(" kri-espera","")},3000)}}catch(e){}}()</script>
+<style>.kri-espera body{opacity:0}</style>
+<script src="/idiomas/idiomas.js?v=20261112" async></script>
+<!-- IDIOMAS · fin -->
 </head>
 <body>
 
